@@ -25,12 +25,14 @@ nav {
 
 #burger {
   display: block;
+  z-index: 1;
 }
 
 #burger::before {
   content: "☰";
   color: white;
   font-size: 3rem;
+  z-index: 1;
 }
 
 .active #burger::before {
@@ -53,7 +55,7 @@ nav ul {
   width: 40%;
   text-align: center;
   transition: 250ms;
-  background-color: red;
+  background-color: rgb(29, 30, 43);
   border-radius: 10px;
 }
 

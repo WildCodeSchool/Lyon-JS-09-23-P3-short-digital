@@ -19,6 +19,8 @@ export default function Navbar() {
             <li> <a href="#">Categories</a> </li>
             <li> <a href="#">Ajouter une video</a> </li>
         </ul>
+        
+        
        <button className={styles.btnConnection} >Se Connecter</button>
        <img className={styles.imgProfil} src="./src/assets/profil.png" alt="" />
     </nav>
