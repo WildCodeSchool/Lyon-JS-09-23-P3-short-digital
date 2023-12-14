@@ -11,18 +11,35 @@ export default function Navbar() {
   const menu = active === true ? styles.active : null;
   return (
     <nav className={menu}>
-       <div id={styles.burger} onClick={() => burger()}/>
+      <button
+        type="button"
+        id={styles.burger}
+        aria-label="Save"
+        onClick={() => burger()}
+      />
       <img className={styles.imgLogo} src="./src/assets/logop3.svg" alt="" />
       <ul>
-            <li> <a href="#">Acceuil</a> </li>
-            <li> <a href="#">Recherche</a> </li>
-            <li> <a href="#">Categories</a> </li>
-            <li> <a href="#">Ajouter une video</a> </li>
-        </ul>
-        
-        
-       <button className={styles.btnConnection} >Se Connecter</button>
-       <img className={styles.imgProfil} src="./src/assets/profil.png" alt="" />
+        <li>
+          {" "}
+          <a href="htts://lien-pour-eslint">Acceuil</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="htts://lien-pour-eslint">Recherche</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="htts://lien-pour-eslint">Categories</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="htts://lien-pour-eslint">Ajouter une video</a>{" "}
+        </li>
+      </ul>
+      <button type="button" className={styles.btnConnection}>
+        Se Connecter
+      </button>
+      <img className={styles.imgProfil} src="./src/assets/profil.png" alt="" />
     </nav>
   );
 }

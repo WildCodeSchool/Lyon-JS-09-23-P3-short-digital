@@ -26,6 +26,10 @@ nav {
 #burger {
   display: block;
   z-index: 1;
+  background-color: transparent;
+  border: none;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 #burger::before {

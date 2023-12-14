@@ -23,8 +23,9 @@ nav{
 #burger{
     display: block;
     z-index: 1;
-    
-
+    background-color: transparent;
+    border: none;
+    width: fit-content;
 }
 #burger::before{
     content: "\2630";
