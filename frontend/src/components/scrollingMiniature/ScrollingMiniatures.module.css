@@ -1,0 +1,10 @@
+#scrollingMiniatures {
+  right: 0;
+  margin-top: 2%;
+  position: absolute;
+  overflow-y: scroll;
+  height: 80vh;
+}
+#scrollingMiniatures__miniature {
+  margin: 1% 0;
+} /*# sourceMappingURL=ScrollingMiniatures.module.css.map */
