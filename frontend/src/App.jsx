@@ -1,10 +1,14 @@
 import "./App.css";
-import { useState } from "react";
-import Miniature from "./components/miniature/Miniature";
+import ScrollingMiniatures from "./components/scrollingMiniature/ScrollingMiniatures";
+import Navbar from "./layout/navbar/Navbar";
 
 function App() {
-  const [id, setId] = useState(1);
-  return <Miniature id={id} setId={setId} />;
+  return (
+    <>
+      <Navbar />
+      <ScrollingMiniatures />
+    </>
+  );
 }
 
 export default App;
