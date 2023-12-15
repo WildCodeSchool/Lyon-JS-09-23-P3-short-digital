@@ -8,10 +8,13 @@ function ScrollingMiniatures() {
   return (
     <div id={styles.scrollingMiniatures}>
       {toDisplay.map((number) => {
-        return <Miniature id={number} key={number} />;
+        return (
+          <div id={styles.scrollingMiniatures__miniature}>
+            <Miniature idMiniature={number} key={number} />
+          </div>
+        );
       })}
       ;
-      <Miniature id={1} />
     </div>
   );
 }
