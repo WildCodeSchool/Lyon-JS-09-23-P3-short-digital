@@ -1,8 +1,10 @@
 import "./App.css";
-import Navbar from "./layout/navbar/Navbar";
+import { useState } from "react";
+import Miniature from "./components/miniature/Miniature";
 
 function App() {
-  return <Navbar />;
+  const [id, setId] = useState(1);
+  return <Miniature id={id} setId={setId} />;
 }
 
 export default App;
