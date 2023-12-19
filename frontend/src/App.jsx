@@ -1,12 +1,10 @@
 import "./App.css";
-import ScrollingMiniatures from "./components/scrollingMiniature/ScrollingMiniatures";
-import Navbar from "./layout/navbar/Navbar";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <ScrollingMiniatures />
+      <h1>Short digital</h1>
+      <p>Page d'accueil</p>
     </>
   );
 }

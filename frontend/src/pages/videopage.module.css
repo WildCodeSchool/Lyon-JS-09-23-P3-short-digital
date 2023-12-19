@@ -1,0 +1,9 @@
+#videopage {
+  background-color: #20212f;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 100vw;
+} /*# sourceMappingURL=videopage.module.css.map */

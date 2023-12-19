@@ -1,11 +1,13 @@
 #scrollingMiniatures {
   right: 0;
-  margin-top: 2%;
+  margin-top: 7%;
   position: absolute;
   overflow-y: scroll;
   height: 80vh;
+  width: 25vw;
 
   &__miniature {
     margin: 1% 0;
+    width: 100%;
   }
 }
