@@ -1,4 +1,4 @@
-@import "../../Utiles/Mixins.scss";
+@import "../../Utiles/mixins";
 
 .navmobile {
   background-color: rgb(2, 2, 2);
@@ -12,6 +12,10 @@
 }
 .icon {
   width: 10%;
+}
+img:nth-child(5) {
+  width: 15%;
+  margin-left: -5%;
 }
 
 @media screen and (min-width: 800px) {
