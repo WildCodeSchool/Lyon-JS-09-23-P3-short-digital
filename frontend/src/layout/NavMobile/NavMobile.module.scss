@@ -10,14 +10,13 @@
   padding: 2%;
   position: fixed;
 }
-.icon {
-  width: 10%;
-}
-img:nth-child(5) {
-  width: 15%;
-  margin-left: -5%;
-}
+.aLink{
+ width: fit-content;
 
+}
+.icon {
+  width: 2.5rem;
+}
 @media screen and (min-width: 800px) {
   .navmobile {
     display: none;
