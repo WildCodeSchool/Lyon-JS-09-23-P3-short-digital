@@ -11,13 +11,13 @@ export default function HeroSlider() {
           <img id="slide4" src="src/assets/CSS4.png" alt="" />
           <img src="src/assets/CSS1.png" alt="" />
         </div>
-        <div className={styles.sliderNav}>
+      </div>
+      <div className={styles.sliderNav}>
             <a href="#slide1"></a>
             <a href="#slide2"></a>
             <a href="#slide3"></a>
             <a href="#slide4"></a>
         </div>
-      </div>
     </div>
   );
 }
