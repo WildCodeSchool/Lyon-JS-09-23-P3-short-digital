@@ -1,0 +1,21 @@
+@import "../../Utiles/Mixins.scss";
+
+.navmobile{
+    background-color: black;
+    width: 100%;
+    bottom: 0;
+@include inline-block;
+    justify-content: space-around;
+    height: fit-content;
+    padding: 2%;
+    position: fixed;
+}
+.icon{
+    width: 10%;
+}
+
+@media screen and (min-width: 800px){
+    .navmobile{
+        display: none;
+    }
+}
