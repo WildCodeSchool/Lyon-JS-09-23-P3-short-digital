@@ -18,7 +18,7 @@ export default function Navbar() {
         onClick={() => burger()}
       />
       <img className={styles.imgLogo} src="./src/assets/logop3.svg" alt="" />
-      <h2 className={styles.name} >Short Digital</h2>
+      <h2 className={styles.name}>Short Digital</h2>
       <ul>
         <li>
           {" "}
