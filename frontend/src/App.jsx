@@ -1,12 +1,12 @@
 import "./App.css";
-import ScrollingMiniatures from "./components/scrollingMiniature/ScrollingMiniatures";
 import Navbar from "./layout/navbar/Navbar";
+import HeroSlider from "./components/heroSlider/HeroSlider";
 
 function App() {
   return (
     <>
       <Navbar />
-      <ScrollingMiniatures />
+      <HeroSlider />
     </>
   );
 }
