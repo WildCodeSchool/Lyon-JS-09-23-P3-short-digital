@@ -1,9 +1,8 @@
 const tables = require("../tables");
 
-const getMainVideoPlayerById = async (req, res, next) => {
+const read = async (req, res, next) => {
   try {
     const video = await tables.video.read(req.params.id);
-
     if (video == null) {
       res.sendStatus(404);
     } else {
@@ -14,4 +13,4 @@ const getMainVideoPlayerById = async (req, res, next) => {
   }
 };
 
-module.exports = { getMainVideoPlayerById };
+module.exports = { read };

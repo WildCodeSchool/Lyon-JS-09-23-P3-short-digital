@@ -21,7 +21,7 @@ router.post("/items", itemControllers.add);
 
 // Route to get video information by id
 
-router.get("/videos/:id", mainVideoPlayerControllers.getMainVideoPlayerById);
+router.get("/videos/:id", mainVideoPlayerControllers.read);
 
 /* ************************************************************************* */
 
