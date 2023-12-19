@@ -1,0 +1,23 @@
+.navmobile {
+  background-color: rgb(2, 2, 2);
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2%;
+  position: fixed;
+}
+
+.icon {
+  width: 10%;
+}
+
+@media screen and (min-width: 800px) {
+  .navmobile {
+    display: none;
+  }
+}/*# sourceMappingURL=NavMobile.module.css.map */
