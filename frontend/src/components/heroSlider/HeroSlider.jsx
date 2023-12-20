@@ -38,11 +38,11 @@ export default function HeroSlider() {
         </div>
       </div>
       <div className={styles.sliderNav}>
-        <a href="#slide1">e</a>
+        <a href="#slide1">slide1</a>
         {/* "e" are just here for eslint because if <a> are empty eslint saw an aerror */}
-        <a href="#slide2">e</a>
-        <a href="#slide3">e</a>
-        <a href="#slide4">e</a>
+        <a href="#slide2">slide2</a>
+        <a href="#slide3">slide3</a>
+        <a href="#slide4">slide4</a>
       </div>
     </div>
   );

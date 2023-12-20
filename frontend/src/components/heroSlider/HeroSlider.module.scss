@@ -50,6 +50,9 @@ img:nth-child(1) {
 img:nth-child(5) {
   margin-right: 35%;
 }
+a {
+  content-visibility: hidden;
+}
 @media screen and (min-width: 800px) {
   .mainContainer {
     height: 50vh;
