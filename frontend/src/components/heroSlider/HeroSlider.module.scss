@@ -5,22 +5,18 @@
   height: 20vh;
   position: relative;
 }
-
 .slider1 {
   width: 100%;
   border-radius: 20px;
   display: flex;
   justify-content: center;
 }
-
 .slider {
   display: flex;
   overflow-x: auto;
-
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
-
 .slider1 img {
   flex-shrink: 0;
   border-radius: 20px;
@@ -30,17 +26,14 @@
   flex: 1 0 70%;
   scroll-snap-align: center;
 }
-
 .sliderNav {
   display: flex;
   margin-left: 15%;
-  -moz-column-gap: 1rem;
   column-gap: 1rem;
   transform: translateX(-50%);
   bottom: 0;
   position: absolute;
 }
-
 .sliderNav a {
   display: flex;
   justify-content: center;
@@ -57,7 +50,6 @@ img:nth-child(1) {
 img:nth-child(5) {
   margin-right: 35%;
 }
-
 a {
   content-visibility: hidden;
 }
@@ -69,4 +61,4 @@ a {
     width: 1rem;
     height: 1rem;
   }
-} /*# sourceMappingURL=HeroSlider.module.css.map */
+}
