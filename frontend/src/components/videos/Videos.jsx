@@ -10,7 +10,7 @@ function Videos({ src }) {
       <div id={styles.informations}>
         <h2 id={styles.informations__title}>Les belles quenouilles</h2>
         <div id={styles.informations__owner}>
-          <img src="" alt="" />
+          <img src="./src/assets/profil.png" alt="" />
           <h3>Jeannette Doe</h3>
         </div>
         <div id={styles.informations__likes}>

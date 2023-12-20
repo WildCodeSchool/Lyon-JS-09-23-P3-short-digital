@@ -13,6 +13,13 @@
 }
 
 .videoTitle {
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   color: white;
+}
+
+@media screen and (max-width: 800px) {
+  #scrollingMiniatures {
+    overflow-y: scroll;
+    width: 80vw;
+  }
 } /*# sourceMappingURL=Miniature.module.css.map */
