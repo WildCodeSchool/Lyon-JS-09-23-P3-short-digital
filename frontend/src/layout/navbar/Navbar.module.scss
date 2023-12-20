@@ -13,7 +13,6 @@ a {
 }
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1rem;
   background: linear-gradient(black 20px, transparent);
@@ -25,12 +24,14 @@ nav {
   background-color: transparent;
   border: none;
   width: fit-content;
+  display: none;
 }
 #burger::before {
   content: "\2630";
   color: white;
   font-size: 3rem;
   z-index: 1;
+  display: none;
 }
 .active #burger::before {
   content: "\2715";
@@ -58,6 +59,10 @@ nav ul {
 .imgProfil {
   width: 3rem;
   border-radius: 50px;
+  display: none;
+}
+.name {
+  color: white;
 }
 
 @media screen and (min-width: 800px) {
@@ -95,6 +100,7 @@ nav ul {
   .imgProfil {
     width: 3rem;
     border-radius: 50px;
+    display: block;
   }
   .btnConnection:hover {
     background: linear-gradient(rgba(137, 139, 177, 1), black);
