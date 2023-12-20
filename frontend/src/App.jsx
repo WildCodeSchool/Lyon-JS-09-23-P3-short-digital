@@ -1,10 +1,15 @@
 import "./App.css";
+import Navbar from "./layout/navbar/Navbar";
+import HeroSlider from "./components/heroSlider/HeroSlider";
+import NavMobile from "./layout/NavMobile/NavMobile";
 
 function App() {
   return (
     <>
-      <h1>Short digital</h1>
-      <p>Page d'accueil</p>
+      <Navbar />
+
+      <HeroSlider />
+      <NavMobile />
     </>
   );
 }
