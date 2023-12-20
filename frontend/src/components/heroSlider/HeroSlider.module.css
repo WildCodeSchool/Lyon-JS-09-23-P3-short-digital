@@ -16,7 +16,6 @@
 .slider {
   display: flex;
   overflow-x: auto;
-
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
@@ -51,16 +50,19 @@
   opacity: 0.75;
   z-index: 1;
 }
+
 img:nth-child(1) {
   margin-left: 35%;
 }
+
 img:nth-child(5) {
   margin-right: 35%;
 }
 
-a {
+.sliderNav a {
   content-visibility: hidden;
 }
+
 @media screen and (min-width: 800px) {
   .mainContainer {
     height: 50vh;

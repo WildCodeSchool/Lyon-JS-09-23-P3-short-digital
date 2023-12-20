@@ -33,7 +33,12 @@ export default function HeroSlider() {
       <div className={styles.slider1}>
         <div className={styles.slider}>
           {img.map((element) => (
-            <img id={element.id} src={element.src} alt={element.alt} />
+            <img
+              id={element.id}
+              src={element.src}
+              alt={element.alt}
+              key={element.id}
+            />
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./layout/navbar/Navbar";
-
+import HeroSlider from "./components/heroSlider/HeroSlider";
+import NavMobile from "./layout/NavMobile/NavMobile";
 
 function App() {
   return (
@@ -8,10 +9,7 @@ function App() {
       <Navbar />
 
       <HeroSlider />
-
-      <ScrollingMiniatures />
       <NavMobile />
-
     </>
   );
 }
