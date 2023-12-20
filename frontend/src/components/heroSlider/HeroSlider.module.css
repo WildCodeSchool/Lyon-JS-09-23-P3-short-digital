@@ -34,7 +34,7 @@
   display: flex;
   margin-left: 15%;
   -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  column-gap: 1rem;
   transform: translateX(-50%);
   bottom: 0;
   position: absolute;
@@ -67,4 +67,4 @@ img:nth-child(5) {
     width: 1rem;
     height: 1rem;
   }
-}/*# sourceMappingURL=HeroSlider.module.css.map */
+} /*# sourceMappingURL=HeroSlider.module.css.map */
