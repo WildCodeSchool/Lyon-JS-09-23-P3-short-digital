@@ -9,6 +9,7 @@ const router = express.Router();
 // Import itemControllers module for handling item-related operations
 const itemControllers = require("./controllers/itemControllers");
 const mainVideoPlayerControllers = require("./controllers/mainVideoPlayerControllers");
+const miniatureControllers = require("./controllers/miniatureControllers");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -23,6 +24,7 @@ router.post("/items", itemControllers.add);
 
 router.get("/videos/:id", mainVideoPlayerControllers.read);
 
+router.get("/miniatures", miniatureControllers.read);
 /* ************************************************************************* */
 
 module.exports = router;
