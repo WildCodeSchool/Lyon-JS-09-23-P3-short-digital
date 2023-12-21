@@ -1,21 +1,20 @@
-#buttons {
+.buttonsContainer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-}
 
-.buttonCategory {
-  border: none;
-  border-radius: 8px;
-  margin: 5px;
-  width: 136px;
-  height: 74px;
-  font-size: 18pt;
-  color: white;
-  box-shadow: 0px 10px 11px black;
+  &__category {
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+    width: 136px;
+    height: 74px;
+    font-size: 18pt;
+    color: white;
+    box-shadow: 0px 10px 11px black;
+  }
 }
-
 #Javascript {
   background: linear-gradient(#f7e600, #e7c200);
   color: black;
@@ -36,5 +35,3 @@
 #css {
   background: linear-gradient(#4ca4dd, #004695);
 }
-
-/*# sourceMappingURL=boutonsLanguages.css.map */
