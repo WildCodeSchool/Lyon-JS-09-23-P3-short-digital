@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import VideoPage from "./pages/VideoPage";
+import BoutonsLanguages from "./components/boutonsLanguages/BoutonsLanguages";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/video",
     element: <VideoPage />,
+  },
+  {
+    path: "/boutons",
+    element: <BoutonsLanguages />,
   },
 ]);
 

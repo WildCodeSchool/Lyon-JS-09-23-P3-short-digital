@@ -13,4 +13,17 @@ const read = async (req, res, next) => {
   }
 };
 
-module.exports = { read };
+const readAllImage = async (req, res, next) => {
+  try {
+    const videos = await tables.video.readAllImage();
+    if (videos == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(videos);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { read, readAllImage };

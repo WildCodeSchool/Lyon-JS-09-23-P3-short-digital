@@ -1,0 +1,49 @@
+.mainContainer {
+  position: relative;
+  margin-left: 2%;
+}
+
+.title {
+  font-size: 2vh;
+  font-weight: 600;
+}
+
+.slider1 {
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.slider1 img {
+  flex-shrink: 0;
+  border-radius: 20px;
+  width: 40%;
+  margin-left: 0;
+  scroll-snap-align: center;
+}
+
+.slider1 img {
+  margin-right: 2%;
+}
+
+.slider::-webkit-scrollbar {
+  width: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .slider1 img {
+    width: 20%;
+  }
+  .title {
+    font-size: 3vh;
+    font-weight: 600;
+  }
+} /*# sourceMappingURL=Carrousel.module.css.map */
