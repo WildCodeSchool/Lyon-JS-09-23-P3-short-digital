@@ -16,6 +16,7 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  padding-bottom: 5%;
 }
 .slider::-webkit-scrollbar {
   width: 0;
@@ -28,6 +29,8 @@
   margin-right: 5%;
   flex: 1 0 70%;
   scroll-snap-align: center;
+  filter: drop-shadow(0 20px 0.75rem black);
+  //margin-bottom: 3%;
 }
 .sliderNav {
   display: flex;
