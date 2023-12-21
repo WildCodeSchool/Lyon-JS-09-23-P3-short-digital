@@ -12,20 +12,18 @@ export default function Carrousel({ title }) {
     })();
   }, []);
   return (
-    <div className={styles.mainContainer}>
-      <p className={styles.title}>{title}</p>
-      <div className={styles.slider1}>
-        <div className={styles.slider}>
-          {videosMiniature.map((element) => (
-            <img
-              src={element.image}
-              alt=""
-              key={element.id}
-              id={element.id}
-              className={styles.imgCarrousel}
-            />
-          ))}
-        </div>
+    <div className={styles.carrouselContainer}>
+      <p className={styles.carrouselContainer__title}>{title}</p>
+      <div className={styles.carrouselContainer__sliderOverflow}>
+        {videosMiniature.map((element) => (
+          <img
+            src={element.image}
+            alt=""
+            key={element.id}
+            id={element.id}
+            className={styles.carrouselContainer__sliderOverflow__imgCarrousel}
+          />
+        ))}
       </div>
     </div>
   );
