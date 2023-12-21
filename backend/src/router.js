@@ -24,6 +24,8 @@ router.post("/items", itemControllers.add);
 
 router.get("/videos/:id", mainVideoPlayerControllers.read);
 
+// route qui recupère le titre et l'image de la miniature video
+
 router.get("/miniatures", miniatureControllers.read);
 /* ************************************************************************* */
 

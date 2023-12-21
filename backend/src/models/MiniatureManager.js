@@ -7,6 +7,8 @@ class MiniatureManager extends AbstractManager {
 
   // The Rs of CRUD - Read operations
 
+  // requete sql avec deux parametres variables, categorie de video et limit de resultats
+
   async read(category, limit) {
     let sql = `SELECT title, image FROM video
     inner join video_category on video_category.video_id = video.id
@@ -16,8 +18,10 @@ class MiniatureManager extends AbstractManager {
       sql += "where category.name = ?";
       sqlValues.push(category);
     }
-    sql += " limit ?";
-    sqlValues.push(limit);
+    if (limit != null) {
+      sql += " limit ?";
+      sqlValues.push(limit);
+    }
 
     const [rows] = await this.database.query(sql, sqlValues);
 
