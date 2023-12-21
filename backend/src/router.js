@@ -9,11 +9,9 @@ const router = express.Router();
 // Import itemControllers module for handling item-related operations
 const itemControllers = require("./controllers/itemControllers");
 
-
 const miniatureControllers = require("./controllers/miniatureControllers");
 
 const videoControllers = require("./controllers/videoControllers");
-
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
