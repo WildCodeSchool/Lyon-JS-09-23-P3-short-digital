@@ -2,10 +2,11 @@
   padding: 0;
   margin: 0;
 }
+
 li {
   list-style: none;
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 a {
   text-decoration: none;
@@ -16,6 +17,7 @@ nav {
   align-items: center;
   padding: 1rem;
   background: linear-gradient(black 20px, transparent);
+  width: 100vw;
 }
 
 #burger {
