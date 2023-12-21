@@ -17,7 +17,7 @@ function VideoPage() {
   return (
     <div id={styles.videopage}>
       <Navbar />
-      <Videos src={videoInfo.link} />
+      <Videos src={videoInfo} />
       <ScrollingMiniatures />
     </div>
   );
