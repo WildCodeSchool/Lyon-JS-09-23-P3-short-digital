@@ -6,13 +6,18 @@
 }
 .container {
   display: flex;
-  width: 400px;
-  height: 115px;
   background-color: rgba(29, 30, 43, 1);
   border-radius: 20px;
   align-items: center;
 }
 .videoTitle {
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   color: white;
+}
+
+@media screen and (max-width: 800px) {
+  #scrollingMiniatures {
+    overflow-y: scroll;
+    width: 80vw;
+  }
 }
