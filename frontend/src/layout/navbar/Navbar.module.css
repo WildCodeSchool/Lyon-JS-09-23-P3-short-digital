@@ -10,7 +10,7 @@ li {
   font-size: 1.5rem;
 }
 
-a {
+.navBar li a {
   text-decoration: none;
   color: white;
 }
@@ -119,4 +119,4 @@ nav ul {
     scale: 1.02;
     transition: 250ms;
   }
-}/*# sourceMappingURL=Navbar.module.css.map */
+} /*# sourceMappingURL=Navbar.module.css.map */

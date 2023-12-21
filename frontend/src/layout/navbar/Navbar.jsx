@@ -19,7 +19,7 @@ export default function Navbar() {
       />
       <img className={styles.imgLogo} src="./src/assets/logop3.svg" alt="" />
       <h2 className={styles.name}>Short Digital</h2>
-      <ul>
+      <ul className={styles.navBar}>
         <li>
           {" "}
           <a href="htts://lien-pour-eslint">Acceuil</a>{" "}

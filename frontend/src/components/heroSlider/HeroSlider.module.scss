@@ -17,6 +17,9 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
+.slider::-webkit-scrollbar {
+  width: 0;
+}
 .slider1 img {
   flex-shrink: 0;
   border-radius: 20px;
@@ -37,6 +40,7 @@
 .sliderNav a {
   display: flex;
   justify-content: center;
+  margin-bottom: 1rem;
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
@@ -47,7 +51,7 @@
 img:nth-child(1) {
   margin-left: 35%;
 }
-img:nth-child(5) {
+#slide5 {
   margin-right: 35%;
 }
 .sliderNav a {
