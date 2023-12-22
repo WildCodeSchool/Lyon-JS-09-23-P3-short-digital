@@ -1,10 +1,13 @@
-import PropTypes from "prop-types";
 import styles from "./Videos.module.css";
 
-function Videos({ src }) {
+function Videos() {
   return (
     <div id={styles.videoContainer}>
-      <video id={styles.video} controls src={src}>
+      <video
+        id={styles.video}
+        controls
+        src="https://firebasestorage.googleapis.com/v0/b/short-digital.appspot.com/o/quenouille.mp4?alt=media&token=98ef1dac-1a49-4eee-9b24-40466622f095%27,%20%27n%27,%20%27Ceci%20est%20une%20vid%C3%A9o%20tr%C3%A8s%20instructive%20sur%20les%20quenouilles"
+      >
         <track default kind="captions" src=".../assets/quenouilles.fr.vtt" />
       </video>
       <div id={styles.informations}>
@@ -26,9 +29,5 @@ function Videos({ src }) {
     </div>
   );
 }
-
-Videos.propTypes = {
-  src: PropTypes.string.isRequired,
-};
 
 export default Videos;
