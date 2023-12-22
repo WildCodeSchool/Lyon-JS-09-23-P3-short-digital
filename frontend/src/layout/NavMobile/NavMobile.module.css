@@ -9,7 +9,7 @@
   height: -moz-fit-content;
   height: fit-content;
   padding: 2%;
-  position: fixed;
+  position: sticky;
 }
 
 .aLink {
@@ -21,7 +21,7 @@
   width: 2.5rem;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   .navmobile {
     display: none;
   }
