@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  background-color: rgba(29, 30, 43, 1);
+  border-radius: 20px;
+  align-items: center;
+
+  &__imgMini {
+    height: auto;
+    width: 50%;
+    border-radius: 20px;
+    margin-right: 3%;
+  }
+
+  &__videoTitle {
+    font-size: 0.7rem;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #scrollingMiniatures {
+    overflow-y: scroll;
+    width: 80vw;
+  }
+}

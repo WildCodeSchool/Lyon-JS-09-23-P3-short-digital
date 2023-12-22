@@ -1,0 +1,37 @@
+.buttonsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__category {
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+    width: 136px;
+    height: 74px;
+    font-size: 18pt;
+    color: white;
+    box-shadow: 0px 10px 11px black;
+  }
+}
+#Javascript {
+  background: linear-gradient(#f7e600, #e7c200);
+  color: black;
+}
+
+#php {
+  background: linear-gradient(#828ed2, #606a9f);
+}
+
+#Python {
+  background: linear-gradient(to left, #ffd527, #2a72a9);
+}
+
+#Java {
+  background: linear-gradient(#ff0000, #bb0000);
+}
+
+#css {
+  background: linear-gradient(#4ca4dd, #004695);
+}

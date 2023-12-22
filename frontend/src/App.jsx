@@ -1,41 +1,22 @@
-import Counter from "./components/Counter";
-import logo from "./assets/logo.svg";
-
 import "./App.css";
+import Navbar from "./layout/navbar/Navbar";
+import HeroSlider from "./components/heroSlider/HeroSlider";
+import NavMobile from "./layout/NavMobile/NavMobile";
+import Carrousel from "./components/carrousel/Carrousel";
 
 function App() {
+  const title1 = "Dernieres Sorties";
+  const title2 = "Les Plus Populaire";
+  const title3 = "Les Plus Plebicites";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React !</p>
-
-        <Counter />
-
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <HeroSlider />
+      <Carrousel title={title1} />
+      <Carrousel title={title2} />
+      <Carrousel title={title3} />
+      <NavMobile />
+    </>
   );
 }
 

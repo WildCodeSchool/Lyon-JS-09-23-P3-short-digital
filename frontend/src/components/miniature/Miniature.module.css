@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  background-color: rgb(29, 30, 43);
+  border-radius: 20px;
+  align-items: center;
+}
+.container__imgMini {
+  height: auto;
+  width: 50%;
+  border-radius: 20px;
+  margin-right: 3%;
+}
+.container__videoTitle {
+  font-size: 0.7rem;
+  color: white;
+}
+
+@media screen and (max-width: 1000px) {
+  #scrollingMiniatures {
+    overflow-y: scroll;
+    width: 80vw;
+  }
+} /*# sourceMappingURL=Miniature.module.css.map */

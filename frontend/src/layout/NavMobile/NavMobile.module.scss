@@ -1,0 +1,23 @@
+@import "../../Utiles/mixins";
+
+.navmobile {
+  background-color: rgb(2, 2, 2);
+  width: 100%;
+  bottom: 0;
+  @include inline-block;
+  justify-content: space-around;
+  height: fit-content;
+  padding: 2%;
+  position: sticky;
+}
+.aLink {
+  width: fit-content;
+}
+.icon {
+  width: 2.5rem;
+}
+@media screen and (min-width: 1000px) {
+  .navmobile {
+    display: none;
+  }
+}

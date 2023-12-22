@@ -1,0 +1,116 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+nav {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: linear-gradient(black 20px, transparent);
+  width: 100vw;
+  justify-content: space-between;
+}
+
+#burger {
+  display: block;
+  z-index: 1;
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  display: none;
+}
+#burger::before {
+  content: "\2630";
+  color: white;
+  font-size: 3rem;
+  z-index: 1;
+  display: none;
+}
+.active #burger::before {
+  content: "\2715";
+}
+.active ul {
+  left: 0;
+}
+.imgLogo {
+  width: 4rem;
+}
+nav ul {
+  position: fixed;
+  left: -100%;
+  top: 5%;
+  flex-direction: column;
+  width: 40%;
+  text-align: center;
+  transition: 250ms;
+  background-color: rgba(29, 30, 43, 1);
+  border-radius: 10px;
+}
+.btnConnection {
+  display: none;
+}
+.imgProfil {
+  width: 3rem;
+  border-radius: 50px;
+  display: none;
+}
+.name {
+  color: white;
+}
+
+@media screen and (min-width: 1000px) {
+  nav {
+    background: linear-gradient(black 30px, transparent);
+  }
+
+  nav ul {
+    display: flex;
+    left: 0%;
+    flex-direction: row;
+    width: 100%;
+    top: 0;
+    border-radius: 0px;
+    background-color: transparent;
+    position: relative;
+  }
+  #burger {
+    display: none;
+  }
+  .imgLogo {
+    display: block;
+    width: 5rem;
+  }
+  .btnConnection {
+    display: block;
+    margin-right: 1rem;
+    width: 10rem;
+    border: none;
+    border-radius: 10px;
+    height: 2rem;
+    color: white;
+    background: linear-gradient(rgba(103, 106, 147, 1), black);
+  }
+  .imgProfil {
+    width: 3rem;
+    border-radius: 50px;
+    display: block;
+  }
+  .btnConnection:hover {
+    background: linear-gradient(rgba(137, 139, 177, 1), black);
+    scale: 1.02;
+    transition: 250ms;
+  }
+  .name {
+    display: none;
+  }
+}
