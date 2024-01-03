@@ -13,7 +13,7 @@ function VideoPage() {
   useEffect(() => {
     (async () => {
       const triedCategory = await fetch(
-        `http://localhost:3310/api/miniatures?category=${actualCategory}`
+        `http://localhost:3310/api/videosSelected?category=${actualCategory}`
       );
       await triedCategory.json();
     })();

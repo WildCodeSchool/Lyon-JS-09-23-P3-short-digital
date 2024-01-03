@@ -26,4 +26,18 @@ const readAllImage = async (req, res, next) => {
   }
 };
 
-module.exports = { read, readAllImage };
+const readByCategories = async (req, res, next) => {
+  try {
+    const { category } = req.query;
+    let { limit } = req.query;
+    if (limit != null) {
+      limit = parseInt(limit, 10);
+    }
+    const miniature = await tables.video.readByCategories(category, limit);
+    res.json(miniature);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { read, readAllImage, readByCategories };
