@@ -1,6 +1,13 @@
+import { useState } from "react";
 import styles from "./Videos.module.css";
 
 function Videos() {
+  const [like, setLike] = useState(254);
+
+  const handleLike = () => {
+    setLike(like + 1);
+  };
+
   return (
     <div id={styles.videoContainer}>
       <video
@@ -17,9 +24,15 @@ function Videos() {
           <h3>Jeannette Doe</h3>
         </div>
         <div id={styles.informations__likes}>
-          <p>vues : 2542</p>
-          <img alt="pouce en l'air" src="./src/assets/pouce.png" />
-          <p>256</p>
+          <p>vues : 2569</p>
+          <button
+            type="button"
+            id={styles.informations__likes__button}
+            onClick={handleLike}
+          >
+            <img alt="pouce en l'air" src="./src/assets/pouce.png" />
+          </button>
+          <p>{like}</p>
         </div>
         <p id={styles.informations__description}>
           As-tu vu les belles quenouilles ? <br />
