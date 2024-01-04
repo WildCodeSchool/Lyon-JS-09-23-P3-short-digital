@@ -14,7 +14,6 @@ function ScrollingMiniatures() {
           </div>
         );
       })}
-      ;
     </div>
   );
 }

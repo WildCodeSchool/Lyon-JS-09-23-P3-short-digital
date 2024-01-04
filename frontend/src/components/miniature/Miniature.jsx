@@ -17,11 +17,11 @@ export default function Miniature({ idMiniature }) {
   return (
     <div className={styles.container}>
       <img
-        className={styles.imgMini}
+        className={styles.container__imgMini}
         src={`https://image.tmdb.org/t/p/w500/${miniature.backdrop_path}`}
         alt=""
       />
-      <p className={styles.videoTitle}>
+      <p className={styles.container__videoTitle}>
         Les Variables en JavaScript: Appprendre la bases des variables
       </p>
     </div>
