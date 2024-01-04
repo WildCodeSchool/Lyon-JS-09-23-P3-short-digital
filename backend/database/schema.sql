@@ -51,16 +51,15 @@ CONSTRAINT class
 
 
 CREATE TABLE likes (
-id INT NOT NULL AUTO_INCREMENT, 
-PRIMARY KEY (id),
-user_id INT,
-video_id INT,
+user_id INT NOT NULL,
+video_id INT NOT NULL,
 CONSTRAINT likedBy
 	FOREIGN KEY (user_id)
     REFERENCES user(id),
 CONSTRAINT beLiked
 	FOREIGN KEY (video_id)
-    REFERENCES video(id));
+    REFERENCES video(id),
+PRIMARY KEY (user_id, video_id));
 
 INSERT INTO user (firstname, lastname, mail, pseudo) VALUES 
 ('lulu', 'lapraline', 'luluentreprise@mail.com', 'Praluxor'), 

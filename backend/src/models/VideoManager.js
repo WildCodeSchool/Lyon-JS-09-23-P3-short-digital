@@ -42,5 +42,14 @@ class MainVideoPlayerManager extends AbstractManager {
 
     return rows;
   }
+
+  async likeVideo(id) {
+    await this.database.query(
+      `INSERT INTO likes (user_id, video_id)
+    VALUES
+    (1, ?)`,
+      [id]
+    );
+  }
 }
 module.exports = MainVideoPlayerManager;

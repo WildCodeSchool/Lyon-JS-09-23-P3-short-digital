@@ -1,12 +1,15 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import styles from "./Videos.module.css";
 
 function Videos({ videoInfo }) {
-  const [like, setLike] = useState(254);
+  const [likes, setLikes] = useState(0);
 
-  const handleLike = () => {
-    setLike(like + 1);
+  const handleLike = async () => {
+    await fetch("http://localhost:3310/api/videos/4/like", { method: "PUT" });
+    const videoCall = await fetch("http://localhost:3310/api/videos/4");
+    const videoResult = await videoCall.json();
+    setLikes(videoResult.nbr_like);
   };
 
   return (
@@ -22,10 +25,14 @@ function Videos({ videoInfo }) {
         </div>
         <div id={styles.informations__likes}>
           <p>vues : {videoInfo.nb_view}</p>
-          <button type="button" onClick={handleLike}>
+          <button
+            type="button"
+            id={styles.informations__likes__button}
+            onClick={handleLike}
+          >
             <img alt="pouce en l'air" src="./src/assets/pouce.png" />
           </button>
-          <p>{videoInfo.nbr_like}</p>
+          <p>{likes !== 0 ? likes : videoInfo.nbr_like}</p>
         </div>
         <p id={styles.informations__description}>{videoInfo.description}</p>
       </div>

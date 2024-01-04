@@ -40,4 +40,16 @@ const readByCategories = async (req, res, next) => {
   }
 };
 
-module.exports = { read, readAllImage, readByCategories };
+const likeVideo = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    await tables.video.likeVideo(id);
+    res.send("Like value updated");
+  } catch (err) {
+    console.error(err);
+    next(err);
+    res.sendStatus(500);
+  }
+};
+
+module.exports = { read, readAllImage, readByCategories, likeVideo };
