@@ -1,5 +1,6 @@
 // import { useEffect, useState } from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from "./boutonsLanguages.module.css";
 
 function VideoPage() {
@@ -23,7 +24,8 @@ function VideoPage() {
   return (
     <div className={styles.buttonsContainer}>
       {categories.map((category) => (
-        <button
+        <Link
+          to="/"
           id={styles[category]}
           className={styles.buttonsContainer__category}
           type="button"
@@ -31,7 +33,7 @@ function VideoPage() {
           onClick={() => getCategory(category)}
         >
           {category}
-        </button>
+        </Link>
       ))}
     </div>
   );
