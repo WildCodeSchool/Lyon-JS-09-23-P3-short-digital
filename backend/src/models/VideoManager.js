@@ -17,6 +17,16 @@ class MainVideoPlayerManager extends AbstractManager {
     return rows[0];
   }
 
+  async readAll(id) {
+    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    const [rows] = await this.database.query(
+      `SELECT title, link, image, description from ${this.table} WHERE video.id =?`,
+      [id]
+    );
+
+    return rows[0];
+  }
+
   async readAllImage() {
     const [rows] = await this.database.query(
       `SELECT image, id FROM ${this.table}`
