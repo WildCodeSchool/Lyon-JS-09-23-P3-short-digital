@@ -21,15 +21,14 @@
 }
 
 @media screen and (min-width: 1000px) {
- 
-.mainSwiper__swiper__slide__link{
-  img {
-    width: 38vw;
-    height: auto;
-    filter: drop-shadow(0 20px 0.75rem black);
-    border-radius: 3px;
-    margin-bottom: 10%;
-    object-fit: contain;
+  .mainSwiper__swiper__slide__link {
+    img {
+      width: 38vw;
+      height: auto;
+      filter: drop-shadow(0 20px 0.75rem black);
+      border-radius: 3px;
+      margin-bottom: 10%;
+      object-fit: contain;
+    }
   }
-}
 }

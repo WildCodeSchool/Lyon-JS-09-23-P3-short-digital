@@ -15,7 +15,7 @@
   border-radius: 3px;
   margin-bottom: 10%;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 @media screen and (min-width: 1000px) {
@@ -26,6 +26,6 @@
     border-radius: 3px;
     margin-bottom: 10%;
     -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
   }
-}/*# sourceMappingURL=HeroSlider.module.css.map */
+} /*# sourceMappingURL=HeroSlider.module.css.map */
