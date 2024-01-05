@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from "swiper/react";
+// eslint-disable-next-line import/no-unresolved
 import { Pagination, Navigation } from "swiper/modules";
+// eslint-disable-next-line import/no-unresolved
 import "swiper/css";
+// eslint-disable-next-line import/no-unresolved
 import "swiper/scss/navigation";
+// eslint-disable-next-line import/no-unresolved
 import "swiper/scss/pagination";
 
 import styles from "./HeroSlider.module.css";

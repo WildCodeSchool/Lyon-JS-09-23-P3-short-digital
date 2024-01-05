@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+// eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./Carrousel.module.css";
 import "swiper/css";
