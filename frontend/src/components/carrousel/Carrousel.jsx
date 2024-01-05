@@ -8,12 +8,10 @@ import "swiper/css";
 export default function Carrousel({ title }) {
   const [videosMiniature, setVideosMiniature] = useState([]);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
 
   function size() {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
-      setScreenHeight(window.innerHeight);
     };
 
     window.addEventListener("resize", handleResize);
