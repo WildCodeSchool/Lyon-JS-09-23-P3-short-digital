@@ -9,6 +9,7 @@ function VideoPage() {
     <div id={styles.videopage}>
       <Navbar />
       <Videos />
+      <ScrollingMiniatures />
       <NavMobile />
     </div>
   );
