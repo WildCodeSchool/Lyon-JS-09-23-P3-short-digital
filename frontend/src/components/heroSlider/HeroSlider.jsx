@@ -1,54 +1,73 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
+
 import styles from "./HeroSlider.module.css";
 
 export default function HeroSlider() {
-  const img = [
-    {
-      id: "slide1",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide2",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide3",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide4",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide5",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-  ];
+  const [videosMiniature, setVideosMiniature] = useState([]);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  function size() {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }
+  size();
+  useEffect(() => {
+    (async () => {
+      const videoCall = await fetch("http://localhost:3310/api/videos");
+      const videoResult = await videoCall.json();
+      setVideosMiniature(videoResult);
+    })();
+  }, []);
   return (
-    <div className={styles.mainContainer}>
-      <div className={styles.slider1}>
-        <div className={styles.slider}>
-          {img.map((element) => (
-            <img
-              id={element.id}
-              src={element.src}
-              alt={element.alt}
-              key={element.id}
-            />
-          ))}
-        </div>
-      </div>
-      <div className={styles.sliderNav}>
-        <a href="#slide1">slide1</a>
-        {/* "e" are just here for eslint because if <a> are empty eslint saw an aerror */}
-        <a href="#slide2">slide2</a>
-        <a href="#slide3">slide3</a>
-        <a href="#slide4">slide4</a>
-      </div>
+    <div className={styles.mainSwiper}>
+      <Swiper
+        slidesPerView={screenWidth >= 1100 ? 2.5 : 1}
+        spaceBetween={0}
+        centeredSlides
+        loop
+        pagination={{
+          clickable: true,
+        }}
+        navigation
+        modules={[Pagination, Navigation]}
+        className={styles.mainSwiper__swiper}
+      >
+        {videosMiniature.map((element) => (
+          <SwiperSlide
+            className={styles.mainSwiper__swiper__slide}
+            key={element.id}
+          >
+            <Link
+              className={styles.mainSwiper__swiper__slide__link}
+              to={{
+                pathname: `/video/${element.id}`,
+                search: element.title,
+              }}
+            >
+              <img
+                src={element.image}
+                alt=""
+                key={element.id}
+                id={element.id}
+                className={styles.mainSwiper__swiper__slide__link__imgs}
+              />
+            </Link>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }
