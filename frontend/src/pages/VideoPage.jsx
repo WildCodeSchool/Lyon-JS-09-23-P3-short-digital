@@ -1,28 +1,40 @@
-import { useEffect, useState } from "react";
-import Videos from "../components/videos/Videos";
-import ScrollingMiniatures from "../components/scrollingMiniature/ScrollingMiniatures";
-import Navbar from "../layout/navbar/Navbar";
-import NavMobile from "../layout/NavMobile/NavMobile";
-import styles from "./videopage.module.css";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import styles from "./Videos.module.css";
 
-function VideoPage() {
-  const [videoInfo, setVideoInfo] = useState("");
+function Videos() {
+  const params = useParams();
+  const [videoInfo, setVideoInfo] = useState([]);
+
   useEffect(() => {
     (async () => {
-      const videoCall = await fetch("http://localhost:3310/api/videos/4");
+      const videoCall = await fetch(
+        `http://localhost:3310/api/videos/${params.id}`
+      );
       const videoResult = await videoCall.json();
       setVideoInfo(videoResult);
     })();
   }, []);
 
   return (
-    <div id={styles.videopage}>
-      <Navbar />
-      <Videos videoInfo={videoInfo} />
-      <ScrollingMiniatures />
-      <NavMobile />
+    <div id={styles.videoContainer}>
+      <video id={styles.video} controls src={videoInfo.link}>
+        <track default kind="captions" src="../../ets/quenouilles.fr.vtt" />
+      </video>
+      <div id={styles.informations}>
+        <h2 id={styles.informations__title}>{videoInfo.title}</h2>
+        <div id={styles.informations__owner}>
+          <img src="./src/assets/profil.png" alt="" />
+          <h3>Jeannette Doe</h3>
+        </div>
+        <div id={styles.informations__likes}>
+          <p>vues : 2542</p>
+          <img alt="pouce en l'air" src="./src/assets/pouce.png" />
+          <p>256</p>
+        </div>
+        <p id={styles.informations__description}>{videoInfo.description}</p>
+      </div>
     </div>
   );
 }
-
-export default VideoPage;
+export default Videos;
