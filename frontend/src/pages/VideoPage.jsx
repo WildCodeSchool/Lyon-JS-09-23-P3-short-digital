@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import styles from "./Videos.module.css";
+import styles from "./videopage.module.css";
 
 function Videos() {
   const params = useParams();
