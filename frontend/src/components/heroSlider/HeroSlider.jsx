@@ -82,16 +82,27 @@ export default function HeroSlider() {
 
   return (
     <div className={styles.mainContainer}>
-      <div className={styles.embla}>
-        <div className={styles.embla__viewport} ref={emblaRef}>
-          <div className={styles.embla__container}>
+      <div className={styles.mainContainer__embla}>
+        <div className={styles.mainContainer__embla__viewport} ref={emblaRef}>
+          <div className={styles.mainContainer__embla__viewport__container}>
             {img.map((element, index) => (
-              <div className={styles.embla__slide} key={element.id}>
-                <div className={styles.embla__slide__number}>
+              <div
+                className={
+                  styles.mainContainer__embla__viewport__container__slide
+                }
+                key={element.id}
+              >
+                <div
+                  className={
+                    styles.mainContainer__embla__viewport__container__slide__number
+                  }
+                >
                   <span>{index + 1}</span>
                 </div>
                 <img
-                  className={styles.embla__slide__img}
+                  className={
+                    styles.mainContainer__embla__viewport__container__slide__img
+                  }
                   src={element.src}
                   alt="Your alt text"
                 />
@@ -100,19 +111,21 @@ export default function HeroSlider() {
           </div>
         </div>
 
-        <div className={styles.embla__buttons}>
+        <div className={styles.mainContainer__embla__buttons}>
           <PrevButton onClick={scrollPrev} disabled={prevBtnDisabled} />
           <NextButton onClick={scrollNext} disabled={nextBtnDisabled} />
         </div>
       </div>
 
-      <div className={styles.embla__dots}>
+      <div className={styles.mainContainer__dots}>
         {scrollSnaps.map((element, index) => (
           <DotButton
             key={element}
             onClick={() => scrollTo(index)}
-            className={`${styles.embla__dot} ${
-              index === selectedIndex ? styles["embla__dot--selected"] : ""
+            className={`${styles.mainContainer__dots__dot} ${
+              index === selectedIndex
+                ? styles["mainContainer__dots__dot--selected"]
+                : ""
             }`}
           />
         ))}
