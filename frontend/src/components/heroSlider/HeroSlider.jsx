@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import DotButton from "../SliderOption/DotButton/DotButton";
@@ -7,6 +8,7 @@ import NextButton from "../SliderOption/NextButton/NextButton";
 import styles from "./HeroSlider.module.css";
 
 export default function HeroSlider() {
+  // tabl img will goes replace with an table id will passed trhough link for call bdd
   const img = [
     {
       id: "slide1",
@@ -99,13 +101,21 @@ export default function HeroSlider() {
                 >
                   <span>{index + 1}</span>
                 </div>
-                <img
-                  className={
-                    styles.mainContainer__embla__viewport__container__slide__img
-                  }
-                  src={element.src}
-                  alt="Your alt text"
-                />
+                <Link
+                  to={{
+                    pathname: "/video",
+                    search: element.alt,
+                    state: { id: element.id },
+                  }}
+                >
+                  <img
+                    className={
+                      styles.mainContainer__embla__viewport__container__slide__img
+                    }
+                    src={element.src}
+                    alt="Your alt text"
+                  />
+                </Link>
               </div>
             ))}
           </div>

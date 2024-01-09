@@ -1,6 +1,9 @@
+:root {
+  overflow-x: hidden;
+}
+
 .mainContainer {
   position: relative;
-  overflow-x: hidden;
 }
 .mainContainer__embla {
   --slide-spacing: 1rem;
@@ -66,91 +69,37 @@
   bottom: 0;
 }
 .mainContainer__embla__buttons {
+  display: none;
   display: flex;
-  width: 90%;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 1.6rem;
-  padding-inline: 3rem;
 }
 .mainContainer__embla__buttons .embla__button__prev {
-  z-index: 1;
-  color: var(--background-site);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  width: 4rem;
-  height: 4rem;
-  -webkit-appearance: none;
-  background-color: transparent;
-  touch-action: manipulation;
-  display: inline-flex;
-  text-decoration: none;
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  color: white;
+  display: none;
 }
 .mainContainer__embla__buttons .embla__button__prev__svg {
   width: 65%;
   height: 65%;
 }
 .mainContainer__embla__buttons .embla__button__next {
-  z-index: 1;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  width: 4rem;
-  height: 4rem;
-  -webkit-appearance: none;
-  background-color: transparent;
-  touch-action: manipulation;
-  display: inline-flex;
-  text-decoration: none;
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  margin: 0;
+  display: none;
 }
 .mainContainer__embla__buttons .embla__button__next__svg {
   width: 65%;
   height: 65%;
 }
 .mainContainer__dots {
-  z-index: 1;
-  bottom: 12%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
 }
 .mainContainer__dots__dot {
-  -webkit-appearance: none;
-  background-color: transparent;
-  touch-action: manipulation;
-  display: inline-flex;
-  text-decoration: none;
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  margin: 0;
+  display: none;
 }
 .mainContainer__dots__dot {
-  width: 2.4rem;
-  height: 2.4rem;
-  display: flex;
-  align-items: center;
-  margin-right: 0.75rem;
-  margin-left: 0.75rem;
+  display: none;
 }
 .mainContainer__dots__dot:after {
   background: var(--background-site);
@@ -167,4 +116,84 @@
     var(--brand-secondary)
   );
   background-color: white;
+}
+
+@media screen and (min-width: 1000px) {
+  .mainContainer__embla__buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .mainContainer__embla__buttons .embla__button__prev {
+    z-index: 1;
+    color: var(--background-site);
+    display: block;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 4rem;
+    height: 4rem;
+    -webkit-appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: white;
+  }
+  .mainContainer__embla__buttons .embla__button__next {
+    z-index: 1;
+    color: white;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 4rem;
+    height: 4rem;
+    -webkit-appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  .mainContainer__dots {
+    z-index: 1;
+    bottom: 12%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mainContainer__dots__dot {
+    -webkit-appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  .mainContainer__dots__dot {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
+  }
 } /*# sourceMappingURL=HeroSlider.module.css.map */
