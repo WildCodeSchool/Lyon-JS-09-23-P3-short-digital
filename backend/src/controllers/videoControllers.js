@@ -43,7 +43,8 @@ const readByCategories = async (req, res, next) => {
 const likeVideo = async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    await tables.video.likeVideo(id);
+    const user = parseInt(req.params.user, 10);
+    await tables.video.likeVideo(id, user);
     res.send("Like value updated");
   } catch (err) {
     console.error(err);

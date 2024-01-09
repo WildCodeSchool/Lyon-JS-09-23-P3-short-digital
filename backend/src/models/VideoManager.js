@@ -43,13 +43,26 @@ class MainVideoPlayerManager extends AbstractManager {
     return rows;
   }
 
-  async likeVideo(id) {
-    await this.database.query(
-      `INSERT INTO likes (user_id, video_id)
-    VALUES
-    (1, ?)`,
-      [id]
+  /* This function allows to add a line in likes table if this user didn't like this video, 
+  but if this user already likes this video, this line is deleted in likes table */
+  async likeVideo(id, user) {
+    const [isLiked] = await this.database.query(
+      "SELECT count(*) as nbr_like from likes WHERE video_id = ? and user_id = ?",
+      [id, user]
     );
+    if (isLiked[0].nbr_like > 0) {
+      await this.database.query(
+        `DELETE FROM likes WHERE video_id = ? AND user_id = ?`,
+        [id, user]
+      );
+    } else {
+      await this.database.query(
+        `INSERT INTO likes (user_id, video_id)
+    VALUES
+    (?, ?)`,
+        [user, id]
+      );
+    }
   }
 }
 module.exports = MainVideoPlayerManager;

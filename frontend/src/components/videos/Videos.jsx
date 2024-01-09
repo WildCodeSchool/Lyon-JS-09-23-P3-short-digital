@@ -6,7 +6,7 @@ function Videos({ videoInfo }) {
   const [likes, setLikes] = useState(0);
 
   const handleLike = async () => {
-    await fetch("http://localhost:3310/api/videos/4/like", { method: "PUT" });
+    await fetch("http://localhost:3310/api/videos/4/like/1", { method: "PUT" });
     const videoCall = await fetch("http://localhost:3310/api/videos/4");
     const videoResult = await videoCall.json();
     setLikes(videoResult.nbr_like);

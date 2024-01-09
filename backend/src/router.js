@@ -28,8 +28,8 @@ router.get("/videos", videoControllers.readAllImage);
 
 router.get("/videosSelected", videoControllers.readByCategories);
 
-// route qui ajoute un like à une video
-router.put("/videos/:id/like", videoControllers.likeVideo);
+// route qui ajoute/supprime un like à une video
+router.put("/videos/:id/like/:user", videoControllers.likeVideo);
 /* ************************************************************************* */
 
 module.exports = router;
