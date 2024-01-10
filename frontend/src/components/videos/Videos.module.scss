@@ -38,9 +38,14 @@
       align-items: center;
       margin: 2% 0;
 
+      &__button {
+        background-color: transparent;
+        border: 0;
+        margin-right: 2%;
+      }
+
       img {
         height: 1.5rem;
-        margin-right: 2%;
       }
       p {
         margin-right: 10%;
