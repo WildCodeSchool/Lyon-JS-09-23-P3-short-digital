@@ -78,29 +78,9 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      // left: 1.6rem;
-      // padding-inline: 3rem;
 
       .embla__button__prev {
         display: none;
-        // z-index: 1;
-        // color: var(--background-site);
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        // cursor: pointer;
-        // width: 4rem;
-        // height: 4rem;
-        // -webkit-appearance: none;
-        // background-color: transparent;
-        // touch-action: manipulation;
-        // display: inline-flex;
-        // text-decoration: none;
-        // cursor: pointer;
-        // border: 0;
-        // padding: 0;
-        // margin: 0;
-        // color: white;
 
         &__svg {
           width: 65%;
@@ -109,23 +89,6 @@
       }
       .embla__button__next {
         display: none;
-        // z-index: 1;
-        // color: white;
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        // cursor: pointer;
-        // width: 4rem;
-        // height: 4rem;
-        // -webkit-appearance: none;
-        // background-color: transparent;
-        // touch-action: manipulation;
-        // display: inline-flex;
-        // text-decoration: none;
-        // cursor: pointer;
-        // border: 0;
-        // padding: 0;
-        // margin: 0;
 
         &__svg {
           width: 65%;
@@ -136,35 +99,12 @@
   }
   &__dots {
     display: none;
-    // z-index: 1;
-    // bottom: 12%;
-    // position: absolute;
-    // left: 0;
-    // right: 0;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
 
     &__dot {
       display: none;
-      // -webkit-appearance: none;
-      // background-color: transparent;
-      // touch-action: manipulation;
-      // display: inline-flex;
-      // text-decoration: none;
-      // cursor: pointer;
-      // border: 0;
-      // padding: 0;
-      // margin: 0;
     }
     &__dot {
       display: none;
-      // width: 2.4rem;
-      // height: 2.4rem;
-      // display: flex;
-      // align-items: center;
-      // margin-right: 0.75rem;
-      // margin-left: 0.75rem;
     }
     &__dot:after {
       background: var(--background-site);
