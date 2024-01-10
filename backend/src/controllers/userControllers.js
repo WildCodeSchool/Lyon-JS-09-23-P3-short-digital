@@ -10,6 +10,7 @@ const add = async (req, res, next) => {
 
     res.status(201).json({ insertId });
   } catch (err) {
+    res.status(500).send("Ce mail est déjà utilisé");
     next(err);
   }
 };
