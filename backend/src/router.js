@@ -8,7 +8,6 @@ const router = express.Router();
 
 // Import itemControllers module for handling item-related operations
 const itemControllers = require("./controllers/itemControllers");
-const miniatureControllers = require("./controllers/miniatureControllers");
 const videoControllers = require("./controllers/videoControllers");
 
 // Route to get a list of items
@@ -27,7 +26,7 @@ router.get("/videos", videoControllers.readAllImage);
 
 // route qui recupère le titre et l'image de la miniature video
 
-router.get("/miniatures", miniatureControllers.read);
+router.get("/videosSelected", videoControllers.readByCategories);
 /* ************************************************************************* */
 
 module.exports = router;
