@@ -1,15 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Videos.module.css";
 
 function Videos({ videoInfo }) {
   const [likes, setLikes] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
+  const [blackAndWhite, setBlackAndWhite] = useState(null);
+
+  // This useEffect allows to set thumb image in greyscale if video is not liked yet by this user
+  useEffect(() => {
+    setBlackAndWhite(isLiked === false ? "grayscale(100%)" : null);
+  }, [isLiked]);
 
   const handleLike = async () => {
     await fetch("http://localhost:3310/api/videos/4/like/1", { method: "PUT" });
     const videoCall = await fetch("http://localhost:3310/api/videos/4");
     const videoResult = await videoCall.json();
     setLikes(videoResult.nbr_like);
+
+    // Ask to BDD if user has like yet this video and store the information in "isLiked" state
+    const videoIsLiked = await fetch(
+      "http://localhost:3310/api/videos/4/like/1"
+    );
+    const videoIsLikedJson = await videoIsLiked.json();
+    setIsLiked(videoIsLikedJson);
   };
 
   return (
@@ -30,7 +44,11 @@ function Videos({ videoInfo }) {
             id={styles.informations__likes__button}
             onClick={handleLike}
           >
-            <img alt="pouce en l'air" src="./src/assets/pouce.png" />
+            <img
+              style={{ filter: blackAndWhite }}
+              alt="pouce en l'air"
+              src="./src/assets/pouce.png"
+            />
           </button>
           <p>{likes !== 0 ? likes : videoInfo.nbr_like}</p>
         </div>

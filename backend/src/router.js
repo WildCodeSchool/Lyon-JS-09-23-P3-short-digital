@@ -24,6 +24,8 @@ router.post("/items", itemControllers.add);
 router.get("/videos/:id", videoControllers.read);
 router.get("/videos", videoControllers.readAllImage);
 
+router.get("/videos/:id/like/:user", videoControllers.isLikedByUser);
+
 // route qui recupère le titre et l'image de la miniature video
 
 router.get("/videosSelected", videoControllers.readByCategories);
