@@ -21,17 +21,17 @@ class UserManager extends AbstractManager {
 
   async read(id) {
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `select firstname, lastname, mail, pseudo from ${this.table} where id = ?`,
       [id]
     );
 
     return rows[0];
   }
 
-  async readByEmail(email) {
+  async readByEmailWithPassword(mail) {
     const [rows] = await this.database.query(
-      `select * from ${this.table} where email = ?`,
-      [email]
+      `select mail, hashed_password from ${this.table} where mail = ?`,
+      [mail]
     );
 
     return rows[0];

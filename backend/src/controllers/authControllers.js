@@ -1,14 +1,26 @@
+const argon2 = require("argon2");
 const tables = require("../tables");
 
 const login = async (req, res, next) => {
   try {
-    const user = await tables.user.readByEmail(req.body.email);
+    const user = await tables.user.readByEmailWithPassword(req.body.mail);
 
-    if (user === null || user.password !== req.body.password) {
+    if (user === null) {
       res.sendStatus(422);
-    } else {
-      // Respond with the user in JSON format (but without the hashed password)
+    }
+
+    const verified = await argon2.verify(
+      user.hashed_password,
+      req.body.password
+    );
+
+    if (verified) {
+      delete user.hashed_password;
       res.json(user);
+    } else {
+      res
+        .status(422)
+        .send("le mail ou le mot de passe entrés ne sont pas bons");
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
