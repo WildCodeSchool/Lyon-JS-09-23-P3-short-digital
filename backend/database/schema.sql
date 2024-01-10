@@ -12,7 +12,8 @@ PRIMARY KEY (id),
 firstname VARCHAR(45) NOT NULL,
 lastname VARCHAR(45) NOT NULL,
 mail VARCHAR(80) NOT NULL,
-pseudo VARCHAR(45) NOT NULL);
+pseudo VARCHAR(45) NOT NULL,
+hashed_password VARCHAR(255) NOT NULL);
 
 
 CREATE TABLE video (
