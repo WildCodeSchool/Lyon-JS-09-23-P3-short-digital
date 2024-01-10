@@ -7,11 +7,16 @@ class UserManager extends AbstractManager {
 
   async create(user) {
     // Execute the SQL INSERT query to add a new user to the "user" table
-    const [result] = await this.database.query(
-      `insert into ${this.table} (email, password) values (?, ?)`,
-      [user.email, user.password]
+    await this.database.query(
+      `insert into ${this.table} (firstname, lastname, mail, pseudo, hashed_password) values (?, ?, ?, ?, ?)`,
+      [
+        user.firstname,
+        user.lastname,
+        user.mail,
+        user.pseudo,
+        user.hashedPassword,
+      ]
     );
-    console.error(result);
   }
 }
 
