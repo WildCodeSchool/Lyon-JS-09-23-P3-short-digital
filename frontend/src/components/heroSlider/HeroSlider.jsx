@@ -122,8 +122,16 @@ export default function HeroSlider() {
         </div>
 
         <div className={styles.mainContainer__embla__buttons}>
-          <PrevButton onClick={scrollPrev} disabled={prevBtnDisabled} />
-          <NextButton onClick={scrollNext} disabled={nextBtnDisabled} />
+          <PrevButton
+            onClick={scrollPrev}
+            disabled={prevBtnDisabled}
+            klass="embla__button__prev__svg"
+          />
+          <NextButton
+            onClick={scrollNext}
+            disabled={nextBtnDisabled}
+            klass="embla__button__next__svg"
+          />
         </div>
       </div>
 

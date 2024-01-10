@@ -6,7 +6,7 @@
 
   &__embla {
     --slide-spacing: 1rem;
-    --slide-size: 40%;
+    --slide-size: 80%;
     --slide-height: 100%;
 
     &__viewport {
@@ -78,23 +78,6 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-
-      .embla__button__prev {
-        display: none;
-
-        &__svg {
-          width: 65%;
-          height: 65%;
-        }
-      }
-      .embla__button__next {
-        display: none;
-
-        &__svg {
-          width: 65%;
-          height: 65%;
-        }
-      }
     }
   }
   &__dots {
@@ -123,6 +106,11 @@
 }
 
 @media screen and (min-width: 1000px) {
+  .mainContainer__embla {
+    --slide-spacing: 1rem;
+    --slide-size: 40%;
+    --slide-height: 100%;
+  }
   .mainContainer__embla__buttons {
     display: flex;
     width: 100%;
@@ -131,46 +119,6 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-
-    .embla__button__prev {
-      z-index: 1;
-      color: var(--background-site);
-      display: block;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      width: 4rem;
-      height: 4rem;
-      -webkit-appearance: none;
-      background-color: transparent;
-      touch-action: manipulation;
-      display: inline-flex;
-      text-decoration: none;
-      cursor: pointer;
-      border: 0;
-      padding: 0;
-      margin: 0;
-      color: white;
-    }
-    .embla__button__next {
-      z-index: 1;
-      color: white;
-      display: block;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      width: 4rem;
-      height: 4rem;
-      -webkit-appearance: none;
-      background-color: transparent;
-      touch-action: manipulation;
-      display: inline-flex;
-      text-decoration: none;
-      cursor: pointer;
-      border: 0;
-      padding: 0;
-      margin: 0;
-    }
   }
 
   .mainContainer__dots {
