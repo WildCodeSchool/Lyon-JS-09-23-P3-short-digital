@@ -4,6 +4,10 @@
   --slide-height: 100%;
   position: relative;
   width: 100%;
+  padding-left: 3%;
+}
+.carousel__embla ::-webkit-scrollbar {
+  display: none;
 }
 .carousel__embla__title {
   color: white;
@@ -13,7 +17,6 @@
 .carousel__embla__viewport {
   display: flex;
   overflow: scroll;
-  scroll-snap-type: x mandatory;
   align-items: center;
 }
 .carousel__embla__viewport__container {
@@ -73,7 +76,7 @@
 }
 .carousel__embla__viewport__buttons {
   display: flex;
-  width: 100%;
+  width: 92%;
   justify-content: space-between;
   align-items: center;
   position: absolute;
