@@ -10,7 +10,7 @@ function ScrollingMiniatures() {
       {toDisplay.map((number) => {
         return (
           <div id={styles.scrollingMiniatures__miniature}>
-            <Miniature idMiniature={number} key={number} />
+            <Miniature idMiniature={number} key={number} klass="videoSlider" />
           </div>
         );
       })}

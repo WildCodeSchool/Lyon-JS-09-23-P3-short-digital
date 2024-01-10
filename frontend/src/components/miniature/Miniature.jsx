@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styles from "./Miniature.module.css";
 
-export default function Miniature({ idMiniature }) {
+export default function Miniature({ idMiniature, klass }) {
   const [miniature, setMiniature] = useState("");
+
   useEffect(() => {
     (async () => {
       const mini = await fetch(
@@ -13,15 +14,17 @@ export default function Miniature({ idMiniature }) {
       setMiniature(miniParsed.results[idMiniature]);
     })();
   }, []);
+  const class0 = `${klass}img`;
+  const class1 = `${klass}p`;
 
   return (
-    <div className={styles.container}>
+    <div className={styles[klass]}>
       <img
-        className={styles.container__imgMini}
+        className={styles[class0]}
         src={`https://image.tmdb.org/t/p/w500/${miniature.backdrop_path}`}
         alt=""
       />
-      <p className={styles.container__videoTitle}>
+      <p className={styles[class1]}>
         Les Variables en JavaScript: Appprendre la bases des variables
       </p>
     </div>
@@ -29,4 +32,5 @@ export default function Miniature({ idMiniature }) {
 }
 Miniature.propTypes = {
   idMiniature: PropTypes.number.isRequired,
+  klass: PropTypes.string.isRequired,
 };

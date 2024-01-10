@@ -1,17 +1,19 @@
-.container {
+.videoSlider {
   display: flex;
   background-color: rgb(29, 30, 43);
   border-radius: 20px;
   align-items: center;
 }
-.container__imgMini {
+
+.videoSliderimg {
   height: auto;
   width: 50%;
   border-radius: 20px;
   margin-right: 3%;
 }
-.container__videoTitle {
-  font-size: 0.7rem;
+
+.videoSliderp {
+  font-size: 0.9rem;
   color: white;
 }
 
