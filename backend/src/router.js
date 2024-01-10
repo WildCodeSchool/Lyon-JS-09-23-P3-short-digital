@@ -35,8 +35,14 @@ router.get("/videosSelected", videoControllers.readByCategories);
 // route qui ajoute/supprime un like à une video
 router.put("/videos/:id/like/:user", videoControllers.likeVideo);
 
-// Route to add a new user
+// Routes to get user informations or add a new user
+router.get("/users/:id", userControllers.read);
 router.post("/users", hashPassword, userControllers.add);
+
+// Import authControllers module for handling auth-related operations
+const authControllers = require("./controllers/authControllers");
+
+router.post("/login", authControllers.login);
 
 /* ************************************************************************* */
 
