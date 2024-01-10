@@ -1,4 +1,5 @@
 const argon2 = require("argon2");
+const jwt = require("jsonwebtoken");
 
 // Options de hachage (voir documentation : https://github.com/ranisalt/node-argon2/wiki/Options)
 // Recommandations **minimales** de l'OWASP : https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
@@ -27,6 +28,31 @@ const hashPassword = async (req, res, next) => {
   }
 };
 
+const verifyToken = (req, res, next) => {
+  try {
+    const authorizationHeader = req.get("Authorization");
+
+    if (authorizationHeader === null) {
+      throw new Error("La requête n'a pas l'en-tête 'Authorization'");
+    }
+
+    const [type, token] = authorizationHeader.split(" ");
+
+    if (type !== "Bearer") {
+      throw new Error("l'en-tête 'Authorization' n'a pas le type 'Bearer'");
+    }
+
+    req.auth = jwt.verify(token, process.env.APP_SECRET);
+
+    next();
+  } catch (err) {
+    console.error(err);
+
+    res.sendStatus(401);
+  }
+};
+
 module.exports = {
   hashPassword,
+  verifyToken,
 };

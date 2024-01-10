@@ -1,5 +1,5 @@
 const express = require("express");
-const { hashPassword } = require("./services/auth");
+const { hashPassword, verifyToken } = require("./services/auth");
 
 const router = express.Router();
 
@@ -11,6 +11,12 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const videoControllers = require("./controllers/videoControllers");
 const userControllers = require("./controllers/userControllers");
+const authControllers = require("./controllers/authControllers");
+
+router.post("/login", authControllers.login);
+
+// Authentication wall that allows to protect all routes after that
+router.use(verifyToken);
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -38,11 +44,6 @@ router.put("/videos/:id/like/:user", videoControllers.likeVideo);
 // Routes to get user informations or add a new user
 router.get("/users/:id", userControllers.read);
 router.post("/users", hashPassword, userControllers.add);
-
-// Import authControllers module for handling auth-related operations
-const authControllers = require("./controllers/authControllers");
-
-router.post("/login", authControllers.login);
 
 /* ************************************************************************* */
 
