@@ -98,9 +98,6 @@
 .mainContainer__dots__dot {
   display: none;
 }
-.mainContainer__dots__dot {
-  display: none;
-}
 .mainContainer__dots__dot:after {
   background: var(--background-site);
   border-radius: 0.2rem;
