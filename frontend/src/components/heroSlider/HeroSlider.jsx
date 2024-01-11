@@ -125,6 +125,7 @@ export default function HeroSlider() {
           <PrevButton
             onClick={scrollPrev}
             disabled={prevBtnDisabled}
+            // buttonClass will defindedclassName in prev and next composant
             buttonClass="heroSlider"
           />
           <NextButton

@@ -188,6 +188,7 @@ export default function Carrousel({ title }) {
           <PrevButton
             onClick={scrollPrev}
             disabled={prevBtnDisabled}
+            // button class will defined className in composant prev and next button
             buttonClass="carousel"
             eslint={scrollSnaps}
           />

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./PrevButton.module.css";
 
 export default function PrevButton({ disabled, onClick, buttonClass }) {
+  // add buttonClasss props for choose css at call of composant
   return (
     <button
       className={styles.embla__button__prev}
