@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
+import Miniature from "../miniature/Miniature";
 import styles from "./Carrousel.module.css";
 import PrevButton from "../SliderOption/PrevButton/PrevButton";
 import NextButton from "../SliderOption/NextButton/NextButton";
@@ -14,108 +15,7 @@ export default function Carrousel({ title }) {
   };
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   // tabl img will goes replace with an table id will passed trhough link for call bdd
-  const img = [
-    {
-      id: "slide111",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide112",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide113",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide114",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide115",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide116",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide117",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide118",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide119",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide120",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide122",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide123",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide124",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide125",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide126",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide127",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide128",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide129",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide130",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide131",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-  ];
+  const tableId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -154,31 +54,29 @@ export default function Carrousel({ title }) {
       <p className={styles.carousel__embla__title}>{title}</p>
       <div className={styles.carousel__embla__viewport} ref={emblaRef}>
         <div className={styles.carousel__embla__viewport__container}>
-          {img.map((element, index) => (
+          {tableId.map((element, index) => (
             <div
               className={styles.carousel__embla__viewport__container__slide}
-              key={element.id}
+              key={element}
             >
               <div
                 className={
                   styles.carousel__embla__viewport__container__slide__number
                 }
               >
-                <span>{index + 1}</span>
+                <span key={element}>{index + 1}</span>
               </div>
               <Link
                 to={{
-                  pathname: "/video",
-                  search: element.alt,
+                  pathname: `/video/${element}`,
                 }}
-                state={element.id}
               >
-                <img
+                <Miniature
                   className={
                     styles.carousel__embla__viewport__container__slide__img
                   }
-                  src={element.src}
-                  alt="Your alt text"
+                  idMiniature={element}
+                  carouselClass="carousel"
                 />
               </Link>
             </div>
