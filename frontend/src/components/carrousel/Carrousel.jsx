@@ -13,6 +13,7 @@ export default function Carrousel({ title }) {
     dragFree: true,
   };
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
+  // tabl img will goes replace with an table id will passed trhough link for call bdd
   const img = [
     {
       id: "slide111",
@@ -169,8 +170,8 @@ export default function Carrousel({ title }) {
                 to={{
                   pathname: "/video",
                   search: element.alt,
-                  state: { id: element.id },
                 }}
+                state={element.id}
               >
                 <img
                   className={
