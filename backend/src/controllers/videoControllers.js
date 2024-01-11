@@ -40,4 +40,36 @@ const readByCategories = async (req, res, next) => {
   }
 };
 
-module.exports = { read, readAllImage, readByCategories };
+const likeVideo = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const user = parseInt(req.params.user, 10);
+    await tables.video.likeVideo(id, user);
+    res.send("Like value updated");
+  } catch (err) {
+    console.error(err);
+    next(err);
+    res.sendStatus(500);
+  }
+};
+
+const isLikedByUser = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const user = parseInt(req.params.user, 10);
+    const isLiked = await tables.video.isLikedByUser(id, user);
+    res.status(200).json(isLiked);
+  } catch (err) {
+    console.error(err);
+    next(err);
+    res.sendStatus(500);
+  }
+};
+
+module.exports = {
+  read,
+  readAllImage,
+  readByCategories,
+  likeVideo,
+  isLikedByUser,
+};
