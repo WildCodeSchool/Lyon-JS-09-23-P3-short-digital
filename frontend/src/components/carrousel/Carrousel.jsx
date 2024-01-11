@@ -188,13 +188,13 @@ export default function Carrousel({ title }) {
           <PrevButton
             onClick={scrollPrev}
             disabled={prevBtnDisabled}
-            klass="carousel__embla__button__prev__svg"
+            buttonClass="carousel"
             eslint={scrollSnaps}
           />
           <NextButton
             onClick={scrollNext}
             disabled={nextBtnDisabled}
-            klass="carousel__embla__button__next__svg"
+            buttonClass="carousel"
             eslint={selectedIndex}
           />
         </div>
