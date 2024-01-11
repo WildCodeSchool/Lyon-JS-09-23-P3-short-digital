@@ -103,7 +103,7 @@ export default function HeroSlider() {
                 </div>
                 <Link
                   to={{
-                    pathname: "/video",
+                    pathname: "/video/1",
                     search: element.alt,
                     state: { id: element.id },
                   }}

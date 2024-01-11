@@ -22,7 +22,7 @@ router.post("/items", itemControllers.add);
 // Route to get video information by id
 
 router.get("/videos/:id", videoControllers.read);
-router.get("/videos", videoControllers.readAllImage);
+router.get("/videos/miniatures/:id", videoControllers.readAllImage);
 
 // route qui recupère le titre et l'image de la miniature video
 

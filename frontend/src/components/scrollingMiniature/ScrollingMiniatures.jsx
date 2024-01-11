@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Miniature from "../miniature/Miniature";
 import styles from "./ScrollingMiniatures.module.css";
 
@@ -10,7 +11,18 @@ function ScrollingMiniatures() {
       {toDisplay.map((number) => {
         return (
           <div id={styles.scrollingMiniatures__miniature}>
-            <Miniature idMiniature={number} key={number} klass="videoSlider" />
+            <Link
+              to={{
+                pathname: "/video/:id",
+                state: { number },
+              }}
+            >
+              <Miniature
+                idMiniature={number}
+                key={number}
+                klass="videoSlider"
+              />
+            </Link>
           </div>
         );
       })}

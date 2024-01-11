@@ -17,11 +17,12 @@ class MainVideoPlayerManager extends AbstractManager {
     return rows[0];
   }
 
-  async readAllImage() {
+  async readAllImage(id) {
     const [rows] = await this.database.query(
-      `SELECT image, id FROM ${this.table}`
+      `SELECT id, image, title FROM ${this.table} where id = ?`,
+      [id]
     );
-    return rows;
+    return rows[0];
   }
 
   async readByCategories(category, limit) {

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+// import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./Miniature.module.css";
 
-export default function Miniature({ idMiniature, klass }) {
+export default function Miniature({ idMiniature, carouselClass }) {
   const [miniature, setMiniature] = useState("");
-
+  // const params = useParams();
   // useEffect(() => {
   //   (async () => {
   //     const mini = await fetch(
@@ -18,7 +19,7 @@ export default function Miniature({ idMiniature, klass }) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&api_key=d8bedc0b2557b9f57527c89f46531039&language=fr-FR&page=1&sort_by=revenue.desc&with_original_language=en|fr`
+          `http://localhost:3310/api/videos/miniatures/${idMiniature}`
         );
 
         if (!response.ok) {
@@ -26,32 +27,25 @@ export default function Miniature({ idMiniature, klass }) {
         }
 
         const data = await response.json();
-        setMiniature(data.results[idMiniature]);
+        setMiniature(data);
       } catch (error) {
         console.error("Error fetching data:", error.message);
         // Handle the error here, e.g., set a default value or display an error message
       }
     };
-
     fetchData();
-  }, [idMiniature]);
-  const class0 = `${klass}img`;
-  const class1 = `${klass}p`;
+  }, []);
+  const imgClass = `${carouselClass}__img`;
+  const titleClass = `${carouselClass}p`;
 
   return (
-    <div className={styles[klass]}>
-      <img
-        className={styles[class0]}
-        src={`https://image.tmdb.org/t/p/w500/${miniature.backdrop_path}`}
-        alt=""
-      />
-      <p className={styles[class1]}>
-        Les Variables en JavaScript: Appprendre la bases des variables
-      </p>
+    <div className={styles[carouselClass]}>
+      <img className={imgClass} src={miniature.image} alt="" />
+      <p className={styles[titleClass]}>{miniature.title}</p>
     </div>
   );
 }
 Miniature.propTypes = {
   idMiniature: PropTypes.number.isRequired,
-  klass: PropTypes.string.isRequired,
+  carouselClass: PropTypes.string.isRequired,
 };

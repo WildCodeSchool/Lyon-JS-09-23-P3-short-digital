@@ -15,7 +15,7 @@ const read = async (req, res, next) => {
 
 const readAllImage = async (req, res, next) => {
   try {
-    const videos = await tables.video.readAllImage();
+    const videos = await tables.video.readAllImage(req.params.id);
     if (videos == null) {
       res.sendStatus(404);
     } else {
