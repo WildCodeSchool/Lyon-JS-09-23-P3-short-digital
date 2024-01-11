@@ -6,6 +6,7 @@
     height: 40%;
   }
 }
+
 @media screen and (min-width: 1000px) {
   .embla__button__next:disabled {
     opacity: 0.3;
@@ -29,7 +30,11 @@
     padding: 0;
     margin: 0;
   }
-  .carousel__embla__button__next__svg {
+  .heroSlider {
+    width: 40%;
+    height: 40%;
+  }
+  .carousel {
     width: 40%;
     height: 40%;
   }
