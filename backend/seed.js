@@ -17,16 +17,16 @@ const seed = async () => {
     // Generating Seed Data
 
     const valuesUser = [
-      ["lulu", "lapraline", "luluentreprise@mail.com", "Praluxor"],
-      ["gary", "tortue", "tjrplusvite@studio.com", "lievre"],
-      ["aglae", "martin", "cupcake4life@mail.com", "die4cakes"],
-      ["ulrick", "dupont", "dout@dupont.com", "Alexandre"],
+      ["lulu", "lapraline", "luluentreprise@mail.com", "Praluxor", "toto"],
+      ["gary", "tortue", "tjrplusvite@studio.com", "lievre", "tata"],
+      ["aglae", "martin", "cupcake4life@mail.com", "die4cakes", "titi"],
+      ["ulrick", "dupont", "dout@dupont.com", "Alexandre", "tutu"],
     ];
 
     for await (const rowValues of valuesUser) {
       queries.push(
         database.query(
-          "INSERT INTO user (firstname, lastname, mail, pseudo) VALUES (?)",
+          "INSERT INTO user (firstname, lastname, mail, pseudo, hashed_password) VALUES (?)",
           [rowValues]
         )
       );
