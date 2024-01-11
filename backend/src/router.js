@@ -1,4 +1,5 @@
 const express = require("express");
+const { hashPassword } = require("./services/auth");
 
 const router = express.Router();
 
@@ -9,6 +10,7 @@ const router = express.Router();
 // Import itemControllers module for handling item-related operations
 const itemControllers = require("./controllers/itemControllers");
 const videoControllers = require("./controllers/videoControllers");
+const userControllers = require("./controllers/userControllers");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -32,6 +34,10 @@ router.get("/videosSelected", videoControllers.readByCategories);
 
 // route qui ajoute/supprime un like à une video
 router.put("/videos/:id/like/:user", videoControllers.likeVideo);
+
+// Route to add a new user
+router.post("/users", hashPassword, userControllers.add);
+
 /* ************************************************************************* */
 
 module.exports = router;
