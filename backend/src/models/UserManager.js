@@ -18,6 +18,24 @@ class UserManager extends AbstractManager {
       ]
     );
   }
+
+  async read(id) {
+    const [rows] = await this.database.query(
+      `select firstname, lastname, mail, pseudo from ${this.table} where id = ?`,
+      [id]
+    );
+
+    return rows[0];
+  }
+
+  async readByEmailWithPassword(mail) {
+    const [rows] = await this.database.query(
+      `select mail, hashed_password from ${this.table} where mail = ?`,
+      [mail]
+    );
+
+    return rows[0];
+  }
 }
 
 module.exports = UserManager;
