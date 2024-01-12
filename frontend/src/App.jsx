@@ -11,7 +11,6 @@ function App() {
   const title3 = "Les Plus Plebicites";
   return (
     <>
-      {/* <Miniature carouselClass="videoSlider" idMiniature={2} /> */}
       <Navbar />
       <HeroSlider />
       <Boutons />
