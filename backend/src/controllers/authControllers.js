@@ -9,13 +9,12 @@ const login = async (req, res, next) => {
     if (user === null) {
       res.sendStatus(422);
     }
-
     const verified = await argon2.verify(
       user.hashed_password,
       req.body.password
     );
 
-    if (verified) {
+    if (verified === true) {
       delete user.hashed_password;
 
       const token = await jwt.sign(
