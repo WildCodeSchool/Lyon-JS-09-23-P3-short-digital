@@ -47,7 +47,7 @@ function Videos({ videoInfo }) {
             <img
               style={{ filter: blackAndWhite }}
               alt="pouce en l'air"
-              src="./src/assets/pouce.png"
+              src="../src/assets/pouce.png"
             />
           </button>
           <p>{likes !== 0 ? likes : videoInfo.nbr_like}</p>

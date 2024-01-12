@@ -1,6 +1,6 @@
 .carousel__embla {
   --slide-spacing: 1rem;
-  --slide-size: 60%;
+  --slide-size: 40%;
   --slide-height: 100%;
   position: relative;
   width: 100%;
@@ -31,7 +31,7 @@
         min-width: 0;
         padding-left: var(--slide-spacing);
         position: relative;
-        padding-bottom: 5%;
+        padding-bottom: 2%;
 
         &__number {
           width: 4.6rem;

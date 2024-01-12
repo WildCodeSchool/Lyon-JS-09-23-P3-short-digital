@@ -21,6 +21,10 @@ const router = createBrowserRouter([
     path: "/boutons",
     element: <BoutonsLanguages />,
   },
+  {
+    path: "/video/:id",
+    element: <VideoPage />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -6,36 +6,11 @@ import DotButton from "../SliderOption/DotButton/DotButton";
 import PrevButton from "../SliderOption/PrevButton/PrevButton";
 import NextButton from "../SliderOption/NextButton/NextButton";
 import styles from "./HeroSlider.module.css";
+import Miniature from "../miniature/Miniature";
 
 export default function HeroSlider() {
   // tabl img will goes replace with an table id will passed trhough link for call bdd
-  const img = [
-    {
-      id: "slide1",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide2",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide3",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide4",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-    {
-      id: "slide5",
-      src: "src/assets/CSS1.png",
-      alt: "css miniature videos",
-    },
-  ];
+  const tableId = [1, 2, 3, 4, 5];
   const OPTIONS = { loop: true };
   const autoplayOptions = {
     delay: 3000,
@@ -87,33 +62,31 @@ export default function HeroSlider() {
       <div className={styles.mainContainer__embla}>
         <div className={styles.mainContainer__embla__viewport} ref={emblaRef}>
           <div className={styles.mainContainer__embla__viewport__container}>
-            {img.map((element, index) => (
+            {tableId.map((element, index) => (
               <div
                 className={
                   styles.mainContainer__embla__viewport__container__slide
                 }
-                key={element.id}
+                key={element}
               >
                 <div
                   className={
                     styles.mainContainer__embla__viewport__container__slide__number
                   }
                 >
-                  <span>{index + 1}</span>
+                  <span key={element}>{index + 1}</span>
                 </div>
                 <Link
                   to={{
-                    pathname: "/video",
-                    search: element.alt,
-                    state: { id: element.id },
+                    pathname: `/video/${element}`,
                   }}
                 >
-                  <img
+                  <Miniature
                     className={
                       styles.mainContainer__embla__viewport__container__slide__img
                     }
-                    src={element.src}
-                    alt="Your alt text"
+                    idMiniature={element}
+                    carouselClass="heroSlider"
                   />
                 </Link>
               </div>

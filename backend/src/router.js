@@ -30,7 +30,7 @@ router.post("/items", itemControllers.add);
 // Route to get video information by id
 
 router.get("/videos/:id", videoControllers.read);
-router.get("/videos", videoControllers.readAllImage);
+router.get("/videos/miniatures/:id", videoControllers.readImageById);
 
 router.get("/videos/:id/like/:user", videoControllers.isLikedByUser);
 
