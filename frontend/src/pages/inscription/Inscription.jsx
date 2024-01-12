@@ -11,7 +11,7 @@ function Inscription() {
   const [limitRange, setLimitRange] = useState("");
   const MAX_LENGTH_NAME = 45;
   const MIN_LENGTH_PASSWORD = 8;
-  const MAX_LENGTH_PASSWORD = 10;
+  const MAX_LENGTH_PASSWORD = 200;
   const regexEmail =
     /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,3})/;
   const regexPassword =
@@ -53,8 +53,9 @@ function Inscription() {
   };
 
   const handleChangeConfirmPassword = (cpw) => {
-    if (cpw.target.value === password) {
-      setPassword(cpw.target.value);
+    if (cpw.target.value !== password) {
+      setLimitRange(<small>Le mot de passe ne correspond pas</small>);
+      //
     }
   };
 
@@ -77,6 +78,7 @@ function Inscription() {
       if (response.status === 200) {
         const auth = await response.json();
         console.info(auth);
+        // recuperation des informations pour renvoyer à la page connexion, ou dans l'affichage du site, ou dans un contexte. Le traitement des informations sera finalisé dans une us qui reliera le front au back
       } else {
         // Log des détails de la réponse en cas d'échec
         console.info(response);
@@ -140,7 +142,6 @@ function Inscription() {
                 value={firstname}
                 onChange={handleChangeFirstname}
               />
-              {limitRange}
             </div>
             <div
               className={
@@ -156,7 +157,6 @@ function Inscription() {
                 value={lastname}
                 onChange={handleChangeLastname}
               />
-              {limitRange}
             </div>
             <div
               className={
@@ -172,7 +172,6 @@ function Inscription() {
                 value={email}
                 onChange={handleChangeEmail}
               />
-              {limitRange}
             </div>
             <div
               className={
@@ -188,7 +187,6 @@ function Inscription() {
                 onChange={handleChangePassword}
               />
             </div>
-            {limitRange}
 
             <div
               className={
