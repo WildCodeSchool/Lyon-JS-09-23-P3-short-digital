@@ -13,9 +13,9 @@ const read = async (req, res, next) => {
   }
 };
 
-const readAllImage = async (req, res, next) => {
+const readImageById = async (req, res, next) => {
   try {
-    const videos = await tables.video.readAllImage(req.params.id);
+    const videos = await tables.video.readImageById(req.params.id);
     if (videos == null) {
       res.sendStatus(404);
     } else {
@@ -68,7 +68,7 @@ const isLikedByUser = async (req, res, next) => {
 
 module.exports = {
   read,
-  readAllImage,
+  readImageById,
   readByCategories,
   likeVideo,
   isLikedByUser,
