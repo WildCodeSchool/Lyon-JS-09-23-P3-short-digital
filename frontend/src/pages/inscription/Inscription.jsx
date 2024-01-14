@@ -1,84 +1,31 @@
 /* eslint-disable no-useless-escape */
-import { useState } from "react";
 import styles from "./inscription.module.css";
+import Donnees from "./DonneesFormulaire";
 
 function Inscription() {
-  const [pseudo, setPseudo] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [limitRange, setLimitRange] = useState("");
-  const MAX_LENGTH_NAME = 45;
-  const MIN_LENGTH_PASSWORD = 8;
-  const MAX_LENGTH_PASSWORD = 200;
-  const regexEmail =
-    /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,3})/;
-  const regexPassword =
-    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,20})$/g;
-
-  const handleChangePseudo = (p) => {
-    if (p.target.value.length <= MAX_LENGTH_NAME) {
-      setPseudo(p.target.value);
-      setLimitRange("");
-    }
-  };
-
-  const handleChangeFirstname = (f) => {
-    if (f.target.value.length <= MAX_LENGTH_NAME) {
-      setFirstname(f.target.value);
-    }
-  };
-
-  const handleChangeLastname = (l) => {
-    if (l.target.value.length <= MAX_LENGTH_NAME) {
-      setLastname(l.target.value);
-    }
-  };
-
-  const handleChangeEmail = (e) => {
-    if (e.target.value.match(regexEmail)) {
-      setEmail(e.target.value);
-    }
-  };
-
-  const handleChangePassword = (pw) => {
-    if (
-      pw.target.value.length > MIN_LENGTH_PASSWORD ||
-      (pw.target.value.length <= MAX_LENGTH_PASSWORD &&
-        pw.target.value.match(regexPassword))
-    ) {
-      setPassword(pw.target.value);
-    }
-  };
-
-  const handleChangeConfirmPassword = (cpw) => {
-    if (cpw.target.value !== password) {
-      setLimitRange(<small>Le mot de passe ne correspond pas</small>);
-      //
-    }
-  };
+  const donnees = Donnees();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       // Appel à l'API pour créer un nouvel utilisateur
-      const response = await fetch("http://localhost:3310/api/inscription", {
+      const response = await fetch("http://localhost:3310/api/users", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          pseudo,
-          firstname,
-          lastname,
-          email,
-          password,
+          pseudo: donnees.pseudo,
+          firstname: donnees.firstname,
+          lastname: donnees.lastname,
+          email: donnees.email,
+          confirmPassword: donnees.confirmPassword,
         }),
       });
-      if (response.status === 200) {
+
+      if (response.status === 201) {
         const auth = await response.json();
         console.info(auth);
-        // recuperation des informations pour renvoyer à la page connexion, ou dans l'affichage du site, ou dans un contexte. Le traitement des informations sera finalisé dans une us qui reliera le front au back
+        // recuperation des informations pour renvoyer à la page connexion, ou dans l'affichage du site, ou dans un contexte.
       } else {
         // Log des détails de la réponse en cas d'échec
         console.info(response);
@@ -88,6 +35,51 @@ function Inscription() {
       console.error(err);
     }
   };
+
+  const ranges = [
+    {
+      value: "pseudo",
+      state: donnees.pseudo,
+      text: "Pseudo",
+      function: donnees.handleChangePseudo,
+      small: donnees.falsePseudo,
+    },
+    {
+      value: "firstname",
+      state: donnees.firstname,
+      text: "Prenom",
+      function: donnees.handleChangeFirstname,
+      small: donnees.falseFirstname,
+    },
+    {
+      value: "lastname",
+      state: donnees.lastname,
+      text: "Nom de famille",
+      function: donnees.handleChangeLastname,
+      small: donnees.falseLastname,
+    },
+    {
+      value: "email",
+      state: donnees.email,
+      text: "Email",
+      function: donnees.handleChangeEmail,
+      small: donnees.falseEmail,
+    },
+    {
+      value: "password",
+      state: donnees.password,
+      text: "Mot de passe",
+      function: donnees.handleChangePassword,
+      small: donnees.falsePassword,
+    },
+    {
+      value: "confirmePassword",
+      state: donnees.confirmPassword,
+      text: "Confirmez votre mot de passe",
+      function: donnees.handleChangeConfirmPassword,
+      small: donnees.falseConfirmPassword,
+    },
+  ];
 
   return (
     <div className={styles.inscription}>
@@ -113,98 +105,28 @@ function Inscription() {
               styles.inscription__mainElement__formConteneur__formulaire
             }
           >
-            <div
-              className={
-                styles.inscription__mainElement__formConteneur__formulaire__range
-              }
-            >
-              <label htmlFor="pseudo">Pseudo</label>
-              <input
-                type="text"
-                name="pseudo"
-                id="pseudo"
-                required
-                value={pseudo}
-                onChange={handleChangePseudo}
-              />
-            </div>
-            <div
-              className={
-                styles.inscription__mainElement__formConteneur__formulaire__range
-              }
-            >
-              <label htmlFor="firstname">Prénom</label>
-              <input
-                type="text"
-                name="firstname"
-                id="firstname"
-                required
-                value={firstname}
-                onChange={handleChangeFirstname}
-              />
-            </div>
-            <div
-              className={
-                styles.inscription__mainElement__formConteneur__formulaire__range
-              }
-            >
-              <label htmlFor="lastname">Nom de famille</label>
-              <input
-                type="text"
-                name="lastname"
-                id="lastname"
-                required
-                value={lastname}
-                onChange={handleChangeLastname}
-              />
-            </div>
-            <div
-              className={
-                styles.inscription__mainElement__formConteneur__formulaire__range
-              }
-            >
-              <label htmlFor="email">Email</label>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                required
-                value={email}
-                onChange={handleChangeEmail}
-              />
-            </div>
-            <div
-              className={
-                styles.inscription__mainElement__formConteneur__formulaire__range
-              }
-            >
-              <label htmlFor="password">Mot de passe</label>
-              <input
-                type="text"
-                name="password"
-                id="password"
-                required
-                onChange={handleChangePassword}
-              />
-            </div>
-
-            <div
-              className={
-                styles.inscription__mainElement__formConteneur__formulaire__range
-              }
-            >
-              <label htmlFor="confirmPassword">
-                Confirmez votre mot de passe
-              </label>
-              <input
-                type="text"
-                name="confirmPassword"
-                id="confirmPassword"
-                required
-                onChange={handleChangeConfirmPassword}
-              />
-              {limitRange}
-            </div>
+            {ranges.map((e) => (
+              <div
+                className={
+                  styles.inscription__mainElement__formConteneur__formulaire__range
+                }
+              >
+                <label htmlFor={e.value}>{e.text}</label>
+                <input
+                  type={
+                    e.value === "password" || e.value === "confirmePassword"
+                      ? "password"
+                      : "text"
+                  }
+                  name={e.value}
+                  id={e.value}
+                  value={e.state}
+                  onChange={e.function}
+                  required
+                />
+                {e.small}
+              </div>
+            ))}
             <div
               className={
                 styles.inscription__mainElement__formConteneur__formulaire__range
