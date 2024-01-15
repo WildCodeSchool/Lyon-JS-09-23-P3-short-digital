@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Donnees from "./DonneesFormulaire";
 import styles from "./connexion.module.css";
 
 function Connexion() {
   const donnees = Donnees();
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -18,7 +20,9 @@ function Connexion() {
         }),
       });
 
-      if (response.status === 201) {
+      if (response.status === 200) {
+        navigate("/");
+
         const auth = await response.json();
         console.info(auth);
         // recuperation des informations pour renvoyer à la page connexion, ou dans l'affichage du site, ou dans un contexte.
