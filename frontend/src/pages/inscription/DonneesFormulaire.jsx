@@ -75,7 +75,7 @@ function DonneesFormulaire() {
 
   const handleChangeConfirmPassword = (cpw) => {
     setConfirmPassword(cpw.target.value);
-    if (cpw.target.value === password) {
+    if (cpw.target.value === password && password.length !== 0) {
       setFalseConfirmPassword("");
     } else {
       setFalseConfirmPassword(

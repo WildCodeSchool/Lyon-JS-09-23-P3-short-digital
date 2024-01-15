@@ -1,10 +1,11 @@
 /* eslint-disable no-useless-escape */
+import { useNavigate } from "react-router-dom";
 import styles from "./inscription.module.css";
 import Donnees from "./DonneesFormulaire";
 
 function Inscription() {
   const donnees = Donnees();
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -23,9 +24,7 @@ function Inscription() {
       });
 
       if (response.status === 201) {
-        const auth = await response.json();
-        console.info(auth);
-        // recuperation des informations pour renvoyer à la page connexion, ou dans l'affichage du site, ou dans un contexte.
+        navigate("/connexion");
       } else {
         // Log des détails de la réponse en cas d'échec
         console.info(response);
