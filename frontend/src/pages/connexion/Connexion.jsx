@@ -9,15 +9,12 @@ function Connexion() {
 
     try {
       // Appel à l'API pour créer un nouvel utilisateur
-      const response = await fetch("http://localhost:3310/api/users", {
+      const response = await fetch("http://localhost:3310/api/login", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          pseudo: donnees.pseudo,
-          firstname: donnees.firstname,
-          lastname: donnees.lastname,
-          email: donnees.email,
-          confirmPassword: donnees.confirmPassword,
+          mail: donnees.mail,
+          password: donnees.password,
         }),
       });
 
@@ -37,11 +34,11 @@ function Connexion() {
 
   const ranges = [
     {
-      value: "pseudo",
-      state: donnees.pseudo,
-      text: "Pseudo",
-      function: donnees.handleChangePseudo,
-      small: donnees.falsePseudo,
+      value: "email",
+      state: donnees.mail,
+      text: "Email",
+      function: donnees.handleChangeEmail,
+      small: donnees.falseEmail,
     },
     {
       value: "password",
