@@ -47,7 +47,7 @@ function Inscription() {
     {
       value: "firstname",
       state: donnees.firstname,
-      text: "Prenom",
+      text: "Prénom",
       function: donnees.handleChangeFirstname,
       small: donnees.falseFirstname,
     },
