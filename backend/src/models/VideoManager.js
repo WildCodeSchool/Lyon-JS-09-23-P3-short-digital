@@ -74,5 +74,13 @@ class MainVideoPlayerManager extends AbstractManager {
       );
     }
   }
+
+  async updateVideo(title, description, id) {
+    await this.database.query(
+      `update ${this.table}
+        set title = ? , description = ? WHERE id= ?`,
+      [title, description, id]
+    );
+  }
 }
 module.exports = MainVideoPlayerManager;
