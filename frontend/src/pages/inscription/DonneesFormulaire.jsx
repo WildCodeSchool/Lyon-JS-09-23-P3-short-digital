@@ -15,7 +15,7 @@ function DonneesFormulaire() {
   const [falsePassword, setFalsePassword] = useState("");
   const [falseConfirmPassword, setFalseConfirmPassword] = useState("");
 
-  const MAX_LENGTH_NAME = 4;
+  const MAX_LENGTH_NAME = 45;
   const MIN_LENGTH_PASSWORD = 8;
   const MAX_LENGTH_PASSWORD = 200;
   const regexEmail =
