@@ -44,6 +44,7 @@ router.put("/videos/:id/like/:user", videoControllers.likeVideo);
 // Routes to get user informations or add a new user
 router.get("/users/:id", userControllers.read);
 router.post("/users", hashPassword, userControllers.add);
+router.put("/users", hashPassword, userControllers.modify);
 
 /* ************************************************************************* */
 
