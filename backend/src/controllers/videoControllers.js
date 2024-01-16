@@ -66,10 +66,24 @@ const isLikedByUser = async (req, res, next) => {
   }
 };
 
+const deletVideo = async (req, res, next) => {
+  try {
+    // const info = req.body;
+    const { videoId } = req.body;
+    await tables.video.deleteVideo(videoId);
+    res.status(200).send("video has been deleted");
+  } catch (err) {
+    console.error(err);
+    next(err);
+    res.status(500).send("this video doesn't exist");
+  }
+};
+
 module.exports = {
   read,
   readImageById,
   readByCategories,
   likeVideo,
   isLikedByUser,
+  deletVideo,
 };

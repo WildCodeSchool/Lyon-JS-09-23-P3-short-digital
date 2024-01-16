@@ -16,7 +16,6 @@ const authControllers = require("./controllers/authControllers");
 router.post("/login", authControllers.login);
 
 // Authentication wall that allows to protect all routes after that
-router.use(verifyToken);
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -38,6 +37,10 @@ router.get("/videos/:id/like/:user", videoControllers.isLikedByUser);
 
 router.get("/videosSelected", videoControllers.readByCategories);
 
+// route qui suprime une video
+
+router.delete("/video/delete", videoControllers.deletVideo);
+
 // route qui ajoute/supprime un like à une video
 router.put("/videos/:id/like/:user", videoControllers.likeVideo);
 
@@ -45,6 +48,7 @@ router.put("/videos/:id/like/:user", videoControllers.likeVideo);
 router.get("/users/:id", userControllers.read);
 router.post("/users", hashPassword, userControllers.add);
 
+router.use(verifyToken);
 /* ************************************************************************* */
 
 module.exports = router;

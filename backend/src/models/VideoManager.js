@@ -74,5 +74,39 @@ class MainVideoPlayerManager extends AbstractManager {
       );
     }
   }
+
+  async checkVideo(videoId) {
+    const check = await this.database.query(
+      "select video_id from video_category where video_id = ?",
+      [videoId]
+    );
+    if (check[0][0].video_id >= 0) {
+      return true;
+    }
+    return false;
+    // console.log(check[0][0].video_id);
+  }
+
+  async deleteVideo(videoId) {
+    const check = await this.readImageById(videoId);
+
+    const videosCategory = this.database.query(
+      `DELETE FROM video_category WHERE video_id = ?`,
+      [videoId]
+    );
+    const likes = this.database.query(`DELETE FROM likes WHERE video_id = ?`, [
+      videoId,
+    ]);
+    if (check.id === videoId) {
+      videosCategory.then(likes).then(
+        this.database.query(
+          `DELETE FROM ${this.table}
+         WHERE id = ?`,
+          [videoId]
+        )
+      );
+    }
+  }
 }
+
 module.exports = MainVideoPlayerManager;
