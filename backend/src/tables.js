@@ -5,12 +5,12 @@
 // Import the manager modules responsible for handling data operations on the tables
 const ItemManager = require("./models/ItemManager");
 const VideoManager = require("./models/VideoManager");
-const MiniatureManager = require("./models/MiniatureManager");
+const UserManager = require("./models/UserManager");
 
 const managers = [
   ItemManager,
   VideoManager,
-  MiniatureManager,
+  UserManager,
   // Add other managers here
 ];
 

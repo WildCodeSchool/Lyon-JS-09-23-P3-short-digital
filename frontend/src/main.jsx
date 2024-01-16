@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./App.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/boutons",
     element: <BoutonsLanguages />,
+  },
+  {
+    path: "/video/:id",
+    element: <VideoPage />,
   },
 ]);
 
