@@ -18,8 +18,8 @@ function Inscription() {
           pseudo: donnees.pseudo,
           firstname: donnees.firstname,
           lastname: donnees.lastname,
-          email: donnees.email,
-          confirmPassword: donnees.confirmPassword,
+          mail: donnees.email,
+          password: donnees.confirmPassword,
         }),
       });
 
