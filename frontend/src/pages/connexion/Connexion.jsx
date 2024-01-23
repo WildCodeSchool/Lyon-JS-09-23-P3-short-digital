@@ -13,7 +13,9 @@ function Connexion() {
       // Appel à l'API pour créer un nouvel utilisateur
       const response = await fetch("http://localhost:3310/api/login", {
         method: "post",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           mail: donnees.mail,
           password: donnees.password,
