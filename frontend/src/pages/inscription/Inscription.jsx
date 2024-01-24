@@ -1,40 +1,15 @@
 /* eslint-disable no-useless-escape */
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import styles from "./inscription.module.css";
 import Donnees from "./DonneesFormulaire";
 
 function Inscription() {
   const donnees = Donnees();
   const navigate = useNavigate();
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      // Appel à l'API pour créer un nouvel utilisateur
-      const response = await fetch("http://localhost:3310/api/users", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          pseudo: donnees.pseudo,
-          firstname: donnees.firstname,
-          lastname: donnees.lastname,
-          mail: donnees.email,
-          password: donnees.confirmPassword,
-        }),
-      });
-
-      if (response.status === 201) {
-        navigate("/connexion");
-      } else {
-        // Log des détails de la réponse en cas d'échec
-        console.info(response);
-      }
-    } catch (err) {
-      // Log des erreurs possibles
-      console.error(err);
-    }
-  };
-
+  const [isNotOK, setIsNotOk] = useState(
+    styles.inscription__mainElement__OkMessage
+  );
   const ranges = [
     {
       value: "pseudo",
@@ -80,6 +55,42 @@ function Inscription() {
     },
   ];
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (
+      ranges[0].state > 0 ||
+      ranges[1].state > 0 ||
+      ranges[2].state > 0 ||
+      ranges[3].state > 0 ||
+      ranges[4].state > 0 ||
+      ranges[5].state > 0
+    ) {
+      try {
+        // Appel à l'API pour créer un nouvel utilisateur
+        const response = await fetch("http://localhost:3310/api/users", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            pseudo: donnees.pseudo,
+            firstname: donnees.firstname,
+            lastname: donnees.lastname,
+            mail: donnees.email,
+            password: donnees.confirmPassword,
+          }),
+        });
+
+        if (response.status === 201) {
+          navigate("/connexion");
+        }
+      } catch (err) {
+        // Log des erreurs possibles
+        console.error(err);
+      }
+    } else {
+      setIsNotOk(styles.inscription__mainElement__notOkMessage);
+    }
+  };
+
   return (
     <div className={styles.inscription}>
       <div className={styles.inscription__mainElement}>
@@ -93,6 +104,7 @@ function Inscription() {
           src="./src/assets/logop3.svg"
           alt=""
         />
+        <p className={isNotOK}>un probleme est survenu</p>
         <div className={styles.inscription__mainElement__formConteneur}>
           <h1 className={styles.inscription__mainElement__formConteneur__title}>
             Inscrivez vous
