@@ -75,17 +75,6 @@ class MainVideoPlayerManager extends AbstractManager {
     }
   }
 
-  async checkVideo(videoId) {
-    const check = await this.database.query(
-      "select video_id from video_category where video_id = ?",
-      [videoId]
-    );
-    if (check[0][0].video_id >= 0) {
-      return true;
-    }
-    return false;
-  }
-
   async deleteVideo(videoId, userId) {
     const check = await this.database.query(
       "SELECT * FROM video WHERE user_id = ? AND id = ?",
