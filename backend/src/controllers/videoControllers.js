@@ -67,11 +67,12 @@ const isLikedByUser = async (req, res, next) => {
 };
 const ModifyVideo = async (req, res, next) => {
   try {
-    const id = parseInt(req.params.id, 10);
     const { title } = req.body;
     const { description } = req.body;
-    await tables.video.updateVideo(title, description, id);
-    res.status(200).send("updated video");
+    const { videoId } = req.body;
+    const { userId } = req.body;
+    await tables.video.updateVideo(title, description, videoId, userId);
+    res.status(200).send("video was updated");
   } catch (err) {
     console.error(err);
     res.sendStatus(500);
