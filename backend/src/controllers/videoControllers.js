@@ -66,16 +66,16 @@ const isLikedByUser = async (req, res, next) => {
   }
 };
 
-const deletVideo = async (req, res, next) => {
+const videoDelete = async (req, res, next) => {
+  const { videoId } = req.body;
+  const { userId } = req.body;
   try {
-    // const info = req.body;
-    const { videoId } = req.body;
-    await tables.video.deleteVideo(videoId);
-    res.status(200).send("video has been deleted");
+    const message = await tables.video.deleteVideo(videoId, userId);
+    res.status(200).send(message);
   } catch (err) {
     console.error(err);
+    res.status(500).send("video not found");
     next(err);
-    res.status(500).send("this video doesn't exist");
   }
 };
 
@@ -85,5 +85,5 @@ module.exports = {
   readByCategories,
   likeVideo,
   isLikedByUser,
-  deletVideo,
+  videoDelete,
 };

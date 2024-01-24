@@ -5,7 +5,9 @@
     "db:seed": "node seed.js",
     "build": "node migrate.js",
     "start": "node index.js",
-    "test": "jest"
+    "test": "jest",
+    "prettierC": "prettier -c src",
+    "prettierW": "prettier -w src"
   },
   "dependencies": {
     "argon2": "^0.31.2",

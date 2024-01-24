@@ -39,7 +39,7 @@ router.get("/videosSelected", videoControllers.readByCategories);
 
 // route qui suprime une video
 
-router.delete("/video/delete", videoControllers.deletVideo);
+router.delete("/video/delete", videoControllers.videoDelete);
 
 // route qui ajoute/supprime un like à une video
 router.put("/videos/:id/like/:user", videoControllers.likeVideo);
