@@ -1,11 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Donnees from "./DonneesFormulaire";
 import styles from "./connexion.module.css";
 
 function Connexion() {
   const donnees = Donnees();
   const navigate = useNavigate();
-
+  const [connexion, setConnexion] = useState(
+    styles.inscription__mainElement__isOk
+  );
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -31,6 +34,7 @@ function Connexion() {
       } else {
         // Log des détails de la réponse en cas d'échec
         console.info(response);
+        setConnexion(styles.inscription__mainElement__isNotOk);
       }
     } catch (err) {
       // Log des erreurs possibles
@@ -54,6 +58,10 @@ function Connexion() {
     },
   ];
 
+  const handleClick = () => {
+    navigate("/inscription");
+  };
+
   return (
     <div className={styles.inscription}>
       <div className={styles.inscription__mainElement}>
@@ -67,6 +75,7 @@ function Connexion() {
           src="./src/assets/logop3.svg"
           alt=""
         />
+        <p className={connexion}>L'email ou le mot de passe est incorrect</p>
         <div className={styles.inscription__mainElement__formConteneur}>
           <h1 className={styles.inscription__mainElement__formConteneur__title}>
             Connectez-vous
@@ -116,20 +125,15 @@ function Connexion() {
             >
               Ou
             </p>
-            <div
+            <button
+              type="button"
+              onClick={handleClick}
               className={
-                styles.inscription__mainElement__formConteneur__formulaire__range
+                styles.inscription__mainElement__formConteneur__formulaire__button
               }
             >
-              <Link
-                className={
-                  styles.inscription__mainElement__formConteneur__formulaire__button
-                }
-                to="/"
-              >
-                Inscription
-              </Link>
-            </div>
+              Inscription
+            </button>
           </form>
         </div>
       </div>
