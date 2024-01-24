@@ -1,16 +1,12 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
-  const [active, setActive] = useState(false);
+  const navigate = useNavigate();
 
-  function handleClick() {
-    setActive(!active);
-  }
-  const category = ["JavaScript", "css", "Java", "Autre", "php", "Python"];
-  const lastMenuElement = category[category.length - 1];
-  const menu = active === true ? styles.active : styles.categoryList;
+  const handleClickConnexion = () => {
+    navigate("/connexion");
+  };
 
   return (
     <nav>
@@ -27,31 +23,18 @@ export default function Navbar() {
             Accueil
           </Link>
         </li>
-        <li>Recherche</li>
-        <li id={styles.category}>
-          <button
-            type="button"
-            onClick={handleClick}
-            className={styles.buttonCategory}
-          >
-            Categories
-          </button>
-
-          <ul className={styles.categoryMenu}>
-            {category.map((categorie) => (
-              <li
-                id={lastMenuElement === categorie && styles.lastMenuElement}
-                key={categorie}
-                className={menu}
-              >
-                <a href="https://laPageNExistePasEncore.com">{categorie}</a>
-              </li>
-            ))}
-          </ul>
+        <li>
+          <Link to="/upload" className={styles.navbar}>
+            Ajouter une video
+          </Link>
         </li>
-        <li>Ajouter une video</li>
+        <li />
       </ul>
-      <button type="button" className={styles.btnConnection}>
+      <button
+        type="button"
+        className={styles.btnConnection}
+        onClick={handleClickConnexion}
+      >
         Se Connecter
       </button>
       <img className={styles.imgProfil} src="./src/assets/profil.png" alt="" />
