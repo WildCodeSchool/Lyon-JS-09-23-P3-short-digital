@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
@@ -38,9 +37,9 @@ export default function Navbar() {
           <a href="htts://lien-pour-eslint">Ajouter une video</a>{" "}
         </li>
       </ul>
-      <Link to="/connexion" className={styles.btnConnection}>
+      <button type="button" className={styles.btnConnection}>
         Se Connecter
-      </Link>
+      </button>
       <img className={styles.imgProfil} src="./src/assets/profil.png" alt="" />
     </nav>
   );
