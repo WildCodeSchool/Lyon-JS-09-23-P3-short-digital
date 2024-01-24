@@ -70,11 +70,10 @@ const videoDelete = async (req, res, next) => {
   const { videoId } = req.body;
   const { userId } = req.body;
   try {
-    const message = await tables.video.deleteVideo(videoId, userId);
-    res.status(200).send(message);
+    await tables.video.deleteVideo(videoId, userId);
+    res.status(200).send("videos was delete");
   } catch (err) {
-    console.error(err);
-    res.status(500).send("video not found");
+    res.status(500).send(err.message);
     next(err);
   }
 };

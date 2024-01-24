@@ -84,7 +84,6 @@ class MainVideoPlayerManager extends AbstractManager {
       return true;
     }
     return false;
-    // console.log(check[0][0].video_id);
   }
 
   async deleteVideo(videoId, userId) {
@@ -107,11 +106,9 @@ class MainVideoPlayerManager extends AbstractManager {
       await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [
         videoId,
       ]);
-
-      return "video was deleted"; // Video deleted successfully
+    } else {
+      throw new Error("video not found"); // Video not found
     }
-
-    return "video not found"; // Video not found
   }
 }
 
