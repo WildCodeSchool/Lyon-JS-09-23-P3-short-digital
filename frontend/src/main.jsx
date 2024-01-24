@@ -7,6 +7,7 @@ import UserContext from "./Utiles/UserContext";
 
 import App from "./App";
 import VideoPage from "./pages/VideoPage";
+import Connexion from "./pages/connexion/Connexion";
 import BoutonsLanguages from "./components/boutonsLanguages/BoutonsLanguages";
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/video/:id",
     element: <VideoPage />,
+  },
+  {
+    path: "connexion",
+    element: <Connexion />,
   },
 ]);
 

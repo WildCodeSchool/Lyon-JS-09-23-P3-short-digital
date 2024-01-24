@@ -17,7 +17,7 @@ function Connexion() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          mail: donnees.mail,
+          mail: donnees.email,
           password: donnees.password,
         }),
       });
@@ -40,7 +40,7 @@ function Connexion() {
   const ranges = [
     {
       value: "email",
-      state: donnees.mail,
+      state: donnees.email,
       text: "Email",
       function: donnees.handleChangeEmail,
       small: donnees.falseEmail,
@@ -109,7 +109,13 @@ function Connexion() {
             >
               Connexion
             </button>
-            <p>Ou</p>
+            <p
+              className={
+                styles.inscription__mainElement__formConteneur__formulaire__paragraphe
+              }
+            >
+              Ou
+            </p>
             <div
               className={
                 styles.inscription__mainElement__formConteneur__formulaire__range

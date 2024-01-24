@@ -59,7 +59,7 @@ body {
   margin: 1%;
 }
 .inscription__mainElement__formConteneur__formulaire__button {
-  margin: 4%;
+  height: 30px;
   background: linear-gradient(#454766 10px, #20212f);
   cursor: pointer;
   background-color: #454766;
@@ -72,11 +72,10 @@ body {
   text-align: center;
   width: 100%;
 }
+.inscription__mainElement__formConteneur__formulaire__paragraphe {
+  margin-top: 5px;
+}
 
-/*
-button {
-    width: 100%;
-} */
 label {
   margin-bottom: 2%;
 }
@@ -113,11 +112,15 @@ input {
   .inscription__mainElement__formConteneur__formulaire {
     width: 80%;
   }
-  .inscription__mainElement input {
+  .inscription__mainElement__formConteneur__formulaire__button {
+    width: 100%;
     height: 6vh;
   }
-  button {
-    width: 25%;
+  .inscription__mainElement__formConteneur__formulaire__paragraphe {
+    margin-top: 30px;
+  }
+  .inscription__mainElement input {
+    height: 6vh;
   }
 }
 
