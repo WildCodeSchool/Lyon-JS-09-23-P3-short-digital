@@ -37,7 +37,6 @@ function Connexion() {
       console.error(err);
     }
   };
-
   const ranges = [
     {
       value: "email",

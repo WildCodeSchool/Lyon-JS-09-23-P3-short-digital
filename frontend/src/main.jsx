@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./App.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import UserContext from "./Utiles/UserContext";
 
 import App from "./App";
 import VideoPage from "./pages/VideoPage";
@@ -31,6 +32,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserContext.Provider>
+      <RouterProvider router={router} />
+    </UserContext.Provider>
   </React.StrictMode>
 );
