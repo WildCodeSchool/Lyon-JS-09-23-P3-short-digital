@@ -7,10 +7,13 @@
     "prettierW": "prettier -w src"
   },
   "dependencies": {
+    "embla-carousel-autoplay": "^8.0.0-rc19",
+    "embla-carousel-react": "^8.0.0-rc19",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.14.2"
+    "react-router-dom": "^6.14.2",
+    "react-toastify": "^10.0.4"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.3",

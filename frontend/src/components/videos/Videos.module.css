@@ -35,9 +35,13 @@
   align-items: center;
   margin: 2% 0;
 }
+#videoContainer #informations__likes__button {
+  background-color: transparent;
+  border: 0;
+  margin-right: 2%;
+}
 #videoContainer #informations__likes img {
   height: 1.5rem;
-  margin-right: 2%;
 }
 #videoContainer #informations__likes p {
   margin-right: 10%;
@@ -54,4 +58,6 @@
     width: 96vw;
     margin: 0 2vw;
   }
-} /*# sourceMappingURL=Videos.module.css.map */
+}
+
+/*# sourceMappingURL=Videos.module.css.map */

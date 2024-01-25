@@ -13,9 +13,9 @@ const read = async (req, res, next) => {
   }
 };
 
-const readAllImage = async (req, res, next) => {
+const readImageById = async (req, res, next) => {
   try {
-    const videos = await tables.video.readAllImage();
+    const videos = await tables.video.readImageById(req.params.id);
     if (videos == null) {
       res.sendStatus(404);
     } else {
@@ -40,4 +40,51 @@ const readByCategories = async (req, res, next) => {
   }
 };
 
-module.exports = { read, readAllImage, readByCategories };
+const likeVideo = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const user = parseInt(req.params.user, 10);
+    await tables.video.likeVideo(id, user);
+    res.send("Like value updated");
+  } catch (err) {
+    console.error(err);
+    next(err);
+    res.sendStatus(500);
+  }
+};
+
+const isLikedByUser = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const user = parseInt(req.params.user, 10);
+    const isLiked = await tables.video.isLikedByUser(id, user);
+    res.status(200).json(isLiked);
+  } catch (err) {
+    console.error(err);
+    next(err);
+    res.sendStatus(500);
+  }
+};
+const ModifyVideo = async (req, res, next) => {
+  try {
+    const { title } = req.body;
+    const { description } = req.body;
+    const { videoId } = req.body;
+    const { userId } = req.body;
+    await tables.video.updateVideo(title, description, videoId, userId);
+    res.status(200).send("video was updated");
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+    next(err);
+  }
+};
+
+module.exports = {
+  read,
+  readImageById,
+  readByCategories,
+  likeVideo,
+  isLikedByUser,
+  ModifyVideo,
+};
