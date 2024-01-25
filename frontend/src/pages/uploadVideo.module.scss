@@ -1,0 +1,32 @@
+#uploadVideoContainer {
+  background-color: #20212f;
+  color: white;
+  height: 100vh;
+  &__form {
+    position: relative;
+    width: 80%;
+
+    transform: translate(-50%);
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    label {
+      margin: 1vh 0;
+    }
+
+    input {
+      margin-bottom: 2vh;
+    }
+  }
+}
+
+/*@media screen and (max-width = 1000px) {
+  #uploadVideoContainer {
+    justify-content: center;
+  }
+}
+*/

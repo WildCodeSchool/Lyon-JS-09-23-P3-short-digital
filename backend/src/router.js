@@ -15,9 +15,6 @@ const authControllers = require("./controllers/authControllers");
 
 router.post("/login", authControllers.login);
 
-// Authentication wall that allows to protect all routes after that
-router.use(verifyToken);
-
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
 
@@ -41,9 +38,15 @@ router.get("/videosSelected", videoControllers.readByCategories);
 // route qui ajoute/supprime un like à une video
 router.put("/videos/:id/like/:user", videoControllers.likeVideo);
 
+// route qui ajoute une nouvelle video
+router.post("/videos/upload", videoControllers.uploadVideo);
+
 // Routes to get user informations or add a new user
 router.get("/users/:id", userControllers.read);
 router.post("/users", hashPassword, userControllers.add);
+
+// Authentication wall that allows to protect all routes after that
+router.use(verifyToken);
 
 /* ************************************************************************* */
 

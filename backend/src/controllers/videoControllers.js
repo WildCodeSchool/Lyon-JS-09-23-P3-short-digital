@@ -66,10 +66,24 @@ const isLikedByUser = async (req, res, next) => {
   }
 };
 
+const uploadVideo = async (req, res, next) => {
+  try {
+    const video = await tables.video.uploadVideo(req.body.video);
+    if (video === null) {
+      res.sendStatus(404);
+    } else {
+      res.json("Data enregistrée");
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   read,
   readImageById,
   readByCategories,
   likeVideo,
   isLikedByUser,
+  uploadVideo,
 };

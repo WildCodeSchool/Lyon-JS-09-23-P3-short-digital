@@ -74,5 +74,19 @@ class MainVideoPlayerManager extends AbstractManager {
       );
     }
   }
+
+  async uploadVideo({
+    name,
+    videoUrl,
+    miniatureUrl,
+    description,
+    weight,
+    userId,
+  }) {
+    await this.database.query(
+      "INSERT INTO video (title, link, image, description, weight, user_id, duration) VALUES (?, ?, ?, ?, ?, ?, 2)",
+      [name, videoUrl, miniatureUrl, description, weight, userId]
+    );
+  }
 }
 module.exports = MainVideoPlayerManager;
