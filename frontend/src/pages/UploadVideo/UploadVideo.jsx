@@ -8,8 +8,8 @@ import {
   getMetadata,
 } from "firebase/storage";
 import CircularProgress from "@mui/material/CircularProgress";
-import Navbar from "../layout/navbar/Navbar";
-import NavMobile from "../layout/NavMobile/NavMobile";
+import Navbar from "../../layout/navbar/Navbar";
+import NavMobile from "../../layout/NavMobile/NavMobile";
 import styles from "./uploadVideo.module.css";
 
 function UploadVideo() {
