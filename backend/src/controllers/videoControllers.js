@@ -86,7 +86,7 @@ const uploadVideo = async (req, res, next) => {
     if (video === null) {
       res.sendStatus(404);
     } else {
-      res.json("Data enregistrée");
+      res.json(video);
     }
   } catch (err) {
     next(err);

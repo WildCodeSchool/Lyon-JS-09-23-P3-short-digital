@@ -97,10 +97,11 @@ class MainVideoPlayerManager extends AbstractManager {
     weight,
     userId,
   }) {
-    await this.database.query(
+    const result = await this.database.query(
       "INSERT INTO video (title, link, image, description, weight, user_id, duration) VALUES (?, ?, ?, ?, ?, ?, 2)",
       [name, videoUrl, miniatureUrl, description, weight, userId]
     );
+    return result;
   }
 }
 module.exports = MainVideoPlayerManager;
