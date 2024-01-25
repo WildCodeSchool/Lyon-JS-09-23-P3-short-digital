@@ -30,25 +30,14 @@ const hashPassword = async (req, res, next) => {
 
 const verifyToken = (req, res, next) => {
   try {
-    const authorizationHeader = req.get("Authorization");
-
-    if (authorizationHeader === null) {
-      throw new Error("La requête n'a pas l'en-tête 'Authorization'");
+    const token = req.cookies.access_token;
+    if (!token) {
+      return res.sendStatus(403);
     }
-
-    const [type, token] = authorizationHeader.split(" ");
-
-    if (type !== "Bearer") {
-      throw new Error("l'en-tête 'Authorization' n'a pas le type 'Bearer'");
-    }
-
     req.auth = jwt.verify(token, process.env.APP_SECRET);
-
-    next();
+    return next();
   } catch (err) {
-    console.error(err);
-
-    res.sendStatus(401);
+    return res.sendStatus(401).send("il y eu une erreur");
   }
 };
 
