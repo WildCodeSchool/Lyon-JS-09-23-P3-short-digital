@@ -26,6 +26,7 @@ function Connexion() {
       // Appel à l'API pour créer un nouvel utilisateur
       const response = await fetch("http://localhost:3310/api/login", {
         method: "post",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
