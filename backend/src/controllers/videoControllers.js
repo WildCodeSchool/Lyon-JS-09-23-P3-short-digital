@@ -80,6 +80,18 @@ const ModifyVideo = async (req, res, next) => {
   }
 };
 
+const videoDelete = async (req, res, next) => {
+  const { videoId } = req.body;
+  const { userId } = req.body;
+  try {
+    await tables.video.deleteVideo(videoId, userId);
+    res.status(200).send("videos was delete");
+  } catch (err) {
+    res.status(500).send(err.message);
+    next(err);
+  }
+};
+
 const uploadVideo = async (req, res, next) => {
   try {
     const video = await tables.video.uploadVideo(req.body.video);
@@ -99,6 +111,7 @@ module.exports = {
   readByCategories,
   likeVideo,
   isLikedByUser,
+  videoDelete,
   ModifyVideo,
   uploadVideo,
 };
