@@ -1,14 +1,24 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import Donnees from "./DonneesFormulaire";
 import styles from "./connexion.module.css";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function Connexion() {
   const donnees = Donnees();
   const navigate = useNavigate();
-  const [connexion, setConnexion] = useState(
-    styles.inscription__mainElement__isOk
-  );
+  const notifyErreur = () =>
+    toast("Une erreur est survenue", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -34,7 +44,7 @@ function Connexion() {
       } else {
         // Log des détails de la réponse en cas d'échec
         console.info(response);
-        setConnexion(styles.inscription__mainElement__isNotOk);
+        notifyErreur();
       }
     } catch (err) {
       // Log des erreurs possibles
@@ -75,7 +85,6 @@ function Connexion() {
           src="./src/assets/logop3.svg"
           alt=""
         />
-        <p className={connexion}>L'email ou le mot de passe est incorrect</p>
         <div className={styles.inscription__mainElement__formConteneur}>
           <h1 className={styles.inscription__mainElement__formConteneur__title}>
             Connectez-vous
@@ -134,6 +143,18 @@ function Connexion() {
             >
               Inscription
             </button>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
           </form>
         </div>
       </div>
