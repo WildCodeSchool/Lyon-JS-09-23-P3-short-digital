@@ -6,14 +6,12 @@
   justify-content: center;
   align-items: center;
   justify-content: space-around;
-  height: -moz-fit-content;
   height: fit-content;
   padding: 2%;
   position: sticky;
 }
 
 .aLink {
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -25,4 +23,6 @@
   .navmobile {
     display: none;
   }
-} /*# sourceMappingURL=NavMobile.module.css.map */
+}
+
+/*# sourceMappingURL=NavMobile.module.css.map */
