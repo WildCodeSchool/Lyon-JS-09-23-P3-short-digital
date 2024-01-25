@@ -6,7 +6,7 @@ export default function NavMobile() {
       src: "src/assets/home.svg",
       alt: "home logo",
       id: 1,
-      path: "#path for eslint",
+      path: "/",
     },
     {
       src: "src/assets/search.svg",
@@ -18,19 +18,19 @@ export default function NavMobile() {
       src: "src/assets/circle.svg",
       alt: "add circle logo",
       id: 3,
-      path: "#path for eslint",
+      path: "/upload",
     },
     {
       src: "src/assets/favorite.svg",
       alt: "favorite logo",
       id: 4,
-      path: "#path for eslint",
+      path: "/user",
     },
     {
       src: "src/assets/account.svg",
       alt: "profile logo",
       id: 5,
-      path: "#path for eslint",
+      path: "/user",
     },
   ];
 
