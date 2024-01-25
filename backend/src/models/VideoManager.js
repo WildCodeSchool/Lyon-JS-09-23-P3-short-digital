@@ -75,6 +75,20 @@ class MainVideoPlayerManager extends AbstractManager {
     }
   }
 
+  async updateVideo(title, description, videoId, userId) {
+    const check = await this.database.query(
+      "SELECT * FROM video WHERE user_id = ? AND id = ?",
+      [userId, videoId]
+    );
+    if (check[0].length > 0) {
+      await this.database.query(
+        `update ${this.table}
+          set title = ? , description = ? WHERE id= ?`,
+        [title, description, videoId]
+      );
+    }
+  }
+
   async uploadVideo({
     name,
     videoUrl,

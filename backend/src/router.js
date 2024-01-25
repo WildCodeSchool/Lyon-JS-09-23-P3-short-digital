@@ -34,6 +34,7 @@ router.get("/videos/:id/like/:user", videoControllers.isLikedByUser);
 // route qui recupère le titre et l'image de la miniature video
 
 router.get("/videosSelected", videoControllers.readByCategories);
+router.put("/video", videoControllers.ModifyVideo);
 
 // route qui ajoute/supprime un like à une video
 router.put("/videos/:id/like/:user", videoControllers.likeVideo);

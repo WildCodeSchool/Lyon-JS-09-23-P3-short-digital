@@ -65,6 +65,20 @@ const isLikedByUser = async (req, res, next) => {
     res.sendStatus(500);
   }
 };
+const ModifyVideo = async (req, res, next) => {
+  try {
+    const { title } = req.body;
+    const { description } = req.body;
+    const { videoId } = req.body;
+    const { userId } = req.body;
+    await tables.video.updateVideo(title, description, videoId, userId);
+    res.status(200).send("video was updated");
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+    next(err);
+  }
+};
 
 const uploadVideo = async (req, res, next) => {
   try {
@@ -85,5 +99,6 @@ module.exports = {
   readByCategories,
   likeVideo,
   isLikedByUser,
+  ModifyVideo,
   uploadVideo,
 };
