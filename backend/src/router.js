@@ -36,6 +36,7 @@ router.get("/videos/:id/like/:user", videoControllers.isLikedByUser);
 // route qui recupère le titre et l'image de la miniature video
 
 router.get("/videosSelected", videoControllers.readByCategories);
+router.put("/video", videoControllers.ModifyVideo);
 
 // route qui suprime une video
 
