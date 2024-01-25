@@ -22,19 +22,21 @@ function VideoPage() {
   const categories = ["Javascript", "php", "Python", "Java", "css"];
 
   return (
-    <div className={styles.buttonsContainer}>
-      {categories.map((category) => (
-        <Link
-          to="/"
-          id={styles[category]}
-          className={styles.buttonsContainer__category}
-          type="button"
-          key={category}
-          onClick={() => getCategory(category)}
-        >
-          {category}
-        </Link>
-      ))}
+    <div className={styles.mainButtonsContainer}>
+      <div className={styles.buttonsContainer}>
+        {categories.map((category) => (
+          <Link
+            to="/"
+            id={styles[category]}
+            className={styles.buttonsContainer__category}
+            type="button"
+            key={category}
+            onClick={() => getCategory(category)}
+          >
+            {category}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
