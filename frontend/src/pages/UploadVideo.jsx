@@ -10,16 +10,15 @@ import {
 import Navbar from "../layout/navbar/Navbar";
 import NavMobile from "../layout/NavMobile/NavMobile";
 import styles from "./uploadVideo.module.css";
-import "dotenv/config";
 
 function UploadVideo() {
   const [firebaseConfig] = useState({
-    apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    projectId: process.env.PROJECT_ID,
-    storageBucket: process.env.STORAGE_BUCKET,
-    messagingSenderId: process.env.MESSAGING_SENDER_ID,
-    appId: process.env.APP_ID,
+    apiKey: "AIzaSyAFYtftVDW-hbmQd_278uuY1OTQbUvMdW8",
+    authDomain: "short-digital.firebaseapp.com",
+    projectId: "short-digital",
+    storageBucket: "short-digital.appspot.com",
+    messagingSenderId: "384077321635",
+    appId: "1:384077321635:web:5e568746c07e6d5f793616",
   });
 
   const [video, setVideo] = useState({
