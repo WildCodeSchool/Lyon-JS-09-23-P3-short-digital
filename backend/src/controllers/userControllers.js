@@ -30,7 +30,19 @@ const read = async (req, res, next) => {
   }
 };
 
+const modify = async (req, res, next) => {
+  const user = req.body;
+  try {
+    const insert = await tables.user.modify(user);
+    res.status(200).json({ insert });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 module.exports = {
   add,
   read,
+  modify,
 };

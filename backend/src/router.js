@@ -16,6 +16,7 @@ const authControllers = require("./controllers/authControllers");
 router.post("/users", hashPassword, userControllers.add);
 router.post("/login", authControllers.login);
 router.get("/videos/:id", videoControllers.read);
+router.put("/users", hashPassword, userControllers.modify);
 
 // Authentication wall that allows to protect all routes after that
 router.use(verifyToken);
