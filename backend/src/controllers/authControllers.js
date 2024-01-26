@@ -18,12 +18,20 @@ const login = async (req, res, next) => {
       delete user.hashed_password;
 
       const token = await jwt.sign(
-        { id: user.id, pseudo: user.pseudo },
+        { mail: user.mail },
         process.env.APP_SECRET,
         { expiresIn: "1h" }
       );
-
-      res.json({ token, user });
+      res
+        .cookie("access_token", token, {
+          httpOnly: true,
+          sameSite: "Lax",
+          secure: process.env.NODE_ENV === "production",
+          maxAge: 60000,
+        })
+        .json({
+          user,
+        });
     } else {
       res
         .status(422)
