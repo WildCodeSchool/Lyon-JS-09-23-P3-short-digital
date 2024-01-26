@@ -9,7 +9,13 @@ export default function Miniature({ idMiniature, carouselClass }) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3310/api/videos/miniatures/${idMiniature}`
+          `http://localhost:3310/api/videos/miniatures/${idMiniature}`,
+          {
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         );
 
         if (!response.ok) {

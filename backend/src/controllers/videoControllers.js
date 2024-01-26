@@ -65,6 +65,32 @@ const isLikedByUser = async (req, res, next) => {
     res.sendStatus(500);
   }
 };
+const ModifyVideo = async (req, res, next) => {
+  try {
+    const { title } = req.body;
+    const { description } = req.body;
+    const { videoId } = req.body;
+    const { userId } = req.body;
+    await tables.video.updateVideo(title, description, videoId, userId);
+    res.status(200).send("video was updated");
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+    next(err);
+  }
+};
+
+const videoDelete = async (req, res, next) => {
+  const { videoId } = req.body;
+  const { userId } = req.body;
+  try {
+    await tables.video.deleteVideo(videoId, userId);
+    res.status(200).send("videos was delete");
+  } catch (err) {
+    res.status(500).send(err.message);
+    next(err);
+  }
+};
 
 module.exports = {
   read,
@@ -72,4 +98,6 @@ module.exports = {
   readByCategories,
   likeVideo,
   isLikedByUser,
+  videoDelete,
+  ModifyVideo,
 };
