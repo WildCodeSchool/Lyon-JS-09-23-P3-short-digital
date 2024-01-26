@@ -11,8 +11,9 @@ id INT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (id),
 firstname VARCHAR(45) NOT NULL,
 lastname VARCHAR(45) NOT NULL,
-mail VARCHAR(80) NOT NULL,
-pseudo VARCHAR(45) NOT NULL);
+mail VARCHAR(80) NOT NULL UNIQUE,
+pseudo VARCHAR(45) NOT NULL,
+hashed_password VARCHAR(255) NOT NULL);
 
 
 CREATE TABLE video (
@@ -51,13 +52,12 @@ CONSTRAINT class
 
 
 CREATE TABLE likes (
-id INT NOT NULL AUTO_INCREMENT, 
-PRIMARY KEY (id),
-user_id INT,
-video_id INT,
+user_id INT NOT NULL,
+video_id INT NOT NULL,
 CONSTRAINT likedBy
 	FOREIGN KEY (user_id)
     REFERENCES user(id),
 CONSTRAINT beLiked
 	FOREIGN KEY (video_id)
-    REFERENCES video(id));
+    REFERENCES video(id),
+PRIMARY KEY (user_id, video_id));

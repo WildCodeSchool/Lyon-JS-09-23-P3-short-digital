@@ -6,12 +6,20 @@
 li {
   list-style: none;
   padding: 1rem;
-  font-size: 1.2rem;
 }
+.navbar,
+li,
 a {
   text-decoration: none;
   color: white;
+  font-size: 1.2rem;
+  font-weight: normal;
 }
+
+h3 {
+  cursor: pointer;
+}
+
 nav {
   display: flex;
   align-items: center;
@@ -19,29 +27,9 @@ nav {
   background: linear-gradient(black 20px, transparent);
   width: 100vw;
   justify-content: space-between;
+  text-decoration: none;
 }
 
-#burger {
-  display: block;
-  z-index: 1;
-  background-color: transparent;
-  border: none;
-  width: fit-content;
-  display: none;
-}
-#burger::before {
-  content: "\2630";
-  color: white;
-  font-size: 3rem;
-  z-index: 1;
-  display: none;
-}
-.active #burger::before {
-  content: "\2715";
-}
-.active ul {
-  left: 0;
-}
 .imgLogo {
   width: 4rem;
 }
@@ -55,6 +43,7 @@ nav ul {
   transition: 250ms;
   background-color: rgba(29, 30, 43, 1);
   border-radius: 10px;
+  text-decoration: none;
 }
 .btnConnection {
   display: none;
@@ -66,6 +55,19 @@ nav ul {
 }
 .name {
   color: white;
+}
+
+.categoryList {
+  display: none;
+}
+
+.buttonCategory {
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: normal;
 }
 
 @media screen and (min-width: 1000px) {
@@ -83,9 +85,7 @@ nav ul {
     background-color: transparent;
     position: relative;
   }
-  #burger {
-    display: none;
-  }
+
   .imgLogo {
     display: block;
     width: 5rem;
@@ -104,6 +104,7 @@ nav ul {
     width: 3rem;
     border-radius: 50px;
     display: block;
+    margin-right: 40px;
   }
   .btnConnection:hover {
     background: linear-gradient(rgba(137, 139, 177, 1), black);
@@ -112,5 +113,47 @@ nav ul {
   }
   .name {
     display: none;
+  }
+
+  #category {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    .categoryMenu {
+      display: flex;
+      top: 3rem;
+      flex-direction: column;
+      text-align: center;
+      transition: 0.25s;
+      position: absolute;
+    }
+  }
+
+  .active {
+    background-color: black;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+  }
+
+  .active:hover {
+    color: black;
+    background-color: rgba(137, 139, 177, 1);
+  }
+
+  .buttonCategory {
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+
+  #lastMenuElement {
+    border-radius: 0px 0px 10px 10px;
   }
 }

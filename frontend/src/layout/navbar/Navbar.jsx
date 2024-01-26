@@ -1,43 +1,40 @@
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
-  const [active, setActive] = useState(false);
+  const navigate = useNavigate();
 
-  function burger() {
-    setActive(!active);
-  }
+  const handleClickConnexion = () => {
+    navigate("/connexion");
+  };
 
-  const menu = active === true ? styles.active : null;
   return (
-    <nav className={menu}>
-      <button
-        type="button"
-        id={styles.burger}
-        aria-label="Save"
-        onClick={() => burger()}
-      />
-      <img className={styles.imgLogo} src="./src/assets/logop3.svg" alt="" />
-      <h2 className={styles.name}>Short Digital</h2>
+    <nav>
+      <Link to="/" className={styles.navbar}>
+        <img className={styles.imgLogo} src="./src/assets/logop3.svg" alt="" />
+      </Link>
+      <Link to="/" className={styles.navbar}>
+        <h2 className={styles.name}>Short Digital</h2>
+      </Link>
       <ul>
         <li>
           {" "}
-          <a href="htts://lien-pour-eslint">Acceuil</a>{" "}
+          <Link to="/" className={styles.navbar}>
+            Accueil
+          </Link>
         </li>
         <li>
-          {" "}
-          <a href="htts://lien-pour-eslint">Recherche</a>{" "}
+          <Link to="/upload" className={styles.navbar}>
+            Ajouter une video
+          </Link>
         </li>
-        <li>
-          {" "}
-          <a href="htts://lien-pour-eslint">Categories</a>{" "}
-        </li>
-        <li>
-          {" "}
-          <a href="htts://lien-pour-eslint">Ajouter une video</a>{" "}
-        </li>
+        <li />
       </ul>
-      <button type="button" className={styles.btnConnection}>
+      <button
+        type="button"
+        className={styles.btnConnection}
+        onClick={handleClickConnexion}
+      >
         Se Connecter
       </button>
       <img className={styles.imgProfil} src="./src/assets/profil.png" alt="" />

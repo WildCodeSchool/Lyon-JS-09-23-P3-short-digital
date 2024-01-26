@@ -10,18 +10,19 @@ class MainVideoPlayerManager extends AbstractManager {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `SELECT title, link, image, description, nb_view, pseudo, count(*) as nbr_like from ${this.table} INNER JOIN user ON user.id = video.user_id INNER JOIN likes ON likes.video_id = video.id WHERE video.id =? group by likes.video_id`,
+      `SELECT title, link, image, description, nb_view, pseudo, count(*) as nbr_like from ${this.table} INNER JOIN user ON user.id = video.user_id INNER JOIN likes WHERE video.id =?`,
       [id]
     );
 
     return rows[0];
   }
 
-  async readAllImage() {
+  async readImageById(id) {
     const [rows] = await this.database.query(
-      `SELECT image, id FROM ${this.table}`
+      `SELECT id, image, title FROM ${this.table} where id = ?`,
+      [id]
     );
-    return rows;
+    return rows[0];
   }
 
   async readByCategories(category, limit) {
@@ -42,5 +43,91 @@ class MainVideoPlayerManager extends AbstractManager {
 
     return rows;
   }
+
+  // This function allows to verify is the user likes this video or not
+  async isLikedByUser(id, user) {
+    const [isLiked] = await this.database.query(
+      "SELECT count(*) as nbr_like from likes WHERE video_id = ? and user_id = ?",
+      [id, user]
+    );
+    if (isLiked[0].nbr_like > 0) {
+      return true;
+    }
+    return false;
+  }
+
+  /* This function allows to add a line in likes table if this user didn't like this video, 
+  but if this user already likes this video, this line is deleted in likes table */
+  async likeVideo(id, user) {
+    const isLiked = await this.isLikedByUser(id, user);
+    if (isLiked === true) {
+      await this.database.query(
+        `DELETE FROM likes WHERE video_id = ? AND user_id = ?`,
+        [id, user]
+      );
+    } else {
+      await this.database.query(
+        `INSERT INTO likes (user_id, video_id)
+    VALUES
+    (?, ?)`,
+        [user, id]
+      );
+    }
+  }
+
+  async updateVideo(title, description, videoId, userId) {
+    const check = await this.database.query(
+      "SELECT * FROM video WHERE user_id = ? AND id = ?",
+      [userId, videoId]
+    );
+    if (check[0].length > 0) {
+      await this.database.query(
+        `update ${this.table}
+          set title = ? , description = ? WHERE id= ?`,
+        [title, description, videoId]
+      );
+    }
+  }
+
+  async uploadVideo({
+    name,
+    videoUrl,
+    miniatureUrl,
+    description,
+    weight,
+    userId,
+  }) {
+    const result = await this.database.query(
+      "INSERT INTO video (title, link, image, description, weight, user_id, duration) VALUES (?, ?, ?, ?, ?, ?, 2)",
+      [name, videoUrl, miniatureUrl, description, weight, userId]
+    );
+    return result;
+  }
+
+  async deleteVideo(videoId, userId) {
+    const check = await this.database.query(
+      "SELECT * FROM video WHERE user_id = ? AND id = ?",
+      [userId, videoId]
+    );
+    if (check[0].length > 0) {
+      // Delete entries from related tables
+      await this.database.query(
+        "DELETE FROM video_category WHERE video_id = ?",
+        [videoId]
+      );
+
+      await this.database.query("DELETE FROM likes WHERE video_id = ?", [
+        videoId,
+      ]);
+
+      // Delete the video itself
+      await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [
+        videoId,
+      ]);
+    } else {
+      throw new Error("video not found"); // Video not found
+    }
+  }
 }
+
 module.exports = MainVideoPlayerManager;
