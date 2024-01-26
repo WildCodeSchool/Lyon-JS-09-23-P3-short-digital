@@ -13,7 +13,9 @@ const videoControllers = require("./controllers/videoControllers");
 const userControllers = require("./controllers/userControllers");
 const authControllers = require("./controllers/authControllers");
 
+router.post("/users", hashPassword, userControllers.add);
 router.post("/login", authControllers.login);
+router.get("/videos/:id", videoControllers.read);
 
 // Authentication wall that allows to protect all routes after that
 router.use(verifyToken);
@@ -28,7 +30,6 @@ router.get("/items/:id", itemControllers.read);
 router.post("/items", itemControllers.add);
 
 // Route to get video information by id
-
 router.get("/videos/:id", videoControllers.read);
 router.get("/videos/miniatures/:id", videoControllers.readImageById);
 
@@ -44,7 +45,6 @@ router.put("/videos/:id/like/:user", videoControllers.likeVideo);
 
 // Routes to get user informations or add a new user
 router.get("/users/:id", userControllers.read);
-router.post("/users", hashPassword, userControllers.add);
 
 /* ************************************************************************* */
 

@@ -63,7 +63,7 @@ const seed = async () => {
       [
         "Johnny quenouille",
         "https://firebasestorage.googleapis.com/v0/b/short-digital.appspot.com/o/quenouille.mp4?alt=media&token=98ef1dac-1a49-4eee-9b24-40466622f095",
-        "n",
+        "https://firebasestorage.googleapis.com/v0/b/short-digital.appspot.com/o/CSS1.png?alt=media&token=d816d933-b251-4aaf-aad0-402e368e0510",
         "Ceci est une vidéo très instructive sur les quenouilles",
         "1kB",
         91,
