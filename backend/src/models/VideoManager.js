@@ -26,7 +26,7 @@ class MainVideoPlayerManager extends AbstractManager {
   }
 
   async readByCategories(category, limit) {
-    let sql = `SELECT title, image FROM video
+    let sql = `SELECT title, image, name, video.id FROM video
     inner join video_category on video_category.video_id = video.id
     inner join category on category.id = video_category.category_id `;
     const sqlValues = [];
@@ -41,6 +41,24 @@ class MainVideoPlayerManager extends AbstractManager {
 
     const [rows] = await this.database.query(sql, sqlValues);
 
+    return rows;
+  }
+
+  async readSpecificCategories(category, name) {
+    const [rows] = await this.database.query(
+      `SELECT video.id
+      FROM video
+      INNER JOIN video_category ON video_category.video_id = video.id
+      INNER JOIN category ON category.id = video_category.category_id
+      WHERE category.name = ?
+      INTERSECT
+  SELECT video.id
+      FROM video
+      INNER JOIN video_category ON video_category.video_id = video.id
+      INNER JOIN category ON category.id = video_category.category_id
+      WHERE category.name = ?`,
+      [category, name]
+    );
     return rows;
   }
 
@@ -112,6 +130,11 @@ class MainVideoPlayerManager extends AbstractManager {
     } else {
       throw new Error("video not found"); // Video not found
     }
+  }
+
+  async readAllCategories() {
+    const [rows] = await this.database.query(`select name from category`);
+    return rows;
   }
 }
 

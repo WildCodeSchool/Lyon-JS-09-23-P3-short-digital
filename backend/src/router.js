@@ -33,11 +33,9 @@ router.post("/items", itemControllers.add);
 // Route to get video information by id
 router.get("/videos/:id", videoControllers.read);
 router.get("/videos/miniatures/:id", videoControllers.readImageById);
-
 router.get("/videos/:id/like/:user", videoControllers.isLikedByUser);
 
 // route qui recupère le titre et l'image de la miniature video
-
 router.get("/videosSelected", videoControllers.readByCategories);
 router.put("/video", videoControllers.ModifyVideo);
 
@@ -46,6 +44,9 @@ router.put("/videos/:id/like/:user", videoControllers.likeVideo);
 
 // Routes to get user informations or add a new user
 router.get("/users/:id", userControllers.read);
+
+router.get("/categories", videoControllers.allCategories);
+router.get("/special/:category", videoControllers.readSpecificCategories);
 
 /* ************************************************************************* */
 

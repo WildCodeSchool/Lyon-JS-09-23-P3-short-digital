@@ -92,6 +92,30 @@ const videoDelete = async (req, res, next) => {
   }
 };
 
+const allCategories = async (req, res, next) => {
+  try {
+    const videoCategories = await tables.video.readAllCategories();
+    res.status(200).send(videoCategories);
+  } catch (err) {
+    res.status(500).send(err.message);
+    next(err);
+  }
+};
+const readSpecificCategories = async (req, res, next) => {
+  try {
+    const { name } = req.query;
+    const { category } = req.params;
+    const videoCategories = await tables.video.readSpecificCategories(
+      category,
+      name
+    );
+    res.status(200).send(videoCategories);
+  } catch (err) {
+    res.status(500).send(err.message);
+    next(err);
+  }
+};
+
 module.exports = {
   read,
   readImageById,
@@ -100,4 +124,6 @@ module.exports = {
   isLikedByUser,
   videoDelete,
   ModifyVideo,
+  allCategories,
+  readSpecificCategories,
 };
