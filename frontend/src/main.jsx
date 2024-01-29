@@ -7,6 +7,7 @@ import App from "./App";
 import VideoPage from "./pages/VideoPage";
 import Connexion from "./pages/connexion/Connexion";
 import Inscription from "./pages/inscription/Inscription";
+import { InfoProvider } from "./UserContext";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <InfoProvider>
+      <RouterProvider router={router} />
+    </InfoProvider>
   </React.StrictMode>
 );

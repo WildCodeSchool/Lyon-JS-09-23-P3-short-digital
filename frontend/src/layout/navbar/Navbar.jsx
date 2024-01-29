@@ -1,10 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
+import { useInfosContext } from "../../UserContext";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const { userData } = useInfosContext();
+  const { logout } = useInfosContext();
 
   const handleClickConnexion = () => {
+    navigate("/connexion");
+  };
+  const handleLogout = () => {
+    logout();
     navigate("/connexion");
   };
 
@@ -33,9 +40,9 @@ export default function Navbar() {
       <button
         type="button"
         className={styles.btnConnection}
-        onClick={handleClickConnexion}
+        onClick={userData.pseudo ? handleLogout : handleClickConnexion}
       >
-        Se Connecter
+        {userData.pseudo ? "Se Deconnecter" : "Se Connecter"}
       </button>
       <img className={styles.imgProfil} src="./src/assets/profil.png" alt="" />
     </nav>
