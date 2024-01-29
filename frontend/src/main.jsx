@@ -7,6 +7,7 @@ import App from "./App";
 import VideoPage from "./pages/VideoPage";
 import Connexion from "./pages/connexion/Connexion";
 import Inscription from "./pages/inscription/Inscription";
+import UploadVideo from "./pages/UploadVideo/UploadVideo";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <Connexion />,
+  },
+  {
+    path: "/upload",
+    element: <UploadVideo />,
   },
 ]);
 

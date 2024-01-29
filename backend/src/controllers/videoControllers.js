@@ -92,6 +92,20 @@ const videoDelete = async (req, res, next) => {
   }
 };
 
+const uploadVideo = async (req, res, next) => {
+  try {
+    const video = await tables.video.uploadVideo(req.body.video);
+    if (video === null) {
+      res.sendStatus(404);
+    } else {
+      console.error(video);
+      res.json(video);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   read,
   readImageById,
@@ -100,4 +114,5 @@ module.exports = {
   isLikedByUser,
   videoDelete,
   ModifyVideo,
+  uploadVideo,
 };
