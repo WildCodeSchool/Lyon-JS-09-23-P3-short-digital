@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./App.css";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { InfoProvider } from "./UserContext";
 
 import App from "./App";
 import VideoPage from "./pages/VideoPage";
 import Inscription from "./pages/inscription/Inscription";
+import User from "./pages/user/User";
 
 const router = createBrowserRouter([
   {
@@ -25,12 +26,18 @@ const router = createBrowserRouter([
     path: "/video/:id",
     element: <VideoPage />,
   },
+  {
+    path: "/user",
+    element: <User />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <InfoProvider>
+      <RouterProvider router={router} />
+    </InfoProvider>
   </React.StrictMode>
 );

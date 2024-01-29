@@ -8,12 +8,14 @@ function DonneesFormulaire() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [falsePseudo, setFalsePseudo] = useState("");
-  const [falseFirstname, setFalseFirstname] = useState("");
-  const [falseLastname, setFalseLastname] = useState("");
-  const [falseEmail, setFalseEmail] = useState("");
-  const [falsePassword, setFalsePassword] = useState("");
-  const [falseConfirmPassword, setFalseConfirmPassword] = useState("");
+  const [falsePseudo, setFalsePseudo] = useState(<small> </small>);
+  const [falseFirstname, setFalseFirstname] = useState(<small> </small>);
+  const [falseLastname, setFalseLastname] = useState(<small> </small>);
+  const [falseEmail, setFalseEmail] = useState(<small> </small>);
+  const [falsePassword, setFalsePassword] = useState(<small> </small>);
+  const [falseConfirmPassword, setFalseConfirmPassword] = useState(
+    <small> </small>
+  );
 
   const MAX_LENGTH_NAME = 45;
   const MIN_LENGTH_PASSWORD = 8;
@@ -102,6 +104,10 @@ function DonneesFormulaire() {
     falseEmail,
     falsePassword,
     falseConfirmPassword,
+    setPseudo,
+    setFirstname,
+    setLastname,
+    setEmail,
   };
 }
 export default DonneesFormulaire;

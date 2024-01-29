@@ -1,0 +1,19 @@
+.userAccount {
+  display: flex;
+  height: 67vh;
+}
+
+@media screen and (max-width: 1000px) {
+  .userPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .userAccount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/*# sourceMappingURL=user.module.css.map */
