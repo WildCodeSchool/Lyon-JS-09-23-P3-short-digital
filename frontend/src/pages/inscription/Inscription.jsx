@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import styles from "./inscription.module.css";
@@ -153,12 +152,12 @@ function Inscription() {
                 type="submit"
                 onClick={handleSubmit}
                 disabled={
-                  ranges[0].state === "" ||
-                  ranges[1].state === "" ||
-                  ranges[2].state === "" ||
-                  ranges[3].state === "" ||
-                  ranges[4].state === "" ||
-                  ranges[5].state === ""
+                  ranges[0].state !== "" ||
+                  ranges[1].state !== "" ||
+                  ranges[2].state !== "" ||
+                  ranges[3].state !== "" ||
+                  ranges[4].state !== "" ||
+                  ranges[5].state !== ""
                 }
               >
                 Inscription
