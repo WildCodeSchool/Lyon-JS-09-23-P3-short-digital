@@ -1,0 +1,37 @@
+.fondAvatar {
+  background-color: #454766;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+  max-height: 400px;
+  overflow: hidden;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 5px;
+  justify-content: center;
+  align-content: center;
+}
+.fondAvatar__avatar {
+  border-radius: 150px;
+  width: 10vw;
+  height: 10vw;
+  margin: 2%;
+  border: 4px solid rgba(255, 0, 0, 0);
+}
+
+#fondAvatar__actualAvatar {
+  border: 4px solid black;
+}
+
+@media screen and (max-width: 1000px) {
+  .fondAvatar {
+    overflow: visible;
+    width: 100%;
+    margin: 2.5%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+/*# sourceMappingURL=avatar.module.css.map */
