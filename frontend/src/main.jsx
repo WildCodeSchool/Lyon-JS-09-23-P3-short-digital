@@ -7,7 +7,6 @@ import App from "./App";
 import VideoPage from "./pages/VideoPage";
 import Connexion from "./pages/connexion/Connexion";
 import Inscription from "./pages/inscription/Inscription";
-import { InfoProvider } from "./UserContext";
 import UploadVideo from "./pages/UploadVideo/UploadVideo";
 import User from "./pages/user/User";
 

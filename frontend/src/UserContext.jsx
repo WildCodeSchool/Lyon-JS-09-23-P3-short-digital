@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import useLocalStorage from "./components/hook/useLocalStorage";
 
 // Étape 1 : créer un context "React" basique
-const InfosContext = createContext();
+export const InfosContext = createContext();
 
 // Étape 2 : créer le provider de mon context
 export function InfoProvider({ children }) {

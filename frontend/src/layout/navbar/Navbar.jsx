@@ -40,9 +40,9 @@ export default function Navbar() {
       <button
         type="button"
         className={styles.btnConnection}
-        onClick={userData.pseudo === true ? handleLogout : handleClickConnexion}
+        onClick={userData ? handleLogout : handleClickConnexion}
       >
-        {userData.pseudo ? "Se Deconnecter" : "Se Connecter"}
+        {userData ? "Se Deconnecter" : "Se Connecter"}
       </button>
       <img className={styles.imgProfil} src="./src/assets/profil.png" alt="" />
     </nav>
