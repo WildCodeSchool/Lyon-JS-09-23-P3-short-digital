@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 function Inscription() {
   const donnees = Donnees();
   const navigate = useNavigate();
+
   const ranges = [
     {
       value: "pseudo",
@@ -152,12 +153,18 @@ function Inscription() {
                 type="submit"
                 onClick={handleSubmit}
                 disabled={
-                  ranges[0].state !== "" ||
-                  ranges[1].state !== "" ||
-                  ranges[2].state !== "" ||
-                  ranges[3].state !== "" ||
-                  ranges[4].state !== "" ||
-                  ranges[5].state !== ""
+                  ranges[0].state === "" ||
+                  ranges[1].state === "" ||
+                  ranges[2].state === "" ||
+                  ranges[3].state === "" ||
+                  ranges[4].state === "" ||
+                  ranges[5].state === "" ||
+                  ranges[0].small !== "" ||
+                  ranges[1].small !== "" ||
+                  ranges[2].small !== "" ||
+                  ranges[3].small !== "" ||
+                  ranges[4].small !== "" ||
+                  ranges[5].small !== ""
                 }
               >
                 Inscription
