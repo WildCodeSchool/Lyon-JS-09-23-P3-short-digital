@@ -98,6 +98,7 @@ const uploadVideo = async (req, res, next) => {
     if (video === null) {
       res.sendStatus(404);
     } else {
+      console.error(video);
       res.json(video);
     }
   } catch (err) {

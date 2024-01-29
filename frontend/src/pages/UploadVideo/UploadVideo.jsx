@@ -7,10 +7,13 @@ import {
   getDownloadURL,
   getMetadata,
 } from "firebase/storage";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import Navbar from "../../layout/navbar/Navbar";
 import NavMobile from "../../layout/NavMobile/NavMobile";
 import styles from "./uploadVideo.module.css";
+import arrayCategories from "./arrayCategories";
 
 function UploadVideo() {
   // données sur notre compte Firebase
@@ -29,6 +32,7 @@ function UploadVideo() {
     description: "",
     videoUrl: "",
     miniatureUrl: "",
+    categories: [],
     weight: 0,
     userId: 1,
   });
@@ -209,6 +213,41 @@ function UploadVideo() {
                   setDescription(e.target.value);
                 }}
               />
+              <Autocomplete
+                className={styles.uploadVideoContainer__form__inputCategory}
+                disablePortal
+                multiple
+                options={arrayCategories}
+                defaultValue={[arrayCategories[13]]}
+                sx={{
+                  width: 300,
+
+                  "& + .MuiAutocomplete-popper .MuiAutocomplete-option": {
+                    backgroundColor: "#20212f",
+                  },
+                  "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected='true']":
+                    {
+                      backgroundColor: "#20212f",
+                    },
+                  "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected ='true'] .Mui-focused":
+                    {
+                      backgroundColor: "#20212f",
+                    },
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    className={styles.uploadVideoContainer__form__inputCategory}
+                    // la règle d'exception suivante a été autorisé par Matthieu
+                    // eslint-disable-next-line react/jsx-props-no-spreading
+                    {...params}
+                    label="Categorie"
+                  />
+                )}
+                onChange={(e, newValue) => {
+                  setVideo({ ...video, categories: newValue });
+                }}
+              />
+
               <button type="submit" onClick={handleSubmit}>
                 Valider
               </button>
