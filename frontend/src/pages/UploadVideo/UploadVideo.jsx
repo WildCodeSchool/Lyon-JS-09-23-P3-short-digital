@@ -18,12 +18,12 @@ import arrayCategories from "./arrayCategories";
 function UploadVideo() {
   // données sur notre compte Firebase
   const [firebaseConfig] = useState({
-    apiKey: "AIzaSyAFYtftVDW-hbmQd_278uuY1OTQbUvMdW8",
-    authDomain: "short-digital.firebaseapp.com",
-    projectId: "short-digital",
-    storageBucket: "short-digital.appspot.com",
-    messagingSenderId: "384077321635",
-    appId: "1:384077321635:web:5e568746c07e6d5f793616",
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID,
   });
 
   // initialisation de l'objet qui sera envoyé à la BDD
