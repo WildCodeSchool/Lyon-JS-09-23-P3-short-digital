@@ -30,11 +30,25 @@ class UserManager extends AbstractManager {
 
   async readByEmailWithPassword(mail) {
     const [rows] = await this.database.query(
-      `select mail, hashed_password from ${this.table} where mail = ?`,
+      `select id, mail, pseudo, hashed_password from ${this.table} where mail = ?`,
       [mail]
     );
 
     return rows[0];
+  }
+
+  async modify(user) {
+    const userId = user.id;
+    await this.database.query(
+      `update ${this.table} set firstname = ?, lastname = ?, mail = ?, pseudo = ?, hashed_password = ? where id = ${userId}`,
+      [
+        user.firstname,
+        user.lastname,
+        user.mail,
+        user.pseudo,
+        user.hashedPassword,
+      ]
+    );
   }
 }
 

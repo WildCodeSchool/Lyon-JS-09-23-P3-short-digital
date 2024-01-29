@@ -19,12 +19,6 @@ body {
   top: 12%;
   translate: -50%;
 }
-.inscription__mainElement__OkMessage {
-  display: none;
-}
-.inscription__mainElement__notOkMessage {
-  text-align: center;
-}
 .inscription__mainElement__desktopImg {
   max-width: 50%;
   max-height: 100vh;
@@ -59,13 +53,13 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 4%;
+  margin: 5%;
 }
 .inscription__mainElement__formConteneur__formulaire__range__limitRange {
   margin: 1%;
 }
 .inscription__mainElement__formConteneur__formulaire__button {
-  margin: 4%;
+  height: 30px;
   background: linear-gradient(#454766 10px, #20212f);
   cursor: pointer;
   background-color: #454766;
@@ -75,6 +69,11 @@ body {
   color: white;
   font-size: 15pt;
   font-weight: bolder;
+  text-align: center;
+  width: 100%;
+}
+.inscription__mainElement__formConteneur__formulaire__paragraphe {
+  margin: 3px;
 }
 
 label {
@@ -104,7 +103,7 @@ input {
   .inscription__mainElement__mobileImg {
     display: flex;
     justify-content: center;
-    margin: 15% 25% 15% 25%;
+    margin: 10% 25% 15% 25%;
   }
   .inscription__mainElement__formConteneur__title {
     display: none;
@@ -113,9 +112,16 @@ input {
   .inscription__mainElement__formConteneur__formulaire {
     width: 80%;
   }
+  .inscription__mainElement__formConteneur__formulaire__button {
+    width: 100%;
+    height: 6vh;
+  }
+  .inscription__mainElement__formConteneur__formulaire__paragraphe {
+    margin: 15px;
+  }
   .inscription__mainElement input {
     height: 6vh;
   }
 }
 
-/*# sourceMappingURL=inscription.module.css.map */
+/*# sourceMappingURL=connexion.module.css.map */

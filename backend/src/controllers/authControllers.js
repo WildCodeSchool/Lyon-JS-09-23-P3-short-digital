@@ -22,8 +22,16 @@ const login = async (req, res, next) => {
         process.env.APP_SECRET,
         { expiresIn: "1h" }
       );
-
-      res.json({ token, user });
+      res
+        .cookie("access_token", token, {
+          httpOnly: true,
+          sameSite: "Lax",
+          secure: process.env.NODE_ENV === "production",
+          maxAge: 60000,
+        })
+        .json({
+          user,
+        });
     } else {
       res
         .status(422)
