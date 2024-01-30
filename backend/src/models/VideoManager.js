@@ -89,6 +89,48 @@ class MainVideoPlayerManager extends AbstractManager {
     }
   }
 
+  async uploadVideo({
+    name,
+    videoUrl,
+    miniatureUrl,
+    description,
+    weight,
+    categories,
+    userId,
+  }) {
+    const result = await this.database.query(
+      "INSERT INTO video (title, link, image, description, weight, user_id, duration) VALUES (?, ?, ?, ?, ?, ?, 2)",
+      [name, videoUrl, miniatureUrl, description, weight, userId]
+    );
+
+    // Pour chaque catégorie du tableau categories on va créer une entrée dans la table de jointure video_category
+    categories.forEach(async (category) => {
+      let idCategory = await this.database.query(
+        "SELECT * FROM category WHERE name = (?)",
+        [category]
+      );
+
+      // si la catégorie n'existe pas encore dans la table catégory, on la crée, puis on réaffecte la valeur de idCategory
+      if (idCategory[0].length === 0) {
+        await this.database.query("INSERT INTO category (name) VALUES (?)", [
+          category,
+        ]);
+
+        idCategory = await this.database.query(
+          "SELECT * FROM category WHERE name = (?)",
+          [category]
+        );
+      }
+
+      await this.database.query(
+        "INSERT INTO video_category (video_id, category_id) VALUES (?, ?)",
+        [result[0].insertId, idCategory[0][0].id]
+      );
+    });
+
+    return result;
+  }
+
   async deleteVideo(videoId, userId) {
     const check = await this.database.query(
       "SELECT * FROM video WHERE user_id = ? AND id = ?",
