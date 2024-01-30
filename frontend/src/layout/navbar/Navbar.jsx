@@ -40,7 +40,7 @@ export default function Navbar() {
       <button
         type="button"
         className={styles.btnConnection}
-        onClick={userData.pseudo ? handleLogout : handleClickConnexion}
+        onClick={userData.pseudo === true ? handleLogout : handleClickConnexion}
       >
         {userData.pseudo ? "Se Deconnecter" : "Se Connecter"}
       </button>
