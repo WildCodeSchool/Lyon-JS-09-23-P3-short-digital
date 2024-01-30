@@ -20,17 +20,22 @@
       height: 8vh;
     }
 
-    &__button {
-      margin-top: 5%;
-      width: 7vw;
-      height: 25px;
-      border: none;
-      border-radius: 4px;
-      background: linear-gradient(#7073a1, #36374e);
-      color: white;
-      min-width: 22%;
-    }
+    &__bothButton {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
 
+      &__button {
+        margin-top: 5%;
+        width: 7vw;
+        height: 25px;
+        border: none;
+        border-radius: 4px;
+        background: linear-gradient(#7073a1, #36374e);
+        color: white;
+        min-width: 22%;
+      }
+    }
     &__title {
       display: flex;
       justify-content: space-between;
@@ -45,6 +50,10 @@ label {
 
 .informations__globalRange__ranges::placeholder {
   color: white;
+}
+
+#deletAccountButton {
+  min-width: 165px;
 }
 
 @media screen and (max-width: 1000px) {
