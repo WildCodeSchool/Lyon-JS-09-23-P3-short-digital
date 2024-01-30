@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import styles from "./videoUser.module.css";
 import deleteIcon from "../../assets/deleteIcon.svg";
 import editIcon from "../../assets/editIcon.svg";
 
 function VideoUser({ id, notifyError, notifySuccessDeleteVideo }) {
   const [videoUser, setVideoUser] = useState([]);
+  const navigate = useNavigate();
   const userId = id;
   useEffect(() => {
     (async () => {
@@ -43,6 +45,10 @@ function VideoUser({ id, notifyError, notifySuccessDeleteVideo }) {
     }
   };
 
+  const handleClickEdit = (idModifyVideo) => {
+    navigate("/upload", { state: { id: idModifyVideo } });
+  };
+
   return (
     <div className={styles.videoUserComponent}>
       <h2 id={styles.componentTitle}>Mes Videos</h2>
@@ -68,6 +74,7 @@ function VideoUser({ id, notifyError, notifySuccessDeleteVideo }) {
                   type="image"
                   src={editIcon}
                   alt="modifier la video"
+                  onClick={() => handleClickEdit(e.id)}
                 />
                 <input
                   className={
