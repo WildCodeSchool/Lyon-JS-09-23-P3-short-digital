@@ -32,7 +32,9 @@ function VideoPage() {
       <div className={styles.buttonsContainer}>
         {categories.map((category) => (
           <Link
-            to="/"
+            to={{
+              pathname: `/categories/${category}`,
+            }}
             id={styles[category]}
             className={styles.buttonsContainer__category}
             type="button"
