@@ -10,6 +10,7 @@ import {
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
+// import { useLocation } from "react-router-dom";
 import Navbar from "../../layout/navbar/Navbar";
 import NavMobile from "../../layout/NavMobile/NavMobile";
 import styles from "./uploadVideo.module.css";
@@ -17,6 +18,10 @@ import arrayCategories from "./arrayCategories";
 
 function UploadVideo() {
   // données sur notre compte Firebase
+
+  // hook qui recupere l'id de la video issu de la page /user lorsque l'user veut modifier une de ces videos
+  //  const location = useLocation();
+
   const [firebaseConfig] = useState({
     apiKey: import.meta.env.VITE_API_KEY,
     authDomain: import.meta.env.VITE_AUTH_DOMAIN,

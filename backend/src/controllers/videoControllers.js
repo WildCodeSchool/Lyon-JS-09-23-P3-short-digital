@@ -84,8 +84,13 @@ const videoDelete = async (req, res, next) => {
   const { videoId } = req.body;
   const { userId } = req.body;
   try {
-    await tables.video.deleteVideo(videoId, userId);
-    res.status(200).send("videos was delete");
+    const videoExist = await tables.video.readVideoById(videoId);
+    if (videoExist === false) {
+      res.status(404).send("video doesn't exist");
+    } else {
+      await tables.video.deleteVideo(videoId, userId);
+      res.status(200).send("videos was delete");
+    }
   } catch (err) {
     res.status(500).send(err.message);
     next(err);
@@ -106,6 +111,19 @@ const uploadVideo = async (req, res, next) => {
   }
 };
 
+const readByUserId = async (req, res, next) => {
+  try {
+    const videos = await tables.video.readByUserId(req.params.id);
+    if (videos == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(videos);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   read,
   readImageById,
@@ -115,4 +133,5 @@ module.exports = {
   videoDelete,
   ModifyVideo,
   uploadVideo,
+  readByUserId,
 };

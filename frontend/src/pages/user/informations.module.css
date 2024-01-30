@@ -20,7 +20,12 @@
   margin-bottom: 1%;
   height: 8vh;
 }
-.informations__globalRange__button {
+.informations__globalRange__bothButton {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.informations__globalRange__bothButton__button {
   margin-top: 5%;
   width: 7vw;
   height: 25px;
@@ -42,6 +47,10 @@ label {
 
 .informations__globalRange__ranges::placeholder {
   color: white;
+}
+
+#deletAccountButton {
+  min-width: 165px;
 }
 
 @media screen and (max-width: 1000px) {

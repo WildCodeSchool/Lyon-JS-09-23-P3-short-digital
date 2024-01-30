@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import styles from "./user.module.css";
 import Navbar from "../../layout/navbar/Navbar";
 import NavMobile from "../../layout/NavMobile/NavMobile";
@@ -11,15 +12,34 @@ function User() {
   const contextFetched = useContext(InfosContext);
 
   const { id } = contextFetched.userData;
+  const notifyError = () => toast("Une erreur est survenue");
+  const notifySuccessDeleteVideo = () =>
+    toast("Votre vidéo a bien été supprimé");
 
   return (
     <div className="userPage">
       <Navbar />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className={styles.userAccount}>
         <Avatar id={id} />
         <Informations id={id} />
       </div>
-      <VideoUser id={id} />
+      <VideoUser
+        id={id}
+        notifyError={notifyError}
+        notifySuccessDeleteVideo={notifySuccessDeleteVideo}
+      />
       <NavMobile />
     </div>
   );

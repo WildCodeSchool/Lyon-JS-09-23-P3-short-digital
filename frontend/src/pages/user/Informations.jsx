@@ -84,12 +84,21 @@ function Informations() {
           onChange={donnees.handleChangeConfirmPassword}
         />
         {donnees.falseConfirmPassword}
-        <button
-          type="submit"
-          className={styles.informations__globalRange__button}
-        >
-          Modifier
-        </button>
+        <div className={styles.informations__globalRange__bothButton}>
+          <button
+            type="submit"
+            className={styles.informations__globalRange__bothButton__button}
+          >
+            Modifier
+          </button>
+          <button
+            type="button"
+            className={styles.informations__globalRange__bothButton__button}
+            id={styles.deletAccountButton}
+          >
+            Supprimer mon compte
+          </button>
+        </div>
       </div>
       <ToastContainer
         position="top-right"
