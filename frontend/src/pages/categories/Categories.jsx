@@ -41,11 +41,14 @@ export default function Categories() {
 
     fetchData();
   }, []);
-
   return (
     <>
-      {idVideo.length > 0 ? <Carrousel tableId={idVideo[0]} /> : null}
-      {idVideo.length > 0 ? <Carrousel tableId={idVideo[0]} /> : null}
+      {idVideo.length > 0 ? (
+        <Carrousel title="Tableaux" tableId={idVideo[0]} />
+      ) : null}
+      {idVideo.length > 0 ? (
+        <Carrousel title="Fonction" tableId={idVideo[1]} />
+      ) : null}
     </>
   );
 }
