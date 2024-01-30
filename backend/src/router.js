@@ -46,6 +46,7 @@ router.post("/videos/upload", videoControllers.uploadVideo);
 
 // Routes to get user informations or add a new user
 router.get("/users/:id", userControllers.read);
+router.get("/logout", authControllers.logout);
 
 // route qui recupere les informations des videos selon l'id user
 router.get("/videos/posted/:id", videoControllers.readByUserId);

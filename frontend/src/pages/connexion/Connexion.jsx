@@ -2,10 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Donnees from "./DonneesFormulaire";
 import styles from "./connexion.module.css";
+import { useInfosContext } from "../../UserContext";
 
 import "react-toastify/dist/ReactToastify.css";
 
 function Connexion() {
+  const { login } = useInfosContext();
+
   const donnees = Donnees();
   const navigate = useNavigate();
   const notifyErreur = () =>
@@ -37,10 +40,9 @@ function Connexion() {
       });
 
       if (response.status === 200) {
-        navigate("/");
-
         const auth = await response.json();
-        console.info(auth);
+        login(auth.user);
+        navigate("/");
         // recuperation des informations pour renvoyer à la page connexion, ou dans l'affichage du site, ou dans un contexte.
       } else {
         // Log des détails de la réponse en cas d'échec
@@ -99,6 +101,7 @@ function Connexion() {
           >
             {ranges.map((e) => (
               <div
+                key={e.value}
                 className={
                   styles.inscription__mainElement__formConteneur__formulaire__range
                 }
@@ -115,6 +118,7 @@ function Connexion() {
                   value={e.state}
                   onChange={e.function}
                   required
+                  autoComplete="current-password"
                 />
                 {e.small}
               </div>

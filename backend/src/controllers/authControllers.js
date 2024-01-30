@@ -43,6 +43,11 @@ const login = async (req, res, next) => {
   }
 };
 
+const logout = (req, res) => {
+  res.clearCookie("access_token").sendStatus(200);
+};
+
 module.exports = {
   login,
+  logout,
 };
