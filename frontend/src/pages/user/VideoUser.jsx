@@ -23,6 +23,25 @@ function VideoUser() {
     })();
   }, [userId]);
 
+  const handleClickDelete = () => {
+    useEffect(() => {
+      (async () => {
+        const videoCall = await fetch(
+          `http://localhost:3310/api//videos/posted/${userId}`,
+          {
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const videoResult = await videoCall.json();
+        setVideoUser(videoResult);
+      })();
+    }, []);
+  };
+
   return (
     <div className={styles.videoUserComponent}>
       <h2 id={styles.componentTitle}>Mes Videos</h2>
@@ -53,6 +72,7 @@ function VideoUser() {
                   className={
                     styles.videoUserComponent__oneVideo__videoInfo__titleAndButton__buttons__singleButton
                   }
+                  onClick={handleClickDelete}
                   type="image"
                   src={deleteIcon}
                   alt="supprimer la video"

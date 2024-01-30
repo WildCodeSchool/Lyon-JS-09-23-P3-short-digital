@@ -163,6 +163,14 @@ class MainVideoPlayerManager extends AbstractManager {
     );
     return rows;
   }
+
+  async readVideoById(id) {
+    const [rows] = await this.database.query(
+      `SELECT title FROM ${this.table} where id = ?`,
+      [id]
+    );
+    return rows[0];
+  }
 }
 
 module.exports = MainVideoPlayerManager;

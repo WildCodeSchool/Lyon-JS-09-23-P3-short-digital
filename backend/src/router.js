@@ -50,6 +50,9 @@ router.get("/users/:id", userControllers.read);
 // route qui recupere les informations des videos selon l'id user
 router.get("/videos/posted/:id", videoControllers.readByUserId);
 
+// route qui supprime une video
+router.delete("/videos/deleteVideo", videoControllers.videoDelete);
+
 // Authentication wall that allows to protect all routes after that
 router.use(verifyToken);
 
