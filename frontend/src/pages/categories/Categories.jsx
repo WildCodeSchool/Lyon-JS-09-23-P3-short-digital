@@ -1,21 +1,19 @@
 import "./Categories.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Navbar from "../../layout/navbar/Navbar";
-import NavMobile from "../../layout/NavMobile/NavMobile";
+// import Navbar from "../../layout/navbar/Navbar";
+// import NavMobile from "../../layout/NavMobile/NavMobile";
+import Carrousel from "../../components/carrousel/Carrousel";
 
 export default function Categories() {
   const params = useParams();
-  // const [idVideo, setIdVideos] = useState([]);
-  // const [videoCategories, setVideoCategories] = useState();
-  const [newId, setNewId] = useState([]);
-  // const [test, setTest] = useState();
+  const [idVideo, setIdVideos] = useState([]);
   const tableId = ["tableaux", "fonction", "variables"];
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const promises = tableId.map(async (element) => {
+        tableId.map(async (element, index) => {
           const response = await fetch(
             `http://localhost:3310/api/special/${params.category}?name=${element}`,
             {
@@ -29,12 +27,13 @@ export default function Categories() {
           if (!response.ok) {
             throw new Error(`Failed to fetch data: ${response.status}`);
           }
+          const data = await response.json();
+          setIdVideos((prevIdVideos) => {
+            const newIdVideos = [...prevIdVideos];
+            newIdVideos[index] = data.map((elementId) => elementId.id);
+            return newIdVideos;
+          });
         });
-        const newData = await Promise.all(promises);
-        const flattenedData = newData;
-        const newIds = flattenedData.map((element) => element.id);
-        // newId.includes(newIds) ? newId.push(newIds) : setNewId("coucou");
-        setNewId(newId, newIds);
       } catch (error) {
         console.error("Error fetching data:", error.message);
       }
@@ -45,8 +44,8 @@ export default function Categories() {
 
   return (
     <>
-      <Navbar />
-      <NavMobile />
+      {idVideo.length > 0 ? <Carrousel tableId={idVideo[0]} /> : null}
+      {idVideo.length > 0 ? <Carrousel tableId={idVideo[0]} /> : null}
     </>
   );
 }

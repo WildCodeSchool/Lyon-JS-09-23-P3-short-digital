@@ -7,7 +7,7 @@ import styles from "./Carrousel.module.css";
 import PrevButton from "../SliderOption/PrevButton/PrevButton";
 import NextButton from "../SliderOption/NextButton/NextButton";
 
-export default function Carrousel({ title }) {
+export default function Carrousel({ title, tableId }) {
   const OPTIONS = {
     slidesToScroll: "auto",
     containScroll: "trimSnaps",
@@ -15,7 +15,7 @@ export default function Carrousel({ title }) {
   };
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   // tabl img will goes replace with an table id will passed trhough link for call bdd
-  const tableId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  // const tableId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -104,4 +104,5 @@ export default function Carrousel({ title }) {
 
 Carrousel.propTypes = {
   title: PropTypes.string.isRequired,
+  tableId: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
