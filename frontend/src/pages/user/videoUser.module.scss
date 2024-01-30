@@ -28,6 +28,10 @@
           &__singleButton {
             margin: 5%;
           }
+
+          &__singleButton:hover {
+            background-color: #20212f;
+          }
         }
       }
     }

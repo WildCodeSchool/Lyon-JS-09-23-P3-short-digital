@@ -29,6 +29,9 @@
 .videoUserComponent__oneVideo__videoInfo__titleAndButton__buttons__singleButton {
   margin: 5%;
 }
+.videoUserComponent__oneVideo__videoInfo__titleAndButton__buttons__singleButton:hover {
+  background-color: #20212f;
+}
 
 #componentTitle {
   margin-left: 2%;

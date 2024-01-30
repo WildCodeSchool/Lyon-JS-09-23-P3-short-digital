@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import styles from "./videoUser.module.css";
 import deleteIcon from "../../assets/deleteIcon.svg";
 import editIcon from "../../assets/editIcon.svg";
 
-function VideoUser() {
+function VideoUser({ id, notifyError, notifySuccessDeleteVideo }) {
   const [videoUser, setVideoUser] = useState([]);
-  const userId = 1;
+  const userId = id;
   useEffect(() => {
     (async () => {
       const videoCall = await fetch(
@@ -23,23 +24,23 @@ function VideoUser() {
     })();
   }, [userId]);
 
-  const handleClickDelete = () => {
-    useEffect(() => {
-      (async () => {
-        const videoCall = await fetch(
-          `http://localhost:3310/api//videos/posted/${userId}`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        const videoResult = await videoCall.json();
-        setVideoUser(videoResult);
-      })();
-    }, []);
+  const handleClickDelete = async (idVideo) => {
+    const videoDelete = await fetch(
+      "http://localhost:3310/api/videos/deleteVideo",
+      {
+        method: "DELETE",
+        body: JSON.stringify({
+          userId,
+          videoId: idVideo,
+        }),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    if (videoDelete.status === 200) {
+      notifySuccessDeleteVideo();
+    } else {
+      notifyError();
+    }
   };
 
   return (
@@ -72,7 +73,7 @@ function VideoUser() {
                   className={
                     styles.videoUserComponent__oneVideo__videoInfo__titleAndButton__buttons__singleButton
                   }
-                  onClick={handleClickDelete}
+                  onClick={() => handleClickDelete(e.id)}
                   type="image"
                   src={deleteIcon}
                   alt="supprimer la video"
@@ -88,3 +89,9 @@ function VideoUser() {
 }
 
 export default VideoUser;
+
+VideoUser.propTypes = {
+  id: PropTypes.number.isRequired,
+  notifyError: PropTypes.func.isRequired,
+  notifySuccessDeleteVideo: PropTypes.func.isRequired,
+};
