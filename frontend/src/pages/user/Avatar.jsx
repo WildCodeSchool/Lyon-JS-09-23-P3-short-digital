@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import styles from "./avatar.module.css";
@@ -7,41 +7,47 @@ import { useInfosContext } from "../../UserContext";
 function Avatar() {
   const { userData } = useInfosContext();
   const [modification, setModification] = useState(false);
+  const [avatar, setAvatar] = useState(userData.avatar);
+  const { login } = useInfosContext();
 
-  /* useEffect(async () => {
+  const updateAvatar = async () => {
     try {
       // Appel à l'API pour créer un nouvel utilisateur
-      const response = await fetch(
-        "import.meta.env.VITE_BACKEND_URL/api/users/deleteUser",
-        {
-          method: "update",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            userId: id,
-          }),
-        }
-      );
-
-      if (response.status === 201) {
-        navigate("/connexion");
-      } else {
-        notifyErreur();
-      }
+      await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users`, {
+        method: "put",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstname: userData.firstname,
+          lastname: userData.lastname,
+          mail: userData.mail,
+          pseudo: userData.pseudo,
+          avatar,
+          id: userData.id,
+        }),
+      });
+      login({
+        firstname: userData.firstname,
+        lastname: userData.lastname,
+        mail: userData.mail,
+        pseudo: userData.pseudo,
+        avatar,
+        id: userData.id,
+      });
     } catch (err) {
       // Log des erreurs possibles
       console.error(err);
     }
-  }, [avatar]); */
+  };
+
+  useEffect(() => {
+    updateAvatar();
+  }, [avatar]);
 
   return (
     <div className={styles.fondAvatar}>
       {modification === false ? (
         <div className={styles.fondAvatar__imageContainer}>
-          <img
-            className={styles.fondAvatar__image}
-            src={`/${userData.avatar}`}
-            alt=""
-          />
+          <img className={styles.fondAvatar__image} src={`/${avatar}`} alt="" />
           <Button
             variant="contained"
             onClick={() => {
@@ -57,27 +63,37 @@ function Avatar() {
           <input
             type="image"
             src="/avatarAbstrait.jpg"
-            /* onClick={() => {
-              setAvatar("avatarAbstrait.jpg");
-            }} */
+            onClick={() => {
+              setAvatar(() => "avatarAbstrait.jpg");
+              setModification((prevState) => !prevState);
+            }}
             alt=""
           />
           <input
             type="image"
             src="/avatarOurs.jpg"
-            /* onClick={() => setAvatar("avatarOurs.jpg")} */
+            onClick={() => {
+              setAvatar(() => "avatarOurs.jpg");
+              setModification((prevState) => !prevState);
+            }}
             alt=""
           />
           <input
             type="image"
             src="/avatarRobot.jpg"
-            /* onClick={() => setAvatar("avatarRobot.jpg")} */
+            onClick={() => {
+              setAvatar(() => "avatarRobot.jpg");
+              setModification((prevState) => !prevState);
+            }}
             alt=""
           />
           <input
             type="image"
             src="/avatarVoiture.jpg"
-            /* onClick={() => setAvatar("avatarVoiture.jpg")} */
+            onClick={() => {
+              setAvatar(() => "avatarVoiture.jpg");
+              setModification((prevState) => !prevState);
+            }}
             alt=""
           />
         </div>
@@ -85,9 +101,5 @@ function Avatar() {
     </div>
   );
 }
-
-/* Avatar.propTypes = {
-  setAvatar: PropTypes.func.isRequired,
-}; */
 
 export default Avatar;

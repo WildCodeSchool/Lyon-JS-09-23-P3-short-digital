@@ -48,7 +48,7 @@ export default function Navbar() {
       <input
         className={styles.imgProfil}
         type="image"
-        src={`./src/assets/${userData.avatar}`}
+        src={`/${userData.avatar}`}
         alt="avatarVoiture"
         onClick={() => {
           navigate("/user");
