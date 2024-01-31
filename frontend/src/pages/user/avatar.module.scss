@@ -2,21 +2,41 @@
   background-color: #454766;
   display: flex;
   flex-wrap: wrap;
-  max-width: 400px;
-  max-height: 400px;
-  overflow: hidden;
+  width: 400px;
+  height: 400px;
   margin-left: 5%;
   margin-right: 5%;
   border-radius: 5px;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 
-  &__avatar {
-    border-radius: 150px;
-    width: 10vw;
-    height: 10vw;
-    margin: 2%;
-    border: 4px solid rgba(255, 0, 0, 0);
+  &__imageContainer {
+    background-color: #454766;
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+    margin: 0 5% 5% 5%;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+
+    &__image {
+      border-radius: 20px;
+      margin: 2%;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
+      height: 40%;
+      width: 40%;
+      margin: 2%;
+    }
   }
 }
 

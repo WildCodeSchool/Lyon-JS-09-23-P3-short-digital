@@ -1,13 +1,37 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import styles from "./avatar.module.css";
 import { useInfosContext } from "../../UserContext";
 
-function Avatar({ setAvatar }) {
+function Avatar() {
   const { userData } = useInfosContext();
   const [modification, setModification] = useState(false);
-  // const [isActive, setIsActive] = useState(false);
+
+  /* useEffect(async () => {
+    try {
+      // Appel à l'API pour créer un nouvel utilisateur
+      const response = await fetch(
+        "import.meta.env.VITE_BACKEND_URL/api/users/deleteUser",
+        {
+          method: "update",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId: id,
+          }),
+        }
+      );
+
+      if (response.status === 201) {
+        navigate("/connexion");
+      } else {
+        notifyErreur();
+      }
+    } catch (err) {
+      // Log des erreurs possibles
+      console.error(err);
+    }
+  }, [avatar]); */
 
   return (
     <div className={styles.fondAvatar}>
@@ -15,7 +39,7 @@ function Avatar({ setAvatar }) {
         <div className={styles.fondAvatar__imageContainer}>
           <img
             className={styles.fondAvatar__image}
-            src={`./src/assets/${userData.avatar}`}
+            src={`/${userData.avatar}`}
             alt=""
           />
           <Button
@@ -32,28 +56,28 @@ function Avatar({ setAvatar }) {
           <h2>Choisissez votre nouvel avatar</h2>
           <input
             type="image"
-            src="./src/assets/avatarAbstrait.jpg"
-            onClick={() => {
+            src="/avatarAbstrait.jpg"
+            /* onClick={() => {
               setAvatar("avatarAbstrait.jpg");
-            }}
+            }} */
             alt=""
           />
           <input
             type="image"
-            src="./src/assets/avatarOurs.jpg"
-            onClick={() => setAvatar("avatarOurs.jpg")}
+            src="/avatarOurs.jpg"
+            /* onClick={() => setAvatar("avatarOurs.jpg")} */
             alt=""
           />
           <input
             type="image"
-            src="./src/assets/avatarRobot.jpg"
-            onClick={() => setAvatar("avatarRobot.jpg")}
+            src="/avatarRobot.jpg"
+            /* onClick={() => setAvatar("avatarRobot.jpg")} */
             alt=""
           />
           <input
             type="image"
-            src="./src/assets/avatarVoiture.jpg"
-            onClick={() => setAvatar("avatarVoiture.jpg")}
+            src="/avatarVoiture.jpg"
+            /* onClick={() => setAvatar("avatarVoiture.jpg")} */
             alt=""
           />
         </div>
@@ -62,8 +86,8 @@ function Avatar({ setAvatar }) {
   );
 }
 
-Avatar.propTypes = {
+/* Avatar.propTypes = {
   setAvatar: PropTypes.func.isRequired,
-};
+}; */
 
 export default Avatar;

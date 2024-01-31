@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import styles from "./user.module.css";
 import Navbar from "../../layout/navbar/Navbar";
@@ -11,8 +10,8 @@ import { useInfosContext } from "../../UserContext";
 function User() {
   const { userData } = useInfosContext();
 
-  const [avatar, setAvatar] = useState(userData.avatar);
-  /* const [firstName, setFirstName] = useState(userData.avatar);
+  /*   const [avatar, setAvatar] = useState(userData.avatar);
+const [firstName, setFirstName] = useState(userData.avatar);
   const [lastName, setLastName] = useState(userData.avatar);
   const [mail, setMail] = useState(userData.avatar);
   const [pseudo, setPseudo] = useState(userData.avatar); */
@@ -50,12 +49,11 @@ function User() {
         theme="dark"
       />
       <div className={styles.userAccount}>
-        {avatar}
         <Avatar
           id={id}
-          setAvatar={() => {
+          /* setAvatar={() => {
             setAvatar();
-          }}
+          }} */
         />
         <Informations id={id} />
       </div>
