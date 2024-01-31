@@ -47,7 +47,7 @@ class UserManager extends AbstractManager {
         user.mail,
         user.pseudo,
         user.avatar,
-        user.id,
+        user.userId,
       ]
     );
   }

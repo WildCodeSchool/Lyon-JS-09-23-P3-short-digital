@@ -32,6 +32,7 @@ const read = async (req, res, next) => {
 
 const modify = async (req, res, next) => {
   const user = req.body;
+
   try {
     const insert = await tables.user.modify(user);
     res.status(200).json({ insert });
