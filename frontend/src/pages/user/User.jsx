@@ -17,6 +17,7 @@ const [firstName, setFirstName] = useState(userData.avatar);
   const [pseudo, setPseudo] = useState(userData.avatar); */
 
   const { id } = userData;
+  const { avatar } = userData;
   const notifyError = () => toast("Une erreur est survenue");
   const notifySuccessDeleteVideo = () =>
     toast("Votre vidéo a bien été supprimé");
@@ -55,7 +56,7 @@ const [firstName, setFirstName] = useState(userData.avatar);
             setAvatar();
           }} */
         />
-        <Informations id={id} />
+        <Informations id={id} avatar={avatar} />
       </div>
       <VideoUser
         id={id}
