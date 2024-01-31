@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import styles from "./user.module.css";
 import Navbar from "../../layout/navbar/Navbar";
@@ -6,15 +6,33 @@ import NavMobile from "../../layout/NavMobile/NavMobile";
 import Avatar from "./Avatar";
 import Informations from "./Informations";
 import VideoUser from "./VideoUser";
-import { InfosContext } from "../../UserContext";
+import { useInfosContext } from "../../UserContext";
 
 function User() {
-  const contextFetched = useContext(InfosContext);
+  const { userData } = useInfosContext();
 
-  const { id } = contextFetched.userData;
+  const [avatar, setAvatar] = useState(userData.avatar);
+  /* const [firstName, setFirstName] = useState(userData.avatar);
+  const [lastName, setLastName] = useState(userData.avatar);
+  const [mail, setMail] = useState(userData.avatar);
+  const [pseudo, setPseudo] = useState(userData.avatar); */
+
+  const { id } = userData.id;
   const notifyError = () => toast("Une erreur est survenue");
   const notifySuccessDeleteVideo = () =>
     toast("Votre vidéo a bien été supprimé");
+
+  /* const response = await fetch("http://localhost:3310/api/login", {
+      method: "post",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        mail: donnees.email,
+        password: donnees.password,
+      }),
+    }); */
 
   return (
     <div className="userPage">
@@ -32,7 +50,13 @@ function User() {
         theme="dark"
       />
       <div className={styles.userAccount}>
-        <Avatar id={id} />
+        {avatar}
+        <Avatar
+          id={id}
+          setAvatar={() => {
+            setAvatar();
+          }}
+        />
         <Informations id={id} />
       </div>
       <VideoUser
