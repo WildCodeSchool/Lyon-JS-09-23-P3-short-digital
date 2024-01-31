@@ -80,12 +80,12 @@ function Connexion() {
       <div className={styles.inscription__mainElement}>
         <img
           className={styles.inscription__mainElement__desktopImg}
-          src="./src/assets/image-login.jpg"
+          src="/image-login.jpg"
           alt=""
         />
         <img
           className={styles.inscription__mainElement__mobileImg}
-          src="./src/assets/logop3.svg"
+          src="/logop3.svg"
           alt=""
         />
         <div className={styles.inscription__mainElement__formConteneur}>
@@ -148,21 +148,21 @@ function Connexion() {
             >
               Inscription
             </button>
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="dark"
-            />
           </form>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }

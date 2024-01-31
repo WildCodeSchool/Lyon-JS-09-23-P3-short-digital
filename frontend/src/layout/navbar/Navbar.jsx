@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <nav>
       <Link to="/" className={styles.navbar}>
-        <img className={styles.imgLogo} src="./src/assets/logop3.svg" alt="" />
+        <img className={styles.imgLogo} src="/logop3.svg" alt="" />
       </Link>
       <Link to="/" className={styles.navbar}>
         <h2 className={styles.name}>Short Digital</h2>

@@ -100,12 +100,12 @@ function Inscription() {
       <div className={styles.inscription__mainElement}>
         <img
           className={styles.inscription__mainElement__desktopImg}
-          src="./src/assets/image-login.jpg"
+          src="/image-login.jpg"
           alt=""
         />
         <img
           className={styles.inscription__mainElement__mobileImg}
-          src="./src/assets/logop3.svg"
+          src="/logop3.svg"
           alt=""
         />
 
@@ -125,6 +125,7 @@ function Inscription() {
                 className={
                   styles.inscription__mainElement__formConteneur__formulaire__range
                 }
+                key={e.text}
               >
                 <label htmlFor={e.value}>{e.text}</label>
                 <input
@@ -215,22 +216,22 @@ function Inscription() {
               >
                 Inscription
               </button>
-              <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-              />
             </div>
           </form>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }

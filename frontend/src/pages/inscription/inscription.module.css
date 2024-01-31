@@ -19,6 +19,12 @@ body {
   top: 12%;
   translate: -50%;
 }
+.inscription__mainElement__OkMessage {
+  display: none;
+}
+.inscription__mainElement__notOkMessage {
+  text-align: center;
+}
 .inscription__mainElement__desktopImg {
   max-width: 50%;
   max-height: 100vh;
@@ -52,15 +58,14 @@ body {
 .inscription__mainElement__formConteneur__formulaire__range {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
-  margin: 5%;
+  margin-top: 4%;
 }
 .inscription__mainElement__formConteneur__formulaire__range__limitRange {
   margin: 1%;
 }
 .inscription__mainElement__formConteneur__formulaire__button {
-  height: 30px;
+  margin: 4%;
   background: linear-gradient(#454766 10px, #20212f);
   cursor: pointer;
   background-color: #454766;
@@ -70,11 +75,6 @@ body {
   color: white;
   font-size: 15pt;
   font-weight: bolder;
-  text-align: center;
-  width: 100%;
-}
-.inscription__mainElement__formConteneur__formulaire__paragraphe {
-  margin: 3px;
 }
 
 label {
@@ -87,7 +87,6 @@ input {
   border-radius: 4px;
   height: 30px;
   color: white;
-  width: 20vw;
 }
 
 @media screen and (max-width: 750px) {
@@ -105,7 +104,6 @@ input {
   .inscription__mainElement__mobileImg {
     display: flex;
     justify-content: center;
-    margin: 0;
   }
   .inscription__mainElement__formConteneur__title {
     display: none;
@@ -114,15 +112,15 @@ input {
   .inscription__mainElement__formConteneur__formulaire {
     width: 80%;
   }
-  .inscription__mainElement__formConteneur__formulaire__button {
+  .inscription__mainElement__formConteneur__formulaire__range {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 6vh;
-  }
-  .inscription__mainElement__formConteneur__formulaire__paragraphe {
-    margin: 15px;
+    margin-top: 4%;
   }
   .inscription__mainElement input {
     height: 6vh;
-    width: 80vw;
+    width: 70vw;
   }
-} /*# sourceMappingURL=connexion.module.css.map */
+} /*# sourceMappingURL=inscription.module.css.map */
