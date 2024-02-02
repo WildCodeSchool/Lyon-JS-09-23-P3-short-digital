@@ -86,22 +86,17 @@ export default function Categories() {
         </div>
         <h2 className={styles.title}>All videos about {params.category}</h2>
         <div className={styles.miniatureContainer}>
-          {allVideos.length > 0
-            ? allVideos.map((element) => {
-                return (
-                  <div
-                    className={styles.miniatureContainer__miniature}
-                    key={element.id}
-                  >
-                    {" "}
-                    <Miniature
-                      idMiniature={element.id}
-                      carouselClass="carousel"
-                    />
-                  </div>
-                );
-              })
-            : null}
+          {allVideos.map((element) => {
+            return (
+              <div
+                className={styles.miniatureContainer__miniature}
+                key={element.id}
+              >
+                {" "}
+                <Miniature idMiniature={element.id} carouselClass="carousel" />
+              </div>
+            );
+          })}
         </div>
       </div>
       <NavMobile />

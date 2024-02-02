@@ -25,7 +25,7 @@ function VideoPage() {
     })();
   }, [getCategory]);
 
-  const categories = ["Javascript", "php", "Python", "Java", "css"];
+  const categories = ["JavaScript", "php", "Python", "Java", "css"];
 
   return (
     <div className={styles.mainButtonsContainer}>
