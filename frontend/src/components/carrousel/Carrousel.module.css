@@ -68,6 +68,7 @@
   display: block;
   height: var(--slide-height);
   width: 100%;
+  -o-object-fit: contain;
   object-fit: contain;
   border-radius: 5px;
   scroll-snap-align: start;
@@ -91,6 +92,4 @@
     position: relative;
     width: 100%;
   }
-}
-
-/*# sourceMappingURL=Carrousel.module.css.map */
+} /*# sourceMappingURL=Carrousel.module.css.map */

@@ -18,9 +18,6 @@ router.post("/login", authControllers.login);
 router.get("/videos/:id", videoControllers.read);
 router.put("/users", hashPassword, userControllers.modify);
 
-// Authentication wall that allows to protect all routes after that
-router.use(verifyToken);
-
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
 
@@ -42,8 +39,15 @@ router.put("/video", videoControllers.ModifyVideo);
 // route qui ajoute/supprime un like à une video
 router.put("/videos/:id/like/:user", videoControllers.likeVideo);
 
+// route qui ajoute une nouvelle video
+router.post("/videos/upload", videoControllers.uploadVideo);
+
 // Routes to get user informations or add a new user
 router.get("/users/:id", userControllers.read);
+router.get("/logout", authControllers.logout);
+
+// Authentication wall that allows to protect all routes after that
+router.use(verifyToken);
 
 router.get("/categories", videoControllers.allCategories);
 router.get("/special/:category", videoControllers.readSpecificCategories);

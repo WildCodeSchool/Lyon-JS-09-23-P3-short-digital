@@ -54,33 +54,35 @@ export default function Carrousel({ title, tableId }) {
       <p className={styles.carousel__embla__title}>{title}</p>
       <div className={styles.carousel__embla__viewport} ref={emblaRef}>
         <div className={styles.carousel__embla__viewport__container}>
-          {tableId.map((element, index) => (
-            <div
-              className={styles.carousel__embla__viewport__container__slide}
-              key={element}
-            >
-              <div
-                className={
-                  styles.carousel__embla__viewport__container__slide__number
-                }
-              >
-                <span key={element}>{index + 1}</span>
-              </div>
-              <Link
-                to={{
-                  pathname: `/video/${element}`,
-                }}
-              >
-                <Miniature
-                  className={
-                    styles.carousel__embla__viewport__container__slide__img
-                  }
-                  idMiniature={element}
-                  carouselClass="carousel"
-                />
-              </Link>
-            </div>
-          ))}
+          {tableId !== undefined
+            ? tableId.map((element, index) => (
+                <div
+                  className={styles.carousel__embla__viewport__container__slide}
+                  key={element}
+                >
+                  <div
+                    className={
+                      styles.carousel__embla__viewport__container__slide__number
+                    }
+                  >
+                    <span key={element}>{index + 1}</span>
+                  </div>
+                  <Link
+                    to={{
+                      pathname: `/video/${element}`,
+                    }}
+                  >
+                    <Miniature
+                      className={
+                        styles.carousel__embla__viewport__container__slide__img
+                      }
+                      idMiniature={element}
+                      carouselClass="carousel"
+                    />
+                  </Link>
+                </div>
+              ))
+            : null}
         </div>
         <div className={styles.carousel__embla__viewport__buttons}>
           <PrevButton

@@ -4,7 +4,6 @@ import HeroSlider from "./components/heroSlider/HeroSlider";
 import NavMobile from "./layout/NavMobile/NavMobile";
 import Carrousel from "./components/carrousel/Carrousel";
 import Boutons from "./components/boutonsLanguages/BoutonsLanguages";
-import { InfoProvider } from "./UserContext";
 
 function App() {
   const title1 = "Dernieres Sorties";
@@ -12,7 +11,7 @@ function App() {
   const title3 = "Les Plus Plebicites";
   const tableId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <InfoProvider>
+    <>
       <Navbar />
       <HeroSlider />
       <Boutons />
@@ -20,7 +19,7 @@ function App() {
       <Carrousel title={title2} tableId={tableId} />
       <Carrousel title={title3} tableId={tableId} />
       <NavMobile />
-    </InfoProvider>
+    </>
   );
 }
 

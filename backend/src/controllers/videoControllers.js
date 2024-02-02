@@ -101,7 +101,7 @@ const allCategories = async (req, res, next) => {
     next(err);
   }
 };
-const readSpecificCategories = async (req, res, next) => {
+const readSpecificCategories = async (req, res) => {
   try {
     const { name } = req.query;
     const { category } = req.params;
@@ -112,6 +112,18 @@ const readSpecificCategories = async (req, res, next) => {
     res.status(200).send(videoCategories);
   } catch (err) {
     res.status(500).send(err.message);
+  }
+};
+const uploadVideo = async (req, res, next) => {
+  try {
+    const video = await tables.video.uploadVideo(req.body.video);
+    if (video === null) {
+      res.sendStatus(404);
+    } else {
+      console.error(video);
+      res.json(video);
+    }
+  } catch (err) {
     next(err);
   }
 };
@@ -126,4 +138,5 @@ module.exports = {
   ModifyVideo,
   allCategories,
   readSpecificCategories,
+  uploadVideo,
 };
