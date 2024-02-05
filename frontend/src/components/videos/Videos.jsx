@@ -29,12 +29,12 @@ function Videos({ videoInfo }) {
   return (
     <div id={styles.videoContainer}>
       <video id={styles.video} controls src={videoInfo.link}>
-        <track default kind="captions" src="../../assets/quenouilles.fr.vtt" />
+        <track default kind="captions" src="/quenouilles.fr.vtt" />
       </video>
       <div id={styles.informations}>
         <h2 id={styles.informations__title}>{videoInfo.title}</h2>
         <div id={styles.informations__owner}>
-          <img src="./src/assets/profil.png" alt="" />
+          <img src="/profil.png" alt="" />
           <h3>{videoInfo.pseudo}</h3>
         </div>
         <div id={styles.informations__likes}>
@@ -47,7 +47,7 @@ function Videos({ videoInfo }) {
             <img
               style={{ filter: blackAndWhite }}
               alt="pouce en l'air"
-              src="../src/assets/pouce.png"
+              src="/pouce.png"
             />
           </button>
           <p>{likes !== 0 ? likes : videoInfo.nbr_like}</p>
