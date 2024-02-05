@@ -18,6 +18,8 @@ git config --global core.autocrlf false
 - Clone this repo, enter it
 - Run command `npm install`
 - Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
+Rapprochez vous de l'équipe shortDigital pour avoir les informations du fichier .env 
+
 -  Run command `sass frontend`
 
 ### Available Commands
