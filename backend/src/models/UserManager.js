@@ -31,7 +31,7 @@ class UserManager extends AbstractManager {
 
   async readByEmailWithPassword(mail) {
     const [rows] = await this.database.query(
-      `select id, mail, pseudo, avatar, hashed_password from ${this.table} where mail = ?`,
+      `select id, mail, pseudo, avatar, firstname, lastname, hashed_password from ${this.table} where mail = ?`,
       [mail]
     );
 
