@@ -7,6 +7,7 @@ function DonneesFormulaire() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [avatar, setAvatar] = useState("");
 
   const [falsePseudo, setFalsePseudo] = useState(<small> </small>);
   const [falseFirstname, setFalseFirstname] = useState(<small> </small>);
@@ -16,6 +17,7 @@ function DonneesFormulaire() {
   const [falseConfirmPassword, setFalseConfirmPassword] = useState(
     <small> </small>
   );
+  const [falseAvatar, setFalseAvatar] = useState(<small> </small>);
 
   const MAX_LENGTH_NAME = 45;
   const MIN_LENGTH_PASSWORD = 8;
@@ -85,6 +87,15 @@ function DonneesFormulaire() {
     }
   };
 
+  const handleChangeAvatar = (a) => {
+    setAvatar(a);
+    if (avatar !== undefined) {
+      setFalseAvatar("");
+    } else {
+      setFalseAvatar(<small>Le mot de passe n'est pas assez fort</small>);
+    }
+  };
+
   return {
     pseudo,
     firstname,
@@ -92,22 +103,26 @@ function DonneesFormulaire() {
     email,
     password,
     confirmPassword,
+    avatar,
     handleChangePseudo,
     handleChangeFirstname,
     handleChangeLastname,
     handleChangeEmail,
     handleChangePassword,
     handleChangeConfirmPassword,
+    handleChangeAvatar,
     falsePseudo,
     falseFirstname,
     falseLastname,
     falseEmail,
     falsePassword,
     falseConfirmPassword,
+    falseAvatar,
     setPseudo,
     setFirstname,
     setLastname,
     setEmail,
+    setAvatar,
   };
 }
 export default DonneesFormulaire;
