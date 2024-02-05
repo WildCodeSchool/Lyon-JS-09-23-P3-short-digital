@@ -74,6 +74,7 @@ function Inscription() {
       const response = await fetch("http://localhost:3310/api/users", {
         method: "post",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({
           pseudo: donnees.pseudo,
           firstname: donnees.firstname,
