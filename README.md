@@ -31,6 +31,17 @@ Rapprochez vous de l'équipe shortDigital pour avoir les informations du fichier
 - `dev-back` : Starts the Express backend server
 - `lint` : Runs validation tools (will be executed on every _commit_, and refuse unclean code)
 
+### Available Commands
+
+Pages fonctionnelles de notre site : 
+- Page inscription
+- Page connexion 
+- Page d'acceuil
+- Page page video player, accessible au click sur une miniature
+- Page ajouter une video
+
+
+
 ## FAQ
 
 ### Tools
