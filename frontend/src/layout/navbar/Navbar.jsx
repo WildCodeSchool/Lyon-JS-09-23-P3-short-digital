@@ -47,6 +47,15 @@ export default function Navbar() {
         {userData.pseudo ? "Se Deconnecter" : "Se Connecter"}
       </button>
       <img className={styles.imgProfil} src="/profil.png" alt="" />
+      <input
+        type="image"
+        src="/logout.svg"
+        className={styles.btnConnectionMobile}
+        alt="deconnexion"
+        onClick={
+          userData.pseudo !== undefined ? handleLogout : handleClickConnexion
+        }
+      />
     </nav>
   );
 }
