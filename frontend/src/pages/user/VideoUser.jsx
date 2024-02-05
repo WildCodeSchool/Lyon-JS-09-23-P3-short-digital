@@ -12,7 +12,7 @@ function VideoUser({ id, notifyError, notifySuccessDeleteVideo }) {
   useEffect(() => {
     (async () => {
       const videoCall = await fetch(
-        `http://localhost:3310/api//videos/posted/${userId}`,
+        `http://localhost:3310/api/videos/posted/${userId}`,
         {
           credentials: "include",
           headers: {

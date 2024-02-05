@@ -1,5 +1,6 @@
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./informations.module.css";
 import Donnees from "../inscription/DonneesFormulaire";
@@ -8,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 function Informations({ id }) {
   const donnees = Donnees();
   const navigate = useNavigate();
+  const [userInformation, setUserInformation] = useState();
   const informationsUser = [
     {
       name: "firstname",
@@ -46,6 +48,24 @@ function Informations({ id }) {
       small: donnees.falsePseudo,
     },
   ];
+  useEffect(() => {
+    (async () => {
+      const userCall = await fetch(`http://localhost:3310/api/users/${id}`, {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const userResult = await userCall.json();
+      donnees.setFirstname(userResult.firstname);
+      donnees.setLastname(userResult.lastname);
+      donnees.setEmail(userResult.mail);
+      donnees.setPseudo(userResult.pseudo);
+      setUserInformation(userResult);
+    })();
+  }, [id]);
+
   const notifyErreur = () => toast("Une erreur est survenue");
   const handleClickDeleteUser = async () => {
     try {
@@ -72,6 +92,7 @@ function Informations({ id }) {
     }
   };
 
+  console.info(userInformation);
   return (
     <div className={styles.informations}>
       {informationsUser.map((element) => (
