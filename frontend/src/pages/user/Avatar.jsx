@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import styles from "./avatar.module.css";
 import { useInfosContext } from "../../UserContext";
