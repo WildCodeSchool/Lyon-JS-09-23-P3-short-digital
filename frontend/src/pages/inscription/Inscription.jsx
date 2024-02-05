@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import styles from "./inscription.module.css";
@@ -9,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 function Inscription() {
   const donnees = Donnees();
   const navigate = useNavigate();
+
   const ranges = [
     {
       value: "pseudo",
@@ -158,7 +158,13 @@ function Inscription() {
                   ranges[2].state === "" ||
                   ranges[3].state === "" ||
                   ranges[4].state === "" ||
-                  ranges[5].state === ""
+                  ranges[5].state === "" ||
+                  ranges[0].small !== "" ||
+                  ranges[1].small !== "" ||
+                  ranges[2].small !== "" ||
+                  ranges[3].small !== "" ||
+                  ranges[4].small !== "" ||
+                  ranges[5].small !== ""
                 }
               >
                 Inscription
