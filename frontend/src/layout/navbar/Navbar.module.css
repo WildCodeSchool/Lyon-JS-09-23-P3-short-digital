@@ -153,4 +153,11 @@ nav ul {
   #lastMenuElement {
     border-radius: 0px 0px 10px 10px;
   }
-} /*# sourceMappingURL=Navbar.module.css.map */
+}
+@media screen and (max-width: 500px) {
+  nav {
+    justify-content: center;
+  }
+}
+
+/*# sourceMappingURL=Navbar.module.css.map */
