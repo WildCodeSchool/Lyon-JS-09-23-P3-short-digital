@@ -18,9 +18,9 @@ git config --global core.autocrlf false
 - Clone this repo, enter it
 - Run command `npm install`
 - Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
-Rapprochez vous de l'équipe shortDigital pour avoir les informations du fichier .env 
+  Rapprochez vous de l'équipe shortDigital pour avoir les informations du fichier .env
 
--  Run command `sass frontend`
+- Run command `sass frontend`
 
 ### Available Commands
 
@@ -33,14 +33,13 @@ Rapprochez vous de l'équipe shortDigital pour avoir les informations du fichier
 
 ### Available Commands
 
-Pages fonctionnelles de notre site : 
+Pages fonctionnelles de notre site :
+
 - Page inscription
-- Page connexion 
+- Page connexion
 - Page d'acceuil
 - Page page video player, accessible au click sur une miniature
 - Page ajouter une video
-
-
 
 ## FAQ
 
@@ -52,7 +51,6 @@ Pages fonctionnelles de notre site :
 - _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
 - _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
 - _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
-
 
 ### About the database
 

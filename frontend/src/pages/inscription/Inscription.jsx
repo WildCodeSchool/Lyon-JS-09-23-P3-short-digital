@@ -124,6 +124,7 @@ function Inscription() {
                 className={
                   styles.inscription__mainElement__formConteneur__formulaire__range
                 }
+                key={e.text}
               >
                 <label htmlFor={e.value}>{e.text}</label>
                 <input
@@ -163,22 +164,22 @@ function Inscription() {
               >
                 Inscription
               </button>
-              <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-              />
             </div>
           </form>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }
