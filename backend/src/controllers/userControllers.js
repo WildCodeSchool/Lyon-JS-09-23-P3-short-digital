@@ -41,8 +41,20 @@ const modify = async (req, res, next) => {
   }
 };
 
+const userDelete = async (req, res, next) => {
+  const { userId } = req.body;
+  try {
+    await tables.user.deleteUser(userId);
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(500).send(err.message);
+    next(err);
+  }
+};
+
 module.exports = {
   add,
   read,
   modify,
+  userDelete,
 };

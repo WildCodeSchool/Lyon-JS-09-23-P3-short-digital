@@ -54,6 +54,9 @@ router.get("/videos/posted/:id", videoControllers.readByUserId);
 // route qui supprime une video
 router.delete("/videos/deleteVideo", videoControllers.videoDelete);
 
+// route qui supprime un user
+router.delete("/users/deleteUser", userControllers.userDelete);
+
 // Authentication wall that allows to protect all routes after that
 router.use(verifyToken);
 

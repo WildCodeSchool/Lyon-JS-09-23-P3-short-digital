@@ -1,10 +1,13 @@
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import styles from "./informations.module.css";
 import Donnees from "../inscription/DonneesFormulaire";
 import "react-toastify/dist/ReactToastify.css";
 
-function Informations() {
+function Informations({ id }) {
   const donnees = Donnees();
+  const navigate = useNavigate();
   const informationsUser = [
     {
       name: "firstname",
@@ -43,6 +46,31 @@ function Informations() {
       small: donnees.falsePseudo,
     },
   ];
+  const notifyErreur = () => toast("Une erreur est survenue");
+  const handleClickDeleteUser = async () => {
+    try {
+      // Appel à l'API pour créer un nouvel utilisateur
+      const response = await fetch(
+        "http://localhost:3310/api/users/deleteUser",
+        {
+          method: "delete",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId: id,
+          }),
+        }
+      );
+
+      if (response.status === 201) {
+        navigate("/connexion");
+      } else {
+        notifyErreur();
+      }
+    } catch (err) {
+      // Log des erreurs possibles
+      console.error(err);
+    }
+  };
 
   return (
     <div className={styles.informations}>
@@ -95,6 +123,7 @@ function Informations() {
             type="button"
             className={styles.informations__globalRange__bothButton__button}
             id={styles.deletAccountButton}
+            onClick={handleClickDeleteUser}
           >
             Supprimer mon compte
           </button>
@@ -117,3 +146,7 @@ function Informations() {
 }
 
 export default Informations;
+
+Informations.propTypes = {
+  id: PropTypes.number.isRequired,
+};
