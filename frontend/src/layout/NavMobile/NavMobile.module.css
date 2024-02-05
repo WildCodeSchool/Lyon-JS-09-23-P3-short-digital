@@ -10,6 +10,7 @@
   height: fit-content;
   padding: 2%;
   position: sticky;
+  top: 0;
 }
 
 .aLink {
