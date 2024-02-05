@@ -17,7 +17,6 @@ import arrayCategories from "./arrayCategories";
 
 function UploadVideo() {
   // données sur notre compte Firebase
-
   const [firebaseConfig] = useState({
     apiKey: import.meta.env.VITE_API_KEY,
     authDomain: import.meta.env.VITE_AUTH_DOMAIN,
