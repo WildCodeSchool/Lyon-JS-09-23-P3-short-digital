@@ -6,10 +6,10 @@ import styles from "./informations.module.css";
 import Donnees from "../inscription/DonneesFormulaire";
 import "react-toastify/dist/ReactToastify.css";
 
-function Informations({ id }) {
+function Informations({ id, avatar }) {
   const donnees = Donnees();
   const navigate = useNavigate();
-  const [userInformation, setUserInformation] = useState();
+  const [userInformation, setUserInformation] = useState(false);
   const informationsUser = [
     {
       name: "firstname",
@@ -48,6 +48,9 @@ function Informations({ id }) {
       small: donnees.falsePseudo,
     },
   ];
+
+  const notifyErreur = () => toast("Une erreur est survenue");
+  const notifySuccess = () => toast("La modification a été faite");
   useEffect(() => {
     (async () => {
       const userCall = await fetch(`http://localhost:3310/api/users/${id}`, {
@@ -56,17 +59,14 @@ function Informations({ id }) {
           "Content-Type": "application/json",
         },
       });
-
       const userResult = await userCall.json();
       donnees.setFirstname(userResult.firstname);
       donnees.setLastname(userResult.lastname);
       donnees.setEmail(userResult.mail);
       donnees.setPseudo(userResult.pseudo);
-      setUserInformation(userResult);
     })();
-  }, [id]);
+  }, [userInformation]);
 
-  const notifyErreur = () => toast("Une erreur est survenue");
   const handleClickDeleteUser = async () => {
     try {
       // Appel à l'API pour créer un nouvel utilisateur
@@ -83,6 +83,33 @@ function Informations({ id }) {
 
       if (response.status === 201) {
         navigate("/connexion");
+      } else {
+        notifyErreur();
+      }
+    } catch (err) {
+      // Log des erreurs possibles
+      console.error(err);
+    }
+  };
+  const handleClickModifyUser = async () => {
+    try {
+      // Appel à l'API pour créer un nouvel utilisateur
+      const response = await fetch("http://localhost:3310/api/users", {
+        method: "put",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: id,
+          firstname: donnees.firstname,
+          lastname: donnees.lastname,
+          mail: donnees.email,
+          pseudo: donnees.pseudo,
+          avatar,
+        }),
+      });
+
+      if (response.status === 200) {
+        setUserInformation(!userInformation);
+        notifySuccess();
       } else {
         notifyErreur();
       }
@@ -137,6 +164,7 @@ function Informations({ id }) {
           <button
             type="submit"
             className={styles.informations__globalRange__bothButton__button}
+            onClick={handleClickModifyUser}
           >
             Modifier
           </button>
@@ -170,4 +198,5 @@ export default Informations;
 
 Informations.propTypes = {
   id: PropTypes.number.isRequired,
+  avatar: PropTypes.string.isRequired,
 };

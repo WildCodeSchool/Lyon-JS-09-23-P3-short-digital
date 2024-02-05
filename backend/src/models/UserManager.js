@@ -40,14 +40,14 @@ class UserManager extends AbstractManager {
 
   async modify(user) {
     await this.database.query(
-      `update ${this.table} set firstname = ?, lastname = ?, mail = ?, pseudo = ?, avatar = ?, where id = ?`,
+      `update ${this.table} set firstname = ?, lastname = ?, mail = ?, pseudo = ?, avatar = ? where id = ?`,
       [
         user.firstname,
         user.lastname,
         user.mail,
         user.pseudo,
         user.avatar,
-        user.id,
+        user.userId,
       ]
     );
   }
