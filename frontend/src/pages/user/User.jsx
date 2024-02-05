@@ -10,29 +10,11 @@ import { useInfosContext } from "../../UserContext";
 function User() {
   const { userData } = useInfosContext();
 
-  /*   const [avatar, setAvatar] = useState(userData.avatar);
-const [firstName, setFirstName] = useState(userData.avatar);
-  const [lastName, setLastName] = useState(userData.avatar);
-  const [mail, setMail] = useState(userData.avatar);
-  const [pseudo, setPseudo] = useState(userData.avatar); */
-
   const { id } = userData;
   const { avatar } = userData;
   const notifyError = () => toast("Une erreur est survenue");
   const notifySuccessDeleteVideo = () =>
     toast("Votre vidéo a bien été supprimé");
-
-  /* const response = await fetch("http://localhost:3310/api/login", {
-      method: "post",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        mail: donnees.email,
-        password: donnees.password,
-      }),
-    }); */
 
   return (
     <div className="userPage">
@@ -50,12 +32,7 @@ const [firstName, setFirstName] = useState(userData.avatar);
         theme="dark"
       />
       <div className={styles.userAccount}>
-        <Avatar
-          id={id}
-          /* setAvatar={() => {
-            setAvatar();
-          }} */
-        />
+        <Avatar id={id} />
         <Informations id={id} avatar={avatar} />
       </div>
       <VideoUser
