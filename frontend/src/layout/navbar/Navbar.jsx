@@ -54,6 +54,15 @@ export default function Navbar() {
           navigate("/user");
         }}
       />
+      <input
+        type="image"
+        src="/logout.svg"
+        className={styles.btnConnectionMobile}
+        alt="deconnexion"
+        onClick={
+          userData.pseudo !== undefined ? handleLogout : handleClickConnexion
+        }
+      />
     </nav>
   );
 }

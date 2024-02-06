@@ -76,6 +76,10 @@ nav ul {
   font-weight: normal;
 }
 
+.btnConnectionMobile {
+  width: 10vw;
+}
+
 @media screen and (min-width: 1000px) {
   nav {
     background: linear-gradient(black 30px, transparent);
@@ -155,10 +159,16 @@ nav ul {
   #lastMenuElement {
     border-radius: 0px 0px 10px 10px;
   }
+  .btnConnectionMobile {
+    display: none;
+  }
 }
 @media screen and (max-width: 500px) {
   nav {
     justify-content: center;
+  }
+  .btnConnectionMobile {
+    margin: 2%;
   }
 }
 
