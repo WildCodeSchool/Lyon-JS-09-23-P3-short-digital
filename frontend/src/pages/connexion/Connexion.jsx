@@ -132,6 +132,12 @@ function Connexion() {
               className={
                 styles.inscription__mainElement__formConteneur__formulaire__button
               }
+              disabled={
+                ranges[0].state === "" ||
+                ranges[1].state === "" ||
+                ranges[0].small !== "" ||
+                ranges[1].small !== ""
+              }
             >
               Connexion
             </button>
