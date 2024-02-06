@@ -16,7 +16,7 @@ const authControllers = require("./controllers/authControllers");
 router.post("/users", hashPassword, userControllers.add);
 router.post("/login", authControllers.login);
 router.get("/videos/:id", videoControllers.read);
-router.put("/users", hashPassword, userControllers.modify);
+router.put("/users", userControllers.modify);
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -47,6 +47,15 @@ router.post("/videos/upload", videoControllers.uploadVideo);
 // Routes to get user informations or add a new user
 router.get("/users/:id", userControllers.read);
 router.get("/logout", authControllers.logout);
+
+// route qui recupere les informations des videos selon l'id user
+router.get("/videos/posted/:id", videoControllers.readByUserId);
+
+// route qui supprime une video
+router.delete("/videos/deleteVideo", videoControllers.videoDelete);
+
+// route qui supprime un user
+router.delete("/users/deleteUser", userControllers.userDelete);
 
 // Authentication wall that allows to protect all routes after that
 router.use(verifyToken);

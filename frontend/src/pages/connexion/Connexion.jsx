@@ -27,17 +27,20 @@ function Connexion() {
 
     try {
       // Appel à l'API pour créer un nouvel utilisateur
-      const response = await fetch("http://localhost:3310/api/login", {
-        method: "post",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          mail: donnees.email,
-          password: donnees.password,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/login`,
+        {
+          method: "post",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            mail: donnees.email,
+            password: donnees.password,
+          }),
+        }
+      );
 
       if (response.status === 200) {
         const auth = await response.json();

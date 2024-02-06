@@ -32,6 +32,7 @@ const read = async (req, res, next) => {
 
 const modify = async (req, res, next) => {
   const user = req.body;
+
   try {
     const insert = await tables.user.modify(user);
     res.status(200).json({ insert });
@@ -41,8 +42,20 @@ const modify = async (req, res, next) => {
   }
 };
 
+const userDelete = async (req, res, next) => {
+  const { userId } = req.body;
+  try {
+    await tables.user.deleteUser(userId);
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(500).send(err.message);
+    next(err);
+  }
+};
+
 module.exports = {
   add,
   read,
   modify,
+  userDelete,
 };
