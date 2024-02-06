@@ -12,7 +12,7 @@ function VideoUser({ id, notifyError, notifySuccessDeleteVideo }) {
   useEffect(() => {
     (async () => {
       const videoCall = await fetch(
-        `http://localhost:3310/api/videos/posted/${userId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/videos/posted/${userId}`,
         {
           credentials: "include",
           headers: {
@@ -28,7 +28,7 @@ function VideoUser({ id, notifyError, notifySuccessDeleteVideo }) {
 
   const handleClickDelete = async (idVideo) => {
     const videoDelete = await fetch(
-      "http://localhost:3310/api/videos/deleteVideo",
+      `${import.meta.env.VITE_BACKEND_URL}/api/videos/deleteVideo`,
       {
         method: "DELETE",
         body: JSON.stringify({

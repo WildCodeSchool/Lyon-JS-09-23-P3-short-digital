@@ -53,12 +53,15 @@ function Informations({ id, avatar }) {
   const notifySuccess = () => toast("La modification a été faite");
   useEffect(() => {
     (async () => {
-      const userCall = await fetch(`http://localhost:3310/api/users/${id}`, {
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const userCall = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`,
+        {
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const userResult = await userCall.json();
       donnees.setFirstname(userResult.firstname);
       donnees.setLastname(userResult.lastname);
@@ -71,7 +74,7 @@ function Informations({ id, avatar }) {
     try {
       // Appel à l'API pour créer un nouvel utilisateur
       const response = await fetch(
-        "http://localhost:3310/api/users/deleteUser",
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/deleteUser`,
         {
           method: "delete",
           headers: { "Content-Type": "application/json" },
@@ -94,18 +97,21 @@ function Informations({ id, avatar }) {
   const handleClickModifyUser = async () => {
     try {
       // Appel à l'API pour créer un nouvel utilisateur
-      const response = await fetch("http://localhost:3310/api/users", {
-        method: "put",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userId: id,
-          firstname: donnees.firstname,
-          lastname: donnees.lastname,
-          mail: donnees.email,
-          pseudo: donnees.pseudo,
-          avatar,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/users`,
+        {
+          method: "put",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId: id,
+            firstname: donnees.firstname,
+            lastname: donnees.lastname,
+            mail: donnees.email,
+            pseudo: donnees.pseudo,
+            avatar,
+          }),
+        }
+      );
 
       if (response.status === 200) {
         setUserInformation(!userInformation);
