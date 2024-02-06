@@ -155,6 +155,22 @@ class MainVideoPlayerManager extends AbstractManager {
       throw new Error("video not found"); // Video not found
     }
   }
+
+  async readByUserId(id) {
+    const [rows] = await this.database.query(
+      `SELECT id, image, title, description FROM ${this.table} where user_id = ?`,
+      [id]
+    );
+    return rows;
+  }
+
+  async readVideoById(id) {
+    const [rows] = await this.database.query(
+      `SELECT title FROM ${this.table} where id = ?`,
+      [id]
+    );
+    return rows[0];
+  }
 }
 
 module.exports = MainVideoPlayerManager;

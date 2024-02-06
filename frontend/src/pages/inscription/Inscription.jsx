@@ -74,12 +74,14 @@ function Inscription() {
       const response = await fetch("http://localhost:3310/api/users", {
         method: "post",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({
           pseudo: donnees.pseudo,
           firstname: donnees.firstname,
           lastname: donnees.lastname,
           mail: donnees.email,
           password: donnees.confirmPassword,
+          avatar: donnees.avatar,
         }),
       });
 
@@ -142,6 +144,57 @@ function Inscription() {
                 {e.small}
               </div>
             ))}
+
+            <h2
+              className={
+                styles.inscription__mainElement__formConteneur__formulaire__avatarTitle
+              }
+            >
+              Choisissez votre avatar
+            </h2>
+            <div
+              className={
+                styles.inscription__mainElement__formConteneur__formulaire__avatar
+              }
+            >
+              <input
+                type="image"
+                src="/src/assets/avatarAbstrait.jpg"
+                alt="avatarAbstrait"
+                onClick={(e) => {
+                  e.preventDefault();
+                  donnees.handleChangeAvatar("avatarAbstrait.jpg");
+                }}
+              />
+              <input
+                type="image"
+                src="/src/assets/avatarOurs.jpg"
+                alt="avatarOurs"
+                onClick={(e) => {
+                  e.preventDefault();
+                  donnees.handleChangeAvatar("avatarOurs.jpg");
+                }}
+              />
+              <input
+                type="image"
+                src="/src/assets/avatarRobot.jpg"
+                alt="avataravatarRobot"
+                onClick={(e) => {
+                  e.preventDefault();
+                  donnees.handleChangeAvatar("avatarRobot.jpg");
+                }}
+              />
+              <input
+                type="image"
+                src="/src/assets/avatarVoiture.jpg"
+                alt="avatarVoiture"
+                onClick={(e) => {
+                  e.preventDefault();
+                  donnees.handleChangeAvatar("avatarVoiture.jpg");
+                }}
+              />
+            </div>
+
             <div
               className={
                 styles.inscription__mainElement__formConteneur__formulaire__range
