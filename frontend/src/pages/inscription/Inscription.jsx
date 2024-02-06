@@ -71,19 +71,22 @@ function Inscription() {
 
     try {
       // Appel à l'API pour créer un nouvel utilisateur
-      const response = await fetch("http://localhost:3310/api/users", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({
-          pseudo: donnees.pseudo,
-          firstname: donnees.firstname,
-          lastname: donnees.lastname,
-          mail: donnees.email,
-          password: donnees.confirmPassword,
-          avatar: donnees.avatar,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/users`,
+        {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({
+            pseudo: donnees.pseudo,
+            firstname: donnees.firstname,
+            lastname: donnees.lastname,
+            mail: donnees.email,
+            password: donnees.confirmPassword,
+            avatar: donnees.avatar,
+          }),
+        }
+      );
 
       if (response.status === 201) {
         navigate("/connexion");

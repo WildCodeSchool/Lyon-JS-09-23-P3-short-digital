@@ -44,7 +44,7 @@ function UploadVideo() {
 
   // Fonction qui sera appelée par le useEffect pour poster les données dans la BDD
   const postDataVideo = async () => {
-    await fetch("http://localhost:3310/api/videos/upload", {
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/videos/upload`, {
       method: "POST",
       body: JSON.stringify({ video }),
       headers: { "Content-Type": "application/json" },
