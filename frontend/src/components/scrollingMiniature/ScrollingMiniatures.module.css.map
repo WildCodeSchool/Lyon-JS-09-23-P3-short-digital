@@ -1,1 +1,10 @@
-{"version":3,"sources":["ScrollingMiniatures.module.scss","ScrollingMiniatures.module.css"],"names":[],"mappings":"AAAA;EACE,QAAA;EACA,cAAA;EACA,kBAAA;EACA,kBAAA;EACA,YAAA;ACCF;ADCE;EACE,YAAA;ACCJ","file":"ScrollingMiniatures.module.css"}
+{
+  "version": 3,
+  "sourceRoot": "",
+  "sources": [
+    "ScrollingMiniatures.module.scss"
+  ],
+  "names": [],
+  "mappings": "AAAA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAGF;EACE;;;AAIJ;EACE;IACE;IACA;IACA;IACA;IACA",
+  "file": "ScrollingMiniatures.module.css"
+}
