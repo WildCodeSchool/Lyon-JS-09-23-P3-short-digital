@@ -114,7 +114,7 @@ const uploadVideo = async (req, res, next) => {
 const readByUserId = async (req, res, next) => {
   try {
     const videos = await tables.video.readByUserId(req.params.id);
-    if (videos == null) {
+    if (videos === null) {
       res.sendStatus(404);
     } else {
       res.json(videos);
